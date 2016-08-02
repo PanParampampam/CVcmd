@@ -1,0 +1,36 @@
+	html {
+		height:100%;
+		cursor: default;
+		/*tak wygląda komentarz*/
+	}
+	body { 
+		border:0px; 
+		margin:0px;
+		background-color:#000000;
+		color:#CCCCCC;
+		font-family:FixedSys, Terminal, system, verdana, arial;
+		font-size:12px;
+	}
+	#PastCommands #Result #C {
+		width: 100%;
+		position: relative;
+		float: left;
+	}
+		#Commands {
+		float: left;
+		position: absolute;
+	}
+	input {
+		outline-style:none;
+		box-shadow:none;
+		border-color:transparent;
+		border:0px;
+		border-color: #000000;
+		margin:0px;
+		background-color:#000000;
+		color:#CCCCCC;
+		font-family:FixedSys, Terminal, system, verdana, arial;
+		font-size:12px;
+		float: left;
+		cursor: default;
+	}

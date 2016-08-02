@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="CVcmd.css"/>
+	<!--Skrypt w osobnym pliku? -->
+	<!--<script src="CVcmd.js"></script> -->
+		<title>CVcmd0.3.3</title>
+		
+		<div id = "C">
+			Program do tworzenia CV. Wersja 0.3.3. Czemu akurat taka? Bo tak. <br/>
+			Twórcy: Jakub Giedrys i Dawid Kędzierski. Wszelkie prawa blablabla. <br/>
+			Aby uzyskać pomoc wpisz "help", aby odświeżyć wpisz "clr".<br/><br/>
+		</div>
+	</head>
+	
+	<body>
+	<!--Pod tym beda poprzednie komendy -->
+		<div id="PastCommands"></div>
+		</div>
+		<div id = "Result">
+		</div>
+	<!--Stala sciezka do wpisywania -->
+		<div id = "C">
+			C:\&gt;<input type="text" id="Commands" onkeypress="Submit(event)"/>
+		<script type="text/javascript">
+		onload = function() {
+			document.getElementById("Commands").focus();
+		}
+		
+		document.addEventListener("click", function() {
+			document.getElementById("Commands").focus(); } ); //te dwie funkcje sprawiaja, ze kursos caly czas jest "skupiony" na oknie wpisywania		
+			
+		var Result = null;
+		function SwitchCommands (){
+			var OldDiv = null;
+			var NewDiv = null;
+			NewDiv = document.createElement("div");
+			NewDiv.innerHTML = 'C:\\&gt;' + document.getElementById("Commands").value + "<br/>" + Result + "<br/><br/>";
+			OldDiv = document.getElementById("PastCommands");
+			document.body.insertBefore(NewDiv, OldDiv);
+			document.getElementById("Commands").value = null;
+			// ta funkcja sprawia, ze "nowy" tekst bedzie sie wyswietlal pod "starym",
+			// razem z tym co bedzie w Result, ktore jest zalezne od tego jaka komende wpisze uzytkownik
+			// na koncu funkcja czysci pole okna do wpisywania.
+			// Na razie bardzo prymitywnie, ale dalej Result mozemy zrobic np jako obiekt
+			// i wtedy zaleznie od tego co wpisze uzytkownik wywolamy inna funkcje
+		}
+		
+
+		function Submit(key) { 
+			if (key.keyCode === 13) { // jesli zostal wcisniety ENTER, to:
+				var GetCommand = document.getElementById("Commands").value.toLowerCase();
+				switch (GetCommand) {
+					case "help":
+						Result = "Na górze róże, wokół lata szerszeń, ja Ci pomocą nie służę, jestem tylko wierszem :/)";
+						break;
+					case "clr": //clr dziala jako odswiezanie strony, na razie nic lepszego nie wymyslilem
+						location.reload();
+						Result = '';
+					default:
+						Result = "HELP KURWA, MAM CI TO PRZELITEROWAĆ?! H-E-L-P. Z małych, h-e-l-p. Help. Nie kurwa, 'help'. Bez nawiasów, po prostu help. Tylko to działa na razie. Jezus.";
+						
+				}
+				SwitchCommands(); // i w tym momencie wywolujemy funkcje, ktore to wszystko odpowiednio wyswietla na ekranie
+				window.scrollTo(0,document.body.scrollHeight); // automatyczne scrollowanie okna
+			}
+		}
+		</script>
+	</body>
+	</html>
