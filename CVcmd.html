@@ -6,9 +6,9 @@
 		<title>CVcmd0.3.3</title>
 		
 		<div id = "C">
-			Program do tworzenia CV. Wersja 0.3.3. Czemu akurat taka? Bo tak. <br/>
-			Twórcy: Jakub Giedrys i Dawid Kędzierski. Wszelkie prawa blablabla. <br/>
-			Aby uzyskać pomoc wpisz "help", aby odświeżyć wpisz "clr".<br/><br/>
+			Program do tworzenia CV. Wersja 0.3.3.<br/>
+			Twórcy: Jakub Giedrys i Dawid Kędzierski. Projekt na zasadzie open source. <br/>
+			Aby zobaczyć listę komend wpisz "help". Aby zobaczyć poradnik wpisz "hts".<br/><br/>
 		</div>
 	</head>
 	
@@ -29,7 +29,7 @@
 		document.addEventListener("click", function() {
 			document.getElementById("Commands").focus(); } ); //te dwie funkcje sprawiaja, ze kursos caly czas jest "skupiony" na oknie wpisywania		
 			
-		var Result = null;
+		var Result;
 		function SwitchCommands (){
 			var OldDiv = null;
 			var NewDiv = null;
@@ -45,19 +45,25 @@
 			// i wtedy zaleznie od tego co wpisze uzytkownik wywolamy inna funkcje
 		}
 		
+		function Help () {
+			Result = "<table style='width:50%, text-align:center'>" +
+					"<tr><td>Pierwsza komenda<td><td>Co robi</td></tr>" + 
+					"<tr><td>Druga komenda<td><td>Co robi</td></tr>" +
+					"<tr><td>Trzecia komenda<td><td>Co robi</td></tr></table>";
+		}
 
 		function Submit(key) { 
 			if (key.keyCode === 13) { // jesli zostal wcisniety ENTER, to:
 				var GetCommand = document.getElementById("Commands").value.toLowerCase();
 				switch (GetCommand) {
 					case "help":
-						Result = "Na górze róże, wokół lata szerszeń, ja Ci pomocą nie służę, jestem tylko wierszem :/)";
+						Help();
 						break;
-					case "clr": //clr dziala jako odswiezanie strony, na razie nic lepszego nie wymyslilem
+					case "cls": //clr dziala jako odswiezanie strony, na razie nic lepszego nie wymyslilem
 						location.reload();
 						Result = '';
 					default:
-						Result = "HELP KURWA, MAM CI TO PRZELITEROWAĆ?! H-E-L-P. Z małych, h-e-l-p. Help. Nie kurwa, 'help'. Bez nawiasów, po prostu help. Tylko to działa na razie. Jezus.";
+						Result = "Polecenie '" + GetCommand + "' nie jest rozpoznawalne.";
 						
 				}
 				SwitchCommands(); // i w tym momencie wywolujemy funkcje, ktore to wszystko odpowiednio wyswietla na ekranie
