@@ -5,7 +5,7 @@
 document.addEventListener("click", function() {
 	document.getElementById("Commands").focus(); } ); //te dwie funkcje sprawiaja, ze kursos caly czas jest "skupiony" na oknie wpisywania		
 	
-var Result;
+var Result, GetCommand, AllCommands = [], Counter = 0;
 function SwitchCommands (){
 	var OldDiv = null;
 	var NewDiv = null;
@@ -37,7 +37,9 @@ function Help () {
 
 function Submit(key) { 
 	if (key.keyCode === 13) { // jesli zostal wcisniety ENTER, to:
-		var GetCommand = document.getElementById("Commands").value.toLowerCase();
+		GetCommand = document.getElementById("Commands").value.toLowerCase();
+		AllCommands.push(GetCommand);
+		Counter = AllCommands.length;
 		switch (GetCommand) {
 			case "":
 				Result = '';
@@ -48,11 +50,28 @@ function Submit(key) {
 			case "cls": //clr dziala jako odswiezanie strony, na razie nic lepszego nie wymyslilem
 				location.reload();
 				Result = '';
+			case "hts": //póki co sprawdzam tym poprawne działanie tablicy
+				Result = AllCommands + Counter;
+				break;
 			default:
 				Result = "Polecenie '" + GetCommand + "' nie jest rozpoznawalne.";
 				
 		}
 		SwitchCommands(); // i w tym momencie wywolujemy funkcje, ktore to wszystko odpowiednio wyswietla na ekranie
 		window.scrollTo(0,document.body.scrollHeight); // automatyczne scrollowanie okna
+	}
+	if (key.keyCode === 38){ //arrowup
+		if (Counter > 0) {
+			Counter --;
+			document.getElementById("Commands").value = AllCommands[Counter];
+		}
+
+	}
+	if (key.keyCode === 40) { //arrowdown
+		if (Counter < (AllCommands.length-1)) {
+			Counter ++;
+			document.getElementById("Commands").value = AllCommands[Counter];
+		}
+
 	}
 }

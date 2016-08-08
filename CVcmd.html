@@ -3,22 +3,17 @@
 		<link type="text/css" rel="stylesheet" href="CVcmd.css"/>
 		<link rel="shortcut icon" type="image/png" href="favicon.png">
 		<script type="text/javascript" src="CVcmd.js"></script>
-		<title>CVcmd0.4</title>
+		<title>CVcmd0.4.5</title>
 		<div id = "C">
-			Program do tworzenia CV. Wersja 0.4<br/>
+			Program do tworzenia CV. Wersja 0.4.5<br/>
 			Twórcy: Jakub Giedrys i Dawid Kędzierski. Projekt na zasadzie open source. <br/>
 			Aby zobaczyć listę komend wpisz "help". Aby zobaczyć poradnik wpisz "hts".<br/><br/>
 		</div>
 	</head>
 	
 	<body>
-	<!--Pod tym beda poprzednie komendy -->
 		<div id="PastCommands"></div>
-		</div>
-		<div id = "Result">
-		</div>
-	<!--Stala sciezka do wpisywania -->
-		<div id = "C">
-			C:\&gt;<input type="text" id="Commands" onkeypress="Submit(event)"/>
+		<div id = "Result"></div>
+		<div id = "C">C:\&gt;<input type="text" id="Commands" onkeydown="Submit(event)"/>
 	</body>
 	</html>
