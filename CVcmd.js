@@ -39,24 +39,24 @@ function Submit(key) {
 	if (key.keyCode === 13) { // jesli zostal wcisniety ENTER, to:
 		GetCommand = document.getElementById("Commands").value.toLowerCase();
 		AllCommands.push(GetCommand);
-		Counter = AllCommands.length;
 		switch (GetCommand) {
 			case "":
 				Result = '';
+				AllCommands.pop();
 				break;
 			case "help":
 				Help();
 				break;
-			case "cls": //clr dziala jako odswiezanie strony, na razie nic lepszego nie wymyslilem
-				location.reload();
+			case "cls": //cls dziala jako odswiezanie strony, na razie nic lepszego nie wymyslilem
+				$("div").hide();
 				Result = '';
 			case "hts": //póki co sprawdzam tym poprawne działanie tablicy
 				Result = AllCommands + Counter;
 				break;
 			default:
 				Result = "Polecenie '" + GetCommand + "' nie jest rozpoznawalne.";
-				
 		}
+		Counter = AllCommands.length;
 		SwitchCommands(); // i w tym momencie wywolujemy funkcje, ktore to wszystko odpowiednio wyswietla na ekranie
 		window.scrollTo(0,document.body.scrollHeight); // automatyczne scrollowanie okna
 	}
