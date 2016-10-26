@@ -7,7 +7,7 @@
 		<script src="jquery-3.1.1.min.js"></script>
 		<script src="script.js"></script>
 		<script src="focus.js"></script>
-		<title>CVcmd0.4.5</title>
+		<title>CVcmd0.6</title>
 		<meta name="description" content="Tworzenie CV w środowisku podobnym do lini poleceń"/>
 		<meta name="keywords" content="CV, cmd, cvcmd, command line, wiersz poleceń"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
