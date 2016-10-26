@@ -1,18 +1,15 @@
-﻿onload = function() {
-	document.getElementById("Commands").focus();
-}
-
-document.addEventListener("click", function() {
-	document.getElementById("Commands").focus(); } ); //te dwie funkcje sprawiaja, ze kursos caly czas jest "skupiony" na oknie wpisywania		
-	
-var Result, GetCommand, AllCommands = [], Counter = 0;
+﻿var Result, GetCommand, AllCommands = [], Counter = 0;
 function SwitchCommands (){
 	var OldDiv = null;
 	var NewDiv = null;
+	var NewResult = null;
 	NewDiv = document.createElement("div");
-	NewDiv.innerHTML = 'C:\\&gt;' + document.getElementById("Commands").value + "<br/>" + Result + "<br/><br/>";
+	NewDiv.innerHTML = 'C:\\&gt;' + document.getElementById("Commands").value + "<br/>";
+	NewResult = document.createElement("div");
+	NewResult.innerHTML = Result + "<br/><br/>";
 	OldDiv = document.getElementById("PastCommands");
 	document.body.insertBefore(NewDiv, OldDiv);
+	document.body.insertBefore(NewResult, OldDiv);
 	document.getElementById("Commands").value = null;
 	// ta funkcja sprawia, ze "nowy" tekst bedzie sie wyswietlal pod "starym",
 	// razem z tym co bedzie w Result, ktore jest zalezne od tego jaka komende wpisze uzytkownik
@@ -23,15 +20,9 @@ function SwitchCommands (){
 
 function Help () {
 	Result = "<table style='width:100%, text-align:left'>" +
-			"<tr><td>CLS<td><td>Czyści ekran</td></tr>" + 
 			"<tr><td>HELP<td><td>Wyświetla listę komend</td></tr>" +
-			"<tr><td>NEW<td><td>Stworzenie nowego CV</td></tr>" +
-			"<tr><td>EDIT<td><td>Edycja zapisanego CV</td></tr>" +
-			"<tr><td>DELETE<td><td>Usunięcie zapisanego CV</td></tr>" +
-			"<tr><td>SAVE<td><td>Zapisanie roboczego CV</td></tr>" +
-			"<tr><td>START<td><td>Rozpoczęcie procesu wypełniania CV od zera</td></tr>" +
-			"<tr><td>END<td><td>Zakończenie pracy</td></tr>" +
-			"<tr><td>EXIT<td><td>Wyjście z edycji roboczego CV</td></tr>" +
+			"<tr><td>LOGIN<td><td>Przejście do strony logowania</td></tr>" +
+			"<tr><td>TEST<td><td>testowanie ajaxa i php</td></tr>" +
 			"<tr><td>HTS<td><td>Poradnik jak zacząć</td></tr></table>";
 }
 
@@ -47,11 +38,23 @@ function Submit(key) {
 			case "help":
 				Help();
 				break;
-			case "cls": //cls dziala jako odswiezanie strony, na razie nic lepszego nie wymyslilem
-				$("div").hide();
-				Result = '';
+			case "login":
+				window.location.href = "login.php"
+				return;
 			case "hts": //póki co sprawdzam tym poprawne działanie tablicy
 				Result = AllCommands + Counter;
+				break;
+			case "test": //niepotrzebne
+			function Test() {
+			  var xhttp = new XMLHttpRequest();
+			  xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+				 document.getElementById("Result").innerHTML = this.responseText;
+				}
+			  };
+			  xhttp.open("GET", "Test.php?q=", true);
+			  xhttp.send();
+			}
 				break;
 			default:
 				Result = "Polecenie '" + GetCommand + "' nie jest rozpoznawalne.";
