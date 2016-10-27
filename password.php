@@ -1,3 +1,8 @@
+<?php
+	session_start();
+	$_SESSION['tlogin'] = $_POST['login'];
+?>
+
 <!DOCTYPE html>
 <html lang="pl">
 	<head>

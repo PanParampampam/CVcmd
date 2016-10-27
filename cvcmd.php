@@ -23,8 +23,8 @@
 	</head>
 	
 	<body>
-		<div id="PastCommands"></div>
-		<div id="Result"></div>
-		<div id="C">C:\&gt;<input type="text" id="Commands" onkeydown="Submit(event)"/>
+		<?php
+			echo "Witaj ".$_SESSION['user'];
+		?>
 	</body>
 </html>
