@@ -17,8 +17,8 @@
 		float: left;
 	}
 		#Commands {
-		float: left;
-		position: float;
+		float: right;
+		position: fixed;
 	}
 	input {
 		outline-style:none;
@@ -31,6 +31,6 @@
 		color:#CCCCCC;
 		font-family:FixedSys, Terminal, system, verdana, arial;
 		font-size:12px;
-		float: left;
+		float: right;
 		cursor: default;
 	}

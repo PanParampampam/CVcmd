@@ -22,6 +22,7 @@ function Help () {
 	Result = "<table style='width:100%, text-align:left'>" +
 			"<tr><td>HELP<td><td>Wyświetla listę komend</td></tr>" +
 			"<tr><td>LOGIN<td><td>Przejście do strony logowania</td></tr>" +
+			"<tr><td>LOGOUT<td><td>Wylogowanie</td></tr>" +
 			"<tr><td>TEST<td><td>testowanie ajaxa i php</td></tr>" +
 			"<tr><td>HTS<td><td>Poradnik jak zacząć</td></tr></table>";
 }
@@ -39,7 +40,10 @@ function Submit(key) {
 				Help();
 				break;
 			case "login":
-				window.location.href = "login.php"
+				window.location.href = "login.php";
+				return;
+			case "logout":
+				window.location.href = "logout.php";
 				return;
 			case "hts": //póki co sprawdzam tym poprawne działanie tablicy
 				Result = AllCommands + Counter;

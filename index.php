@@ -1,5 +1,11 @@
 ﻿<?php
 	session_start();
+	
+	if((isset($_SESSION['zalogowany'])) && ($_SESSION['zalogowany']==true))
+	{
+		header('Location: cvcmd.php');
+		exit();
+	}
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +22,7 @@
 		<meta name="keywords" content="CV, cmd, cvcmd, command line, wiersz poleceń"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 		<div id = "C">
-			Program do tworzenia CV. Wersja 0.5<br/>
+			Program do tworzenia CV. Wersja 0.6<br/>
 			Twórca: Jakub Giedrys. Projekt na zasadzie open source. <br/>
 			Aby zobaczyć listę komend wpisz "help".<br/><br/>
 		</div>
@@ -25,6 +31,9 @@
 	<body>
 		<div id="PastCommands"></div>
 		<div id="Result"></div>
+		<?php
+			if (isset($_SESSION['blad'])) echo $_SESSION['blad'];
+		?>
 		<div id="C">C:\&gt;<input type="text" id="Commands" onkeydown="Submit(event)"/>
 	</body>
 </html>
