@@ -17,7 +17,7 @@
 		<script src="jquery-3.1.1.min.js"></script>
 		<script src="script.js"></script>
 		<script src="focus.js"></script>
-		<title>CVcmd0.6</title>
+		<title>CVcmd</title>
 		<meta name="description" content="Tworzenie CV w środowisku podobnym do lini poleceń"/>
 		<meta name="keywords" content="CV, cmd, cvcmd, command line, wiersz poleceń"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
@@ -32,7 +32,10 @@
 		<div id="PastCommands"></div>
 		<div id="Result"></div>
 		<?php
-			if (isset($_SESSION['blad'])) echo $_SESSION['blad'];
+			if (isset($_SESSION['blad'])) {
+				 echo $_SESSION['blad'];
+				 unset($_SESSION['blad']);
+			}
 		?>
 		<div id="C">C:\&gt;<input type="text" id="Commands" onkeydown="Submit(event)"/>
 	</body>

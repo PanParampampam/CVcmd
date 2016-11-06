@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="style.css"/>
 		<link rel="shortcut icon" type="image/png" href="favicon.png">
 		<script src="focus.js"></script>
-		<title>CVcmd0.4.5</title>
+		<title>CVcmd</title>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 		<div id = "C">
 			Podaj hasło.<br/><br/>
