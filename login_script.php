@@ -11,7 +11,9 @@
 	$polaczenie = @new mysqli($host, $db_user, $db_password, $db_name);
 	
 	if ($polaczenie->connect_errno!=0) {
-		echo "Error: ".$polaczenie->connect_errno;
+		$_SESSION['blad'] = "<span style=color:red>Error: $polaczenie->connect_errno</span>";
+		header('Location: index.php');
+		exit();
 	}
 	else {	
 		$login = $_SESSION['tlogin'];

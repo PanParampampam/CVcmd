@@ -14,7 +14,7 @@
 		<meta name="keywords" content="CV, cmd, cvcmd, command line, wiersz poleceń"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 		<div id = "C">
-			Formularz rejestracji 1/5. Podaj nazwę użytkownika (od 3 do 15 znaków)<br/><br/>
+			Formularz rejestracji 1/5. Podaj nazwę użytkownika (od 3 do 15 znaków alfanumerycznych, bez polskich)<br/><br/>
 			<?php
 				if(isset($_SESSION['error_nick'])) {
 				echo $_SESSION['error_nick'];

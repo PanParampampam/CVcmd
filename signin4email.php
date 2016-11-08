@@ -14,6 +14,7 @@
 	}
 	else if (!isset($_SESSION['password'])) {
 		header('Location: signin1user.php');
+		exit();
 	}
 ?>
 

@@ -11,7 +11,10 @@
 		
 		else $_SESSION['password'] = $_POST['password'];
 	}
-	else header('Location: signin1user.php');
+	else {
+		header('Location: signin1user.php');
+		exit();
+	}
 ?>
 
 <!DOCTYPE html>

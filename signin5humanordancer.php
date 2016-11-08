@@ -12,6 +12,7 @@
 	}
 	else if (!isset($_SESSION['password_check'])) {
 		header('Location: signin1user.php');
+		exit();
 	}
 ?>
 

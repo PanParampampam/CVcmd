@@ -3,22 +3,47 @@
 	
 	if(isset($_POST['nick'])) {
 		
-		if ((strlen($_POST['nick'])) < 3 || (strlen($_POST['nick']) > 15)) {
-			$_SESSION['error_nick'] ="<span style=color:red>Nazwa użytkownika musi posiadać od 3 do 15 znaków.</span></br>";
-			header('Location: signin1user.php');
-			exit();
+		require_once('connect.php');
+		$polaczenie = @new mysqli($host, $db_user, $db_password, $db_name);
+		
+		if ($polaczenie->connect_errno!=0) {
+		$_SESSION['blad'] = "<span style=color:red>Error: $polaczenie->connect_errno</span>";
+		header('Location: index.php');
+		exit();
 		}
 		
-		if(ctype_alnum($_POST['nick']) == false) {
-			$_SESSION['error_nick'] = "<span style=color:red>Nick nie może zawierać polskich znaków, musi się składać z liter i/lub cyfr.</span></br>";
-			header('Location: signin1user.php');
-			exit();
-		}
+		else {
+			
+			$nick = $_POST['nick'];
+			$nick = htmlentities($nick, ENT_QUOTES, "UTF-8");
+			$rezultat = $polaczenie->query(sprintf("SELECT * FROM uzytkownicy WHERE user='%s'",
+			mysqli_real_escape_string($polaczenie, $nick)));
+			$istnieje_w_bazie = $rezultat->num_rows;
+			if($istnieje_w_bazie > 0) {
+				$_SESSION['error_nick'] ="<span style=color:red>Podana nazwa użytkownika jest już zajęta.</span></br>";
+				header('Location: signin1user.php');
+				exit();
+			}
+			
 		
-		else $_SESSION['nick'] = $_POST['nick'];
+			if ((strlen($_POST['nick'])) < 3 || (strlen($_POST['nick']) > 15)) {
+				$_SESSION['error_nick'] ="<span style=color:red>Nazwa użytkownika musi posiadać od 3 do 15 znaków.</span></br>";
+				header('Location: signin1user.php');
+				exit();
+			}
+			
+			if(ctype_alnum($_POST['nick']) == false) {
+				$_SESSION['error_nick'] = "<span style=color:red>Nick nie może zawierać polskich znaków, musi się składać z liter i/lub cyfr.</span></br>";
+				header('Location: signin1user.php');
+				exit();
+			}
+			
+			else $_SESSION['nick'] = $_POST['nick'];
+		}
 	}
 	else if (!isset($_SESSION['nick'])) {
 		header('Location: signin1user.php');
+		exit();
 	}
 ?>
 
