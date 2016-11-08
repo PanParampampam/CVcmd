@@ -2,6 +2,18 @@
 	session_start();
 	
 	if(isset($_POST['password'])) {
+		
+		$back_or_exit = strtolower($_POST['password']);
+		if ($back_or_exit == "back") {
+			header('Location: signin1user.php');
+			exit();
+		}
+		if ($back_or_exit == "exit") {
+			unset($_SESSION['nick']);
+			unset($_SESSION['password']);
+			header('Location: index.php');
+			exit();
+		}
 	
 		if ((strlen($_POST['password'])) < 6 || (strlen($_POST['password']) > 20)) {
 			$_SESSION['error_password'] ="<span style=color:red>Hasło musi posiadać od 6 do 20 znaków.</span></br>";
@@ -29,7 +41,8 @@
 		<meta name="keywords" content="CV, cmd, cvcmd, command line, wiersz poleceń"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 		<div id = "C">
-			Formularz rejestracji 3/5. Powtórz hasło.<br/><br/>
+			Formularz rejestracji 3/5. Powtórz hasło.<br/>
+			Aby powrócić do poprzedniego punktu wpisz BACK. Aby opuścić formularz bez rejestrowania wpisz EXIT.<br/><br/>
 		</div>
 	</head>
 	

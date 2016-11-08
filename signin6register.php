@@ -2,6 +2,22 @@
 	session_start();
 	
 	if(isset($_POST['robot'])) {
+		
+		$back_or_exit = strtolower($_POST['robot']);
+		if ($back_or_exit == "back") {
+			header('Location: signin4email.php');
+			exit();
+		}
+		if ($back_or_exit == "exit") {
+			unset($_SESSION['nick']);
+			unset($_SESSION['password']);
+			unset($_SESSION['password_check']);
+			unset($_SESSION['email']);
+			unset($_SESSION['robot']);
+			header('Location: index.php');
+			exit();
+		}
+		
 		if ($_POST['robot'] == 3) {
 		}
 		else {

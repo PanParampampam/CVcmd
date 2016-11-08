@@ -5,14 +5,20 @@
 		
 		require_once('connect.php');
 		$polaczenie = @new mysqli($host, $db_user, $db_password, $db_name);
-		
 		if ($polaczenie->connect_errno!=0) {
-		$_SESSION['blad'] = "<span style=color:red>Error: $polaczenie->connect_errno</span>";
-		header('Location: index.php');
-		exit();
+			$_SESSION['blad'] = "<span style=color:red>Error: $polaczenie->connect_errno</span>";
+			header('Location: index.php');
+			exit();
 		}
 		
 		else {
+			
+			$back_or_exit = strtolower($_POST['nick']);
+			if ($back_or_exit == "exit") {
+				unset($_SESSION['nick']);
+				header('Location: index.php');
+				exit();
+			}
 			
 			$nick = $_POST['nick'];
 			$nick = htmlentities($nick, ENT_QUOTES, "UTF-8");
@@ -59,7 +65,8 @@
 		<meta name="keywords" content="CV, cmd, cvcmd, command line, wiersz poleceń"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 		<div id = "C">
-			Formularz rejestracji 2/5. Podaj hasło (od 6 do 20 znaków)<br/><br/>
+			Formularz rejestracji 2/5. Podaj hasło (od 6 do 20 znaków)<br/>
+			Aby powrócić do poprzedniego punktu wpisz BACK. Aby opuścić formularz bez rejestrowania wpisz EXIT.<br/><br/>
 			<?php
 				if(isset($_SESSION['error_password'])) {
 				echo $_SESSION['error_password'];

@@ -2,13 +2,48 @@
 	session_start();
 	
 	if(isset($_POST['email'])) {
-		$email_check = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-		if (filter_var($email_check, FILTER_VALIDATE_EMAIL) == false || ($email_check != $_POST['email'])) {
-			$_SESSION['error_email'] ="<span style=color:red>Niepoprawny adres e-mail.</span></br>";
-			header('Location: signin4email.php');
+		
+		$back_or_exit = strtolower($_POST['email']);
+		if ($back_or_exit == "back") {
+			header('Location: signin2password.php');
 			exit();
 		}
-		else  $_SESSION['email'] = $_POST['email'];
+		if ($back_or_exit == "exit") {
+			unset($_SESSION['nick']);
+			unset($_SESSION['password']);
+			unset($_SESSION['password_check']);
+			unset($_SESSION['email']);
+			header('Location: index.php');
+			exit();
+		}
+		
+		require_once('connect.php');
+		$polaczenie =  @new mysqli($host, $db_user, $db_password, $db_name);
+		if ($polaczenie->connect_errno!=0) {
+			$_SESSION['blad'] = "<span style=color:red>Error: $polaczenie->connect_errno</span>";
+			header('Location: index.php');
+			exit();
+		}
+		
+		else {
+		
+			$email_check = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+			if (filter_var($email_check, FILTER_VALIDATE_EMAIL) == false || ($email_check != $_POST['email'])) {
+				$_SESSION['error_email'] ="<span style=color:red>Niepoprawny adres e-mail.</span></br>";
+				header('Location: signin4email.php');
+				exit();
+			}
+			
+			$rezultat = $polaczenie->query("SELECT * FROM uzytkownicy WHERE email='$email_check'");
+			$istnieje_w_bazie = $rezultat->num_rows;
+			if($istnieje_w_bazie > 0) {
+				$_SESSION['error_email'] ="<span style=color:red>Podany adres e-mail jest zajęty.</span></br>";
+				header('Location: signin4email.php');
+				exit();
+			}
+			
+			else  $_SESSION['email'] = $_POST['email'];
+		}
 	}
 	else if (!isset($_SESSION['password_check'])) {
 		header('Location: signin1user.php');
@@ -28,7 +63,8 @@
 		<meta name="keywords" content="CV, cmd, cvcmd, command line, wiersz poleceń"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 		<div id = "C">
-			Formularz rejestracji 5/5. Udowodnij żeś człek. Do poprawienia. Póki co wpisz 3.<br/><br/>
+			Formularz rejestracji 5/5. Udowodnij żeś człek. Do poprawienia. Póki co wpisz 3.<br/>
+			Aby powrócić do poprzedniego punktu wpisz BACK. Aby opuścić formularz bez rejestrowania wpisz EXIT.<br/><br/>
 			<?php
 				if(isset($_SESSION['error_robot'])) {
 				echo $_SESSION['error_robot'];

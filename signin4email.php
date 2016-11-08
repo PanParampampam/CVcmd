@@ -2,6 +2,20 @@
 	session_start();
 	
 	if(isset($_POST['password_check'])) {
+		
+		$back_or_exit = strtolower($_POST['password_check']);
+		if ($back_or_exit == "back") {
+			header('Location: signin2password.php');
+			exit();
+		}
+		if ($back_or_exit == "exit") {
+			unset($_SESSION['nick']);
+			unset($_SESSION['password']);
+			unset($_SESSION['password_check']);
+			header('Location: index.php');
+			exit();
+		}
+		
 		if ($_POST['password_check'] != $_SESSION['password']) {
 			$_SESSION['error_password'] ="<span style=color:red>Hasła nie są takie same.</span></br>";
 			header('Location: signin2password.php');
@@ -30,7 +44,8 @@
 		<meta name="keywords" content="CV, cmd, cvcmd, command line, wiersz poleceń"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 		<div id = "C">
-			Formularz rejestracji 4/5. Podaj adres e-mail.<br/><br/>
+			Formularz rejestracji 4/5. Podaj adres e-mail.<br/>
+			Aby powrócić do poprzedniego punktu wpisz BACK. Aby opuścić formularz bez rejestrowania wpisz EXIT.<br/><br/>
 			<?php
 				if(isset($_SESSION['error_email'])) {
 				echo $_SESSION['error_email'];
