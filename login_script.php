@@ -1,7 +1,13 @@
 <?php
 	session_start();
 	
-	if((!isset($_SESSION['tlogin'])) || (!isset($_POST['haslo']))) {
+	if((!isset($_SESSION['login'])) || (!isset($_POST['haslo']))) {
+		header('Location: index.php');
+		exit();
+	}
+	
+	$back_or_exit = strtolower($_POST['haslo']);
+	if ($back_or_exit == "exit") {
 		header('Location: index.php');
 		exit();
 	}
@@ -16,7 +22,7 @@
 		exit();
 	}
 	else {	
-		$login = $_SESSION['tlogin'];
+		$login = $_SESSION['login'];
 		$haslo = $_POST['haslo'];
 		
 		$login = htmlentities($login, ENT_QUOTES, "UTF-8");
@@ -33,7 +39,7 @@
 					$_SESSION['user'] = $wiersz['user'];
 					
 					unset($_SESSION['blad']);
-					unset($_SESSION['tlogin']);
+					unset($_SESSION['login']);
 					$rezultat->close();
 					header('Location: cvcmd.php');
 				}

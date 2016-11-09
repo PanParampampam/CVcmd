@@ -14,6 +14,11 @@
 		else {
 			
 			$back_or_exit = strtolower($_POST['nick']);
+			if ($back_or_exit == "back") {
+				$_SESSION['error_nick'] ="<span style=color:red>Podana nazwa użytkownika jest już zajęta.</span></br>";
+				header('Location: signin1user.php');
+				exit();
+			}
 			if ($back_or_exit == "exit") {
 				unset($_SESSION['nick']);
 				header('Location: index.php');

@@ -1,6 +1,12 @@
 <?php
 	session_start();
-	$_SESSION['tlogin'] = $_POST['login'];
+	
+		$back_or_exit = strtolower($_POST['login']);
+		if ($back_or_exit == "exit") {
+			header('Location: index.php');
+			exit();
+		}
+	$_SESSION['login'] = $_POST['login'];
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +19,8 @@
 		<title>CVcmd</title>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 		<div id = "C">
-			Podaj hasło.<br/><br/>
+			Formularz logowania 2/2. Podaj hasło.<br/>
+			Aby opuścić formularz logowania wpisz EXIT.<br/><br/>
 		</div>
 	</head>
 	

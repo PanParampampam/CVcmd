@@ -13,7 +13,8 @@
 		<title>CVcmd0.4.5</title>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 		<div id = "C">
-			Podaj login.<br/><br/>
+			Formularz logowania 1/2. Podaj login.<br/>
+			Aby opuścić formularz logowania wpisz EXIT.<br/><br/>
 		</div>
 	</head>
 	
