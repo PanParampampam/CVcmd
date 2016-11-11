@@ -1,12 +1,18 @@
 <?php
 	session_start();
 	
+		if((!isset($_POST['login']))) {
+		header('Location: index.php');
+		exit();
+		}
+	
 		$back_or_exit = strtolower($_POST['login']);
 		if ($back_or_exit == "exit") {
 			header('Location: index.php');
 			exit();
 		}
-	$_SESSION['login'] = $_POST['login'];
+		
+		$_SESSION['login'] = $_POST['login'];
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +26,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 		<div id = "C">
 			Formularz logowania 2/2. Podaj hasło.<br/>
-			Aby opuścić formularz logowania wpisz EXIT.<br/><br/>
+			Aby powrócić do poprzedniego punktu wpisz BACK. Aby opuścić formularz logowania wpisz EXIT.<br/><br/>
 		</div>
 	</head>
 	

@@ -7,6 +7,10 @@
 	}
 	
 	$back_or_exit = strtolower($_POST['haslo']);
+	if ($back_or_exit == "back") {
+		header('Location: login.php');
+		exit();
+	}
 	if ($back_or_exit == "exit") {
 		header('Location: index.php');
 		exit();

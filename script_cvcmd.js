@@ -15,6 +15,7 @@ function SwitchCommands (){
 
 function Help () {
 	Result = "<table style='width:100%, text-align:left'>" +
+			"<tr><td>DODAJ_DANE<td><td>Dodaj dane osobowe do swojego CV</td></tr>"  +
 			"<tr><td>HELP<td><td>Wyświetla listę komend</td></tr>" +
 			"<tr><td>HTS<td><td>Poradnik jak zacząć</td></tr>" +
 			"<tr><td>LOGIN<td><td>Przejście do strony logowania</td></tr>" +
@@ -31,6 +32,9 @@ function Submit(key) {
 				Result = '';
 				AllCommands.pop();
 				break;
+			case "dodaj_dane":
+				window.location.href = "dodaj_dane1godnosc.php";
+				return;
 			case "help":
 				Help();
 				break;
