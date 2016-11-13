@@ -20,7 +20,7 @@
 	
 	<body>
 		<form action="password.php" method="post">
-		<div id = "C">Login: <input type="text" id="Commands" name="login"/>
+		<div id = "C">C:\login\login&gt;<input type="text" id="Commands" name="login" autocomplete="off"/>
 		</form>
 	</body>
 </html>

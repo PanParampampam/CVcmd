@@ -20,15 +20,15 @@
 		<meta name="keywords" content="CV, cmd, cvcmd, command line, wiersz poleceń"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 		<div id = "C">
-			Formularz wprowadzania danych osobowych 1/5. Podaj imię i nazwisko.<br/>
+			Formularz wprowadzania informacji do CV. Podaj nagłówek (np. Wykształcenie, Doświadczenie, Umiejętności, Zainteresowania itp.)<br/>
 			Aby opuścić formularz bez wprowadzania danych wpisz EXIT.<br/><br/>
 		</div>
 	</head>
 	
 	<body>
 	
-		<form method="post" action="dodaj_dane2adres.php">
-			<div id = "C">C:\<?php echo $_SESSION['user']?>\+dane\imię i nazwisko&gt; <input type="text" id="Commands" name="godnosc" autocomplete="off"/>
+		<form method="post" action="dodaj_info2typ.php">
+			<div id = "C">C:\<?php echo $_SESSION['user']?>\+info\nagłówek&gt; <input type="text" id="Commands" name="naglowek" autocomplete="off"/>
 		</form>
 	
 	</body>

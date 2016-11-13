@@ -28,7 +28,7 @@
 	<body>
 	
 		<form method="post" action="signin2password.php">
-			<div id = "C">Nazwa użytkownika: <input type="text" id="Commands" name="nick"/>
+			<div id = "C">C:\signin\uzytkownik&gt;<input type="text" id="Commands" name="nick" autocomplete="off"/>
 		</form>
 	
 	</body>

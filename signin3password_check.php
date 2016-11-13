@@ -16,7 +16,7 @@
 		}
 	
 		if ((strlen($_POST['password'])) < 6 || (strlen($_POST['password']) > 20)) {
-			$_SESSION['error_password'] ="<span style=color:red>Hasło musi posiadać od 6 do 20 znaków.</span></br>";
+			$_SESSION['error_password'] ="C:\signin\hasło&gt;</br><span style=color:red>Hasło musi posiadać od 6 do 20 znaków.</span></br></br>";
 			header('Location: signin2password.php');
 			exit();
 		}
@@ -49,7 +49,7 @@
 	<body>
 	
 		<form method="post" action="signin4email.php">
-			<div id = "C">Hasło: <input type="password" id="Commands" name="password_check"/>
+			<div id = "C">C:\signin\hasło&gt;<input type="password" id="Commands" name="password_check"/>
 		</form>
 	
 	</body>

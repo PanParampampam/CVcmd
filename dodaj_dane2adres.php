@@ -11,6 +11,7 @@
 		
 		$back_or_exit = strtolower($_POST['godnosc']);
 		if ($back_or_exit == "exit") {
+			unset($_SESSION['godnosc']);
 			header('Location: cvcmd.php');
 			exit();
 		}
@@ -44,7 +45,7 @@
 	<body>
 	
 		<form method="post" action="dodaj_dane3telefon.php">
-			<div id = "C">Adres: <input type="text" id="Commands" name="adres"/>
+			<div id = "C">C:\<?php echo $_SESSION['user']?>\+dane\adres&gt; <input type="text" id="Commands" name="adres" autocomplete="off"/>
 		</form>
 	
 	</body>

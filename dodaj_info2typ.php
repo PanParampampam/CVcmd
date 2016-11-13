@@ -7,31 +7,23 @@
 		exit;
 	}
 	
-	if(isset($_POST['email'])) {
+	if(isset($_POST['naglowek'])) {
 		
-		$back_or_exit = strtolower($_POST['email']);
-		if ($back_or_exit == "back") {
-			header('Location: dodaj_dane3telefon.php');
-			exit();
-		}
+		$back_or_exit = strtolower($_POST['naglowek']);
 		if ($back_or_exit == "exit") {
-			unset($_SESSION['godnosc']);
-			unset($_SESSION['adres']);
-			unset($_SESSION['tel']);
-			unset($_SESSION['email']);
+			unset($_SESSION['naglowek']);
 			header('Location: cvcmd.php');
 			exit();
 		}
 		
-		else $_SESSION['email'] = $_POST['email'];
+		else $_SESSION['naglowek'] = $_POST['naglowek'];
 	}
 	
-	else if (!isset($_SESSION['email'])) {
+	else if (!isset($_SESSION['naglowek'])) {
 	header('Location: cvcmd.php');
 	exit();
 	}
 ?>
-
 <!DOCTYPE html>
 <html lang="pl">
 	<head>
@@ -44,15 +36,24 @@
 		<meta name="keywords" content="CV, cmd, cvcmd, command line, wiersz poleceń"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 		<div id = "C">
-			Formularz wprowadzania danych osobowych 5/5. Podaj datę urodzenia.<br/>
+			Formularz wprowadzania informacji do CV. Podaj typ wprowadzanych danych:<br/>
+			1 - lista<br/>
+			2 - lista z datami<br/>
+			3 - tekst<br/>
 			Aby powrócić do poprzedniego punktu wpisz BACK. Aby opuścić formularz bez wprowadzania danych wpisz EXIT.<br/><br/>
+			<?php
+				if(isset($_SESSION['error_typ'])) {
+				echo $_SESSION['error_typ'];
+				unset($_SESSION['error_typ']);
+				}
+			?>
 		</div>
 	</head>
 	
 	<body>
 	
-		<form method="post" action="dodaj_dane6zatwierdz.php">
-			<div id = "C">C:\<?php echo $_SESSION['user']?>\+dane\data urodzenia&gt; <input type="text" id="Commands" name="data_urodzenia" autocomplete="off"/>
+		<form method="post" action="dodaj_info2wybierz.php">
+			<div id = "C">C:\<?php echo $_SESSION['user']?>\+info\typ&gt; <input type="text" id="Commands" name="typ" autocomplete="off"/>
 		</form>
 	
 	</body>

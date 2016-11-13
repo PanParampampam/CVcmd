@@ -21,7 +21,7 @@
 		if ($_POST['robot'] == 3) {
 		}
 		else {
-			$_SESSION['error_robot'] ="<span style=color:red>Nieudana walidacja.</span></br>";
+			$_SESSION['error_robot'] ="C:\signin\walidacja&gt;" . $_POST['robot'] . "</br><span style=color:red>Nieudana walidacja.</span></br></br>";
 			header('Location: signin5humanordancer.php');
 			exit();
 		}
@@ -55,6 +55,9 @@
 				 unset($_SESSION['password']);
 				 unset($_SESSION['password_check']);
 				 unset($_SESSION['email']);
+				 $_SESSION['info'] = 'C:\&gt;Udana rejestracja! Możesz się zalogować na swoje konto.</br></br>';
+				 header('Location: index.php');
+				 exit();
 				}
 				else
 				{
@@ -67,34 +70,9 @@
 	}
 	catch(Exception $e) //zlap wyjatek i umiesc go w zmiennej $e
 	{
-		$_SESSION['blad'] = '<span style="color:red">Błąd serwera! Przepraszamy za niedogodności i prosimy o rejestrację w innym terminie</span>';
+		$_SESSION['info'] = 'C:\&gt;<span style="color:red">Błąd serwera! Przepraszamy za niedogodności i prosimy o rejestrację w innym terminie</span></br></br>';
 		header('Location: index.php');
 		exit();
 		//echo '</br>Informacja developoerska: '.$e;
 	}
 ?>
-
-<!DOCTYPE html>
-<html lang="pl">
-	<head>
-		<meta charset="utf-8"/>
-		<link rel="stylesheet" href="style.css"/>
-		<link rel="shortcut icon" type="image/png" href="favicon.png">
-		<script src="focus.js"></script>
-		<title>CVcmd - rejestracja</title>
-		<meta name="description" content="Tworzenie CV w środowisku podobnym do lini poleceń"/>
-		<meta name="keywords" content="CV, cmd, cvcmd, command line, wiersz poleceń"/>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-		<div id = "C">
-			Udana rejestracja! Możesz się zalogować na swoje konto.<br/><br/>
-		</div>
-	</head>
-	
-	<body>
-	
-		<form method="post" action="index.php">
-			<div id = "C">Aby kontynuować do strony głównej wciśnij ENTER <input type="text" id="Commands"/>
-		</form>
-	
-	</body>
-</html>

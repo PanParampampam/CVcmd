@@ -24,19 +24,19 @@
 		<div id = "C">
 			Program do tworzenia CV. Wersja 0.6<br/>
 			Twórca: Jakub Giedrys. Projekt na zasadzie open source. <br/>
-			Aby zobaczyć listę komend wpisz "help".<br/><br/>
+			Aby zobaczyć listę komend wpisz HELP.<br/><br/>
 		</div>
 	</head>
 	
 	<body>
+			<?php
+			if (isset($_SESSION['info'])) {
+				 echo $_SESSION['info'];
+				 unset($_SESSION['info']);
+			}
+			?>
 		<div id="PastCommands"></div>
 		<div id="Result"></div>
-		<?php
-			if (isset($_SESSION['blad'])) {
-				 echo $_SESSION['blad'];
-				 unset($_SESSION['blad']);
-			}
-		?>
-		<div id="C">C:\&gt;<input type="text" id="Commands" onkeydown="Submit(event)"/>
+		<div id="C">C:\&gt;<input type="text" id="Commands" autocomplete="off" onkeydown="Submit(event)"/>
 	</body>
 </html>
