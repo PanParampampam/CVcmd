@@ -30,9 +30,7 @@
 		<meta charset="utf-8"/>
 		<link rel="stylesheet" href="style.css"/>
 		<link rel="shortcut icon" type="image/png" href="favicon.png">
-		<script src="jquery-3.1.1.min.js"></script>
 		<script src="focus.js"></script>
-		<script src="dodaj_info2script.js"></script>
 		<title>CVcmd - rejestracja</title>
 		<meta name="description" content="Tworzenie CV w środowisku podobnym do lini poleceń"/>
 		<meta name="keywords" content="CV, cmd, cvcmd, command line, wiersz poleceń"/>
@@ -44,9 +42,9 @@
 			3 - tekst<br/>
 			Aby powrócić do poprzedniego punktu wpisz BACK. Aby opuścić formularz bez wprowadzania danych wpisz EXIT.<br/><br/>
 			<?php
-				if(isset($_SESSION['error_info'])) {
-				echo $_SESSION['error_info'];
-				unset($_SESSION['error_info']);
+				if(isset($_SESSION['error_typ'])) {
+				echo $_SESSION['error_typ'];
+				unset($_SESSION['error_typ']);
 				}
 			?>
 		</div>
@@ -54,10 +52,9 @@
 	
 	<body>
 	
-		<form method="post" action="dodaj_info3zatwierdz.php">
-			<div id = "C">C:\<?php echo $_SESSION['user']?>\+info\typ&gt; <input type="textarea" id="Commands" name="info" autocomplete="off"/>
-			<input type="text" style="display: none;" />
-		</form>
+			<?php
+				echo $_POST['info'];
+			?>
 	
 	</body>
 </html>

@@ -1,0 +1,4 @@
+if(e.shiftKey && e.altKey && e.keyCode == 68)
+{
+  alert('l33t!');
+}
