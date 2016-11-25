@@ -37,7 +37,7 @@ function Submit(key) {
 				window.location.href = "dodaj_dane1godnosc.php";
 				return;
 			case "+info":
-				window.location.href = "dodaj_info1naglowek.php"
+				window.location.href = "dodaj_info1naglowek.php";
 				return;
 			case "help":
 				Help();

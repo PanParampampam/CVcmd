@@ -30,18 +30,14 @@
 		<meta charset="utf-8"/>
 		<link rel="stylesheet" href="style.css"/>
 		<link rel="shortcut icon" type="image/png" href="favicon.png">
-		<script src="jquery-3.1.1.min.js"></script>
 		<script src="focus.js"></script>
-		<script src="dodaj_info2script.js"></script>
 		<title>CVcmd - rejestracja</title>
 		<meta name="description" content="Tworzenie CV w środowisku podobnym do lini poleceń"/>
 		<meta name="keywords" content="CV, cmd, cvcmd, command line, wiersz poleceń"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 		<div id = "C">
-			Formularz wprowadzania informacji do CV. Podaj typ wprowadzanych danych:<br/>
-			1 - lista<br/>
-			2 - lista z datami<br/>
-			3 - tekst<br/>
+			Formularz wprowadzania informacji do CV. Wprowadź dane.</br>
+			Podpowiedź: Aby wprowadzić symbol "&bull;" wpisz '&#38;bull;'.</br>
 			Aby powrócić do poprzedniego punktu wpisz BACK. Aby opuścić formularz bez wprowadzania danych wpisz EXIT.<br/><br/>
 			<?php
 				if(isset($_SESSION['error_info'])) {
@@ -53,11 +49,13 @@
 	</head>
 	
 	<body>
-	
-		<form method="post" action="dodaj_info3zatwierdz.php">
-			<div id = "C">C:\<?php echo $_SESSION['user']?>\+info\typ&gt; <input type="textarea" id="Commands" name="info" autocomplete="off"/>
-			<input type="text" style="display: none;" />
-		</form>
-	
+			<script>
+			document.addEventListener("keypress", function(key) {
+				if(key.keyCode == 13 && key.shiftKey) {
+					window.location.href = "dodaj_info1naglowek.php";
+				}});
+		</script>
+			<div id = "C">C:\<?php echo $_SESSION['user']?>\+info\info&gt; <textarea id="Commands" name="info" autocomplete="off" rows="20"></textarea>
+			<p id="wynik"></p>
 	</body>
 </html>

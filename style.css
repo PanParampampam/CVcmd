@@ -20,7 +20,7 @@
 		float: right;
 		position: fixed;
 	}
-	input {
+	input, textarea {
 		outline-style:none;
 		box-shadow:none;
 		border-color:transparent;
