@@ -3,14 +3,16 @@
 	
 	include('session_timeout.php');
 	
+	include('signin5validate.php');
+	
 	if(isset($_POST['robot'])) {
 		
-		$back_or_exit = strtolower($_POST['robot']);
-		if ($back_or_exit == "back") {
+		$validate = strtolower($_POST['robot']);
+		if ($validate == "back") {
 			header('Location: signin4email.php');
 			exit();
 		}
-		if ($back_or_exit == "exit") {
+		if ($validate == "exit") {
 			unset($_SESSION['nick']);
 			unset($_SESSION['password']);
 			unset($_SESSION['password_check']);
@@ -20,12 +22,17 @@
 			exit();
 		}
 		
-		if ($_POST['robot'] == 3) {
-		}
-		else {
-			$_SESSION['error_robot'] ="C:\signin\walidacja&gt;" . $_POST['robot'] . "</br><span style=color:red>Nieudana walidacja.</span></br></br>";
-			header('Location: signin5humanordancer.php');
-			exit();
+		if ($validate != $odpowiedz[$_SESSION['validate']]) {
+			$_SESSION['validate_count'] = $_SESSION['validate_count'] -1;
+			if ($_SESSION['validate_count'] < 1) {
+				session_destroy();
+				header('Location: index.php');
+			}
+			else {
+				$_SESSION['error_robot'] ="C:\signin\walidacja&gt;" . $_POST['robot'] . "</br><span style=color:red>Nieudana walidacja. Pozostało prób: " . $_SESSION['validate_count'] . "</span></br></br>";
+				header('Location: signin5humanordancer.php');
+				exit();
+			}
 		}
 	}
 	else if ((!isset($_SESSION['nick'])) || (!isset($_SESSION['password'])) ||  (!isset($_SESSION['password_check'])) || (!isset($_SESSION['email']))) {
@@ -57,7 +64,7 @@
 				 unset($_SESSION['password']);
 				 unset($_SESSION['password_check']);
 				 unset($_SESSION['email']);
-				 $_SESSION['info'] = 'C:\&gt;Udana rejestracja! Możesz się zalogować na swoje konto.</br></br>';
+				 $_SESSION['info'] = 'C:\signin&gt;Udana rejestracja! Możesz się zalogować na swoje konto.</br></br>';
 				 header('Location: index.php');
 				 exit();
 				}

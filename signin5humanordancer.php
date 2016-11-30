@@ -51,6 +51,10 @@
 		header('Location: signin1user.php');
 		exit();
 	}
+	
+	$_SESSION['validate'] = rand(0, 9);
+	
+	include('signin5validate.php');
 ?>
 
 <!DOCTYPE html>
@@ -65,7 +69,7 @@
 		<meta name="keywords" content="CV, cmd, cvcmd, command line, wiersz poleceń"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 		<div id = "C">
-			Formularz rejestracji 5/5. Udowodnij żeś człek. Do poprawienia. Póki co wpisz 3.<br/>
+			Formularz rejestracji 5/5. Udowodnij żeś człek. <?php echo $pytanie[$_SESSION['validate']] ?><br/>
 			Aby powrócić do poprzedniego punktu wpisz BACK. Aby opuścić formularz bez rejestrowania wpisz EXIT.<br/><br/>
 			<?php
 				if(isset($_SESSION['error_robot'])) {

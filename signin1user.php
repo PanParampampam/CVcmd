@@ -2,6 +2,8 @@
 	session_start();
 	
 	include('session_timeout.php');
+	
+	$_SESSION['validate_count'] = 3;
 ?>
 
 <!DOCTYPE html>
