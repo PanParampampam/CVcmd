@@ -1,6 +1,8 @@
 <?php
 	session_start();
 	
+	include('session_timeout.php');
+	
 		if((!isset($_POST['login']))) {
 		header('Location: index.php');
 		exit();

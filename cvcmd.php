@@ -1,11 +1,14 @@
 ﻿<?php
 	session_start();
 	
+	include('session_timeout.php');
+	
 	if(!isset($_SESSION['zalogowany']))
 	{
 		header('Location: index.php');
 		exit;
 	}
+	
 ?>
 
 <!DOCTYPE html>

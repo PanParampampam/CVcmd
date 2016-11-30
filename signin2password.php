@@ -1,6 +1,8 @@
 ﻿<?php
 	session_start();
 	
+	include('session_timeout.php');
+	
 	if(isset($_POST['nick'])) {
 		
 		require_once('connect.php');

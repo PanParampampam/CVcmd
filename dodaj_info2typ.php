@@ -1,6 +1,8 @@
 ﻿<?php
 	session_start();
 	
+	include('session_timeout.php');
+	
 	if(!isset($_SESSION['zalogowany']))
 	{
 		header('Location: index.php');
@@ -38,7 +40,8 @@
 		<div id = "C">
 			Formularz wprowadzania informacji do CV. Wprowadź dane.</br>
 			Podpowiedź: Aby wprowadzić symbol "&bull;" wpisz '&#38;bull;'.</br>
-			Aby powrócić do poprzedniego punktu wpisz BACK. Aby opuścić formularz bez wprowadzania danych wpisz EXIT.<br/><br/>
+			Aby powrócić do poprzedniego punktu wpisz BACK. Aby opuścić formularz bez wprowadzania danych wpisz EXIT.<br/>
+			Aby zakończyć wprowadzanie danych wciśnij SHIFT + ENTER.</br></br>
 			<?php
 				if(isset($_SESSION['error_info'])) {
 				echo $_SESSION['error_info'];
