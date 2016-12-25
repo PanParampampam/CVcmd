@@ -28,7 +28,7 @@
 		else $_SESSION['data_urodzenia'] = $_POST['data_urodzenia'];
 	}
 	
-	else if ((!isset($_SESSION['godnosc'])) || (!isset($_SESSION['adres'])) ||  (!isset($_SESSION['telefon'])) || (!isset($_SESSION['email'])) || (!isset($_SESSION['data_urodzenia']))) {
+	else if ((!isset($_SESSION['godnosc'])) || (!isset($_SESSION['adres'])) ||  (!isset($_SESSION['tel'])) || (!isset($_SESSION['email'])) || (!isset($_SESSION['data_urodzenia']))) {
 		header('Location: cvcmd.php');
 		exit();
 	}
@@ -59,10 +59,15 @@
 			echo "Tel.: " . $_SESSION['tel'] . "</br>";
 			echo "E-mail: " . $_SESSION['email'] . "</br>";
 			echo "Data urodzenia: " . $_SESSION['data_urodzenia'] . "</br></br>";
+			
+			if(isset($_SESSION['error_dane'])) {
+				echo $_SESSION['error_dane'];
+				unset($_SESSION['error_dane']);
+			}
 		?>
 	
 		<form method="post" action="dodaj_dane7koniec.php">
-			<div id = "C">C:\<?php echo $_SESSION['user']?>\+dane\koniec&gt; <input type="text" id="Commands" name="data_urodzenia" autocomplete="off"/>
+			<div id = "C">C:\<?php echo $_SESSION['user']?>\+dane\koniec&gt; <input type="text" id="Commands" name="koniec" autocomplete="off"/>
 		</form>
 	</body>
 </html>

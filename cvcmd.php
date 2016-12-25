@@ -32,6 +32,12 @@
 	</head>
 	
 	<body>
+			<?php
+			if (isset($_SESSION['info'])) {
+				 echo $_SESSION['info'];
+				 unset($_SESSION['info']);
+			}
+			?>
 		<div id="PastCommands"></div>
 		<div id="Result"></div>
 		<div id="C">C:\<?php echo $_SESSION['user']?>&gt;<input type="text" id="Commands" autocomplete="off" onkeydown="Submit(event)"/>

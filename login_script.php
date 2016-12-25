@@ -44,6 +44,7 @@
 					;
 					unset($_SESSION['login']);
 					$rezultat->close();
+					$_SESSION['info']='C:\&gt;login</br><span style=color:green>Zalogowano. Witaj ' . $_SESSION['user'] . '!</span></br></br>';
 					header('Location: cvcmd.php');
 				}
 				else {

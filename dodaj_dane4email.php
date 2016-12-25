@@ -31,6 +31,12 @@
 	header('Location: cvcmd.php');
 	exit();
 	}
+	
+	require_once('connect.php');
+	$polaczenie =  @new mysqli($host, $db_user, $db_password, $db_name);
+	$user = $_SESSION['user'];
+	$email = $polaczenie->query("SELECT email FROM uzytkownicy WHERE user='$user'");
+	$domyslny_email = mysqli_fetch_row($email);
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +59,7 @@
 	<body>
 	
 		<form method="post" action="dodaj_dane5data_urodzenia.php">
-			<div id = "C">C:\<?php echo $_SESSION['user']?>\+dane\e-mail&gt; <input type="text" id="Commands" name="email" autocomplete="off"/>
+			<div id = "C">C:\<?php echo $_SESSION['user']?>\+dane\e-mail&gt; <input type="text" id="Commands" name="email" value='<?php echo $domyslny_email[0] ?>'autocomplete="off"/>
 		</form>
 	
 	</body>
