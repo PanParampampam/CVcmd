@@ -27,27 +27,54 @@
 		}
 		
 		if ($back_or_exit == "accept") {
-			unset($_SESSION['godnosc']);
-			unset($_SESSION['adres']);
-			unset($_SESSION['tel']);
-			unset($_SESSION['email']);
-			unset($_SESSION['data_urodzenia']);
-			$_SESSION['info'] = 'C:\\' . $_SESSION['user'] . '&gt;+dane</br><span style="color:green">Podane dane zostały zapisane w bazie.</span></br></br>';
-			header('Location: cvcmd.php');
-			exit();
-		}
+			
+			require_once "connect.php";
+			mysqli_report(MYSQLI_REPORT_STRICT);
+
+			try
+			{
+				$polaczenie = new mysqli($host, $db_user, $db_password, $db_name);
+				if($polaczenie->connect_errno!=0)	{
+					throw new Exception(mysqli_connect_errno());
+				}
+				else	{
+					$user =  $_SESSION['user'];
+					$godnosc = $_SESSION['godnosc'];
+					$adres = $_SESSION['adres'];
+					$tel = $_SESSION['tel'];
+					$email = $_SESSION['email'];
+					$data_urodzenia = $_SESSION['data_urodzenia'];
+					if ($polaczenie->query("UPDATE uzytkownicy SET `godnosc`='$godnosc', `adres`='$adres', `tel`='$tel', `emailcv`='$email', `data_urodzenia`='$data_urodzenia' WHERE `user`='$user'")) {
+						unset($_SESSION['godnosc']);
+						unset($_SESSION['adres']);
+						unset($_SESSION['tel']);
+						unset($_SESSION['email']);
+						unset($_SESSION['data_urodzenia']);
+						$_SESSION['info'] = 'C:' . $_SESSION['user'] . '&gt;+dane</br><span style="color:green">Podane dane zostały zapisane w bazie.</span></br></br>';
+						header('Location: cvcmd.php');
+					}
+					else	{
+						throw new Exception($polaczenie->error);
+					}
+				
+				
+				$polaczenie->close();
+				}
+			}
+				catch(Exception $e)  {
+					$_SESSION['info'] = 'C:\\' . $_SESSION['user'] . '&gt;+dane</br><span style="color:red">Błąd serwera! Przepraszamy za niedogodności i prosimy o rejestrację w innym terminie</span></br></br>';
+					header('Location: cvcmd.php');
+					exit();
+					//echo '</br>Informacja developoerska: '.$e;
+				}
+				exit();
+			}
 		
 		else {
-			$_SESSION['error_dane'] ='C:\'' . $_SESSION['user'] . '\+dane\koniec&gt;</br><span style="color:red">Polecenie "' . $_POST['koniec'] . '" nie jest rozpoznawalne.</span></br></br>';
+			$_SESSION['error_dane'] ='C:\\' . $_SESSION['user'] . '\+dane\koniec&gt;</br><span style="color:red">Polecenie "' . $_POST['koniec'] . '" nie jest rozpoznawalne.</span></br></br>';
 			header('Location: dodaj_dane6zatwierdz.php');
 			exit();
 		}
 			
 	}
-	
-	else if ((!isset($_SESSION['godnosc'])) || (!isset($_SESSION['adres'])) ||  (!isset($_SESSION['telefon'])) || (!isset($_SESSION['email'])) || (!isset($_SESSION['data_urodzenia']))) {
-		header('Location: cvcmd.php');
-		exit();
-	}
-
 ?>

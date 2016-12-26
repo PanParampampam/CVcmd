@@ -28,7 +28,12 @@
 	</head>
 	
 	<body>
-	
+		<?php
+			if(isset($_SESSION['error_dane'])) {
+			echo $_SESSION['error_dane'];
+			unset($_SESSION['error_dane']);
+			}
+		?>
 		<form method="post" action="dodaj_dane2adres.php">
 			<div id = "C">C:\<?php echo $_SESSION['user']?>\+dane\imię i nazwisko&gt; <input type="text" id="Commands" name="godnosc" autocomplete="off"/>
 		</form>

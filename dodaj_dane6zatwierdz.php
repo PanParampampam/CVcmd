@@ -24,6 +24,11 @@
 			header('Location: cvcmd.php');
 			exit();
 		}
+		if ($back_or_exit == "") {
+			$_SESSION['error_dane'] ='C:\\' . $_SESSION['user'] . '\+dane\data urodzenia&gt;</br><span style="color:red">Podaj dane</span></br></br>';
+			header('Location: dodaj_dane5data_urodzenia.php');
+			exit();
+		}
 		
 		else $_SESSION['data_urodzenia'] = $_POST['data_urodzenia'];
 	}
@@ -58,8 +63,7 @@
 			echo "Adres: " . $_SESSION['adres'] . "</br>";
 			echo "Tel.: " . $_SESSION['tel'] . "</br>";
 			echo "E-mail: " . $_SESSION['email'] . "</br>";
-			echo "Data urodzenia: " . $_SESSION['data_urodzenia'] . "</br></br>";
-			
+			echo "Data urodzenia: " . $_SESSION['data_urodzenia'] . "</br></br>";	
 			if(isset($_SESSION['error_dane'])) {
 				echo $_SESSION['error_dane'];
 				unset($_SESSION['error_dane']);

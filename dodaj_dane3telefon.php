@@ -22,6 +22,11 @@
 			header('Location: cvcmd.php');
 			exit();
 		}
+		if ($back_or_exit == "") {
+			$_SESSION['error_dane'] ='C:\\' . $_SESSION['user'] . '\+dane\adres&gt;</br><span style="color:red">Podaj dane</span></br></br>';
+			header('Location: dodaj_dane2adres.php');
+			exit();
+		}
 		
 		else $_SESSION['adres'] = $_POST['adres'];
 	}
@@ -50,7 +55,14 @@
 	</head>
 	
 	<body>
-	
+		<?php
+			echo "Imię i nazwisko: " . $_SESSION['godnosc'] . "</br>";
+			echo "Adres: " . $_SESSION['adres'] . "</br></br>";
+			if(isset($_SESSION['error_dane'])) {
+			echo $_SESSION['error_dane'];
+			unset($_SESSION['error_dane']);
+			}
+		?>
 		<form method="post" action="dodaj_dane4email.php">
 			<div id = "C">C:\<?php echo $_SESSION['user']?>\+dane\tel&gt; <input type="text" id="Commands" name="tel" autocomplete="off"/>
 		</form>

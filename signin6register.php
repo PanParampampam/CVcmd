@@ -58,7 +58,7 @@
 				$nick = $_SESSION['nick'];
 				$password = $_SESSION['password'];
 				$email = $_SESSION['email'];
-				if ($polaczenie->query("INSERT INTO uzytkownicy VALUES (NULL, '$nick', '$password', '$email')"))
+				if ($polaczenie->query("INSERT INTO uzytkownicy (`id`, `user`, `pass`, `email`) VALUES (NULL, '$nick', '$password', '$email')"))
 				{
 				 unset($_SESSION['nick']);
 				 unset($_SESSION['password']);
@@ -79,7 +79,7 @@
 	}
 	catch(Exception $e) //zlap wyjatek i umiesc go w zmiennej $e
 	{
-		$_SESSION['info'] = 'C:\&gt;<span style="color:red">Błąd serwera! Przepraszamy za niedogodności i prosimy o rejestrację w innym terminie</span></br></br>';
+		$_SESSION['info'] = 'C:\&gt;<span style="color:red">Błąd serwera! Przepraszamy za niedogodności i prosimy o rejestrację w innym terminie</span></br></br>' . $e;
 		header('Location: index.php');
 		exit();
 		//echo '</br>Informacja developoerska: '.$e;
