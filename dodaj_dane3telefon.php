@@ -49,7 +49,7 @@
 		<meta name="keywords" content="CV, cmd, cvcmd, command line, wiersz poleceń"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 		<div id = "C">
-			Formularz wprowadzania danych osobowych 3/5. Podaj numer/numery telefonu.<br/>
+			Formularz wprowadzania danych osobowych 3/6. Podaj numer/numery telefonu.<br/>
 			Aby powrócić do poprzedniego punktu wpisz BACK. Aby opuścić formularz bez wprowadzania danych wpisz EXIT.<br/><br/>
 		</div>
 	</head>

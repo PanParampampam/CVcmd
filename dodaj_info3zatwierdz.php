@@ -13,7 +13,6 @@
 		
 		$back_or_exit = strtolower($_POST['info']);
 		if ($back_or_exit == "back") {
-			unset($_SESSION['info']);
 			header('Location: dodaj_info1naglowek.php');
 			exit();
 		}
@@ -44,8 +43,9 @@
 		<meta name="keywords" content="CV, cmd, cvcmd, command line, wiersz poleceń"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 		<div id = "C">
-			Twoje CV zostanie zaktualizowane o poniższe informacje.<br/>
-			Aby powrócić do poprzedniego punktu wpisz BACK. Aby opuścić formularz bez wprowadzania danych wpisz EXIT. Aby zatwierdzić wpisz ACCEPT.<br/><br/>
+			Formularz wprowadzania informacji do CV 3/3. Twoje CV zostanie zaktualizowane o poniższe informacje.<br/>
+			Aby powrócić do poprzedniego punktu wpisz BACK. Aby opuścić formularz bez wprowadzania danych wpisz EXIT. Aby zatwierdzić wpisz ACCEPT.<br/>
+			Podpowiedź: Powrót do punktu 1/3 nie nadpisze danych zawartych w punkcie 2/3 .</br></br>
 		</div>
 	</head>
 	

@@ -22,7 +22,7 @@
 		<meta name="keywords" content="CV, cmd, cvcmd, command line, wiersz poleceń"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 		<div id = "C">
-			Formularz wprowadzania danych osobowych 1/5. Podaj imię i nazwisko.<br/>
+			Formularz wprowadzania danych osobowych 1/6. Podaj imię i nazwisko.<br/>
 			Aby opuścić formularz bez wprowadzania danych wpisz EXIT.<br/><br/>
 		</div>
 	</head>

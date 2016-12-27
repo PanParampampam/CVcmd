@@ -45,7 +45,7 @@
 		<meta name="keywords" content="CV, cmd, cvcmd, command line, wiersz poleceń"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 		<div id = "C">
-			Formularz wprowadzania danych osobowych 2/5. Podaj adres zamieszkania.<br/>
+			Formularz wprowadzania danych osobowych 2/6. Podaj adres zamieszkania.<br/>
 			Aby powrócić do poprzedniego punktu wpisz BACK. Aby opuścić formularz bez wprowadzania danych wpisz EXIT.<br/><br/>
 		</div>
 	</head>

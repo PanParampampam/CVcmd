@@ -14,6 +14,7 @@
 		$back_or_exit = strtolower($_POST['naglowek']);
 		if ($back_or_exit == "exit") {
 			unset($_SESSION['naglowek']);
+			unset($_SESSION['info']);
 			header('Location: cvcmd.php');
 			exit();
 		}
@@ -25,6 +26,12 @@
 	header('Location: cvcmd.php');
 	exit();
 	}
+	
+	if(isset($_SESSION['info']))
+	{
+		$info = $_SESSION['info'];
+	}
+	
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -38,8 +45,8 @@
 		<meta name="keywords" content="CV, cmd, cvcmd, command line, wiersz poleceń"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 		<div id = "C">
-			Formularz wprowadzania informacji do CV. Wprowadź dane.</br>
-			Podpowiedź: Aby wprowadzić symbol "&bull;" wpisz '&#38;bull;'. Będzie on widoczny po zatwierdzeniu.</br>
+			Formularz wprowadzania informacji do CV 2/3. Wprowadź dane.</br>
+			Podpowiedź: Aby wprowadzić symbol "&bull;" wpisz '&#38;bull;' lub wciśnij CTRL + ENTER. Będzie on widoczny po zatwierdzeniu.</br>
 			Aby przejść do następnej linii wciśnij ENTER. Na końcu linii pojawi się symbol '&#60;/br>' - oznacza on przejście do następnej linii i zniknie po zatwierdzeniu.</br>
 			Aby powrócić do poprzedniego punktu wpisz BACK. Aby opuścić formularz bez wprowadzania danych wpisz EXIT.<br/>
 			Aby zatwierdzić wprowadzanie danych wciśnij SHIFT + ENTER.</br></br>
@@ -61,11 +68,15 @@
 			}
 			if(key.keyCode == 13) {
 				document.getElementById('Commands').value+="</br>";
-			}});
+			}
+			if(key.ctrlKey) {
+				document.getElementById('Commands').value+="&bull;";
+			}
+			});
 		</script>
 		
 		<form method="post" name="przekaz_info" action="dodaj_info3zatwierdz.php">
-		<div id = "C">C:\<?php echo $_SESSION['user']?>\+info\info&gt; <textarea id="Commands" name="info" autocomplete="off" rows="20"></textarea>
+		<div id = "C">C:\<?php echo $_SESSION['user']?>\+info\info&gt; <textarea id="Commands" name="info" autocomplete="off" rows="20"><?php if(isset($info))echo $info ?></textarea>
 		</form>
 		
 	</body>
