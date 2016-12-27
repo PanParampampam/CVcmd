@@ -39,10 +39,12 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 		<div id = "C">
 			Formularz wprowadzania informacji do CV. Wprowadź dane.</br>
-			Podpowiedź: Aby wprowadzić symbol "&bull;" wpisz '&#38;bull;'.</br>
+			Podpowiedź: Aby wprowadzić symbol "&bull;" wpisz '&#38;bull;'. Będzie on widoczny po zatwierdzeniu.</br>
+			Aby przejść do następnej linii wciśnij ENTER. Na końcu linii pojawi się symbol '&#60;/br>' - oznacza on przejście do następnej linii i zniknie po zatwierdzeniu.</br>
 			Aby powrócić do poprzedniego punktu wpisz BACK. Aby opuścić formularz bez wprowadzania danych wpisz EXIT.<br/>
 			Aby zatwierdzić wprowadzanie danych wciśnij SHIFT + ENTER.</br></br>
 			<?php
+				echo "Nagłówek: " . $_SESSION['naglowek'] . "</br>";
 				if(isset($_SESSION['error_info'])) {
 				echo $_SESSION['error_info'];
 				unset($_SESSION['error_info']);
@@ -52,13 +54,19 @@
 	</head>
 	
 	<body>
-			<script>
-			document.addEventListener("keypress", function(key) {
-				if(key.keyCode == 13 && key.shiftKey) {
-					window.location.href = "dodaj_info1naglowek.php";
-				}});
+		<script>
+		document.addEventListener("keypress", function(key) {
+			if(key.keyCode == 13 && key.shiftKey) {
+				document.forms["przekaz_info"].submit();
+			}
+			if(key.keyCode == 13) {
+				document.getElementById('Commands').value+="</br>";
+			}});
 		</script>
-			<div id = "C">C:\<?php echo $_SESSION['user']?>\+info\info&gt; <textarea id="Commands" name="info" autocomplete="off" rows="20"></textarea>
-			<p id="wynik"></p>
+		
+		<form method="post" name="przekaz_info" action="dodaj_info3zatwierdz.php">
+		<div id = "C">C:\<?php echo $_SESSION['user']?>\+info\info&gt; <textarea id="Commands" name="info" autocomplete="off" rows="20"></textarea>
+		</form>
+		
 	</body>
 </html>

@@ -9,19 +9,25 @@
 		exit;
 	}
 	
-	if(isset($_POST['naglowek'])) {
+	if(isset($_POST['info'])) {
 		
-		$back_or_exit = strtolower($_POST['naglowek']);
+		$back_or_exit = strtolower($_POST['info']);
+		if ($back_or_exit == "back") {
+			unset($_SESSION['info']);
+			header('Location: dodaj_info1naglowek.php');
+			exit();
+		}
 		if ($back_or_exit == "exit") {
 			unset($_SESSION['naglowek']);
+			unset($_SESSION['info']);
 			header('Location: cvcmd.php');
 			exit();
 		}
 		
-		else $_SESSION['naglowek'] = $_POST['naglowek'];
+		else $_SESSION['info'] = $_POST['info'];
 	}
 	
-	else if (!isset($_SESSION['naglowek'])) {
+	else if (!isset($_SESSION['info'])) {
 	header('Location: cvcmd.php');
 	exit();
 	}
@@ -38,25 +44,25 @@
 		<meta name="keywords" content="CV, cmd, cvcmd, command line, wiersz poleceń"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 		<div id = "C">
-			Formularz wprowadzania informacji do CV. Podaj typ wprowadzanych danych:<br/>
-			1 - lista<br/>
-			2 - lista z datami<br/>
-			3 - tekst<br/>
-			Aby powrócić do poprzedniego punktu wpisz BACK. Aby opuścić formularz bez wprowadzania danych wpisz EXIT.<br/><br/>
-			<?php
-				if(isset($_SESSION['error_typ'])) {
-				echo $_SESSION['error_typ'];
-				unset($_SESSION['error_typ']);
-				}
-			?>
+			Twoje CV zostanie zaktualizowane o poniższe informacje.<br/>
+			Aby powrócić do poprzedniego punktu wpisz BACK. Aby opuścić formularz bez wprowadzania danych wpisz EXIT. Aby zatwierdzić wpisz ACCEPT.<br/><br/>
 		</div>
 	</head>
 	
 	<body>
 	
-			<?php
-				echo $_POST['info'];
-			?>
-	
+		<?php
+		echo "Nagłówek: " . $_SESSION['naglowek'] . "</br></br>";
+		echo $_SESSION['info'];
+		if(isset($_SESSION['error_typ'])) {
+		echo $_SESSION['error_typ'];
+		unset($_SESSION['error_typ']);
+		}
+		?>
+		
+		<form method="post" action="dodaj_info4koniec.php">
+		<div id = "C">C:\<?php echo $_SESSION['user']?>\+info\koniec&gt; <input type="text" id="Commands" name="koniec" autocomplete="off"/>
+		</form>
+		
 	</body>
 </html>

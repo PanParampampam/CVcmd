@@ -29,7 +29,7 @@
 	
 	<body>
 	
-		<form method="post" action="dodaj_info2typ.php">
+		<form method="post" action="dodaj_info2info.php">
 			<div id = "C">C:\<?php echo $_SESSION['user']?>\+info\nagłówek&gt; <input type="text" id="Commands" name="naglowek" autocomplete="off"/>
 		</form>
 	
