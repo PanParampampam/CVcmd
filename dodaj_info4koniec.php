@@ -62,8 +62,8 @@
 			}
 		
 		else {
-			$_SESSION['error_dane'] ='C:\\' . $_SESSION['user'] . '\+info\koniec&gt;</br><span style="color:red">Polecenie "' . $_POST['koniec'] . '" nie jest rozpoznawalne.</span></br></br>';
-			header('Location: dodaj_dane6zatwierdz.php');
+			$_SESSION['error_info'] ='C:\\' . $_SESSION['user'] . '\+info\koniec&gt;</br><span style="color:red">Polecenie "' . $_POST['koniec'] . '" nie jest rozpoznawalne.</span></br></br>';
+			header('Location: dodaj_info3zatwierdz.php');
 			exit();
 		}
 			

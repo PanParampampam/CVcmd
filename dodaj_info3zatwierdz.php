@@ -53,10 +53,10 @@
 	
 		<?php
 		echo "Nagłówek: " . $_SESSION['naglowek'] . "</br></br>";
-		echo $_SESSION['info'];
-		if(isset($_SESSION['error_typ'])) {
-		echo $_SESSION['error_typ'];
-		unset($_SESSION['error_typ']);
+		echo $_SESSION['info'] . "</br>";
+		if(isset($_SESSION['error_info'])) {
+		echo $_SESSION['error_info'];
+		unset($_SESSION['error_info']);
 		}
 		?>
 		

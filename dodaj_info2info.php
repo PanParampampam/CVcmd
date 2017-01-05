@@ -51,7 +51,7 @@
 			Aby powrócić do poprzedniego punktu wpisz BACK. Aby opuścić formularz bez wprowadzania danych wpisz EXIT.<br/>
 			Aby zatwierdzić wprowadzanie danych wciśnij SHIFT + ENTER.</br></br>
 			<?php
-				echo "Nagłówek: " . $_SESSION['naglowek'] . "</br>";
+				echo "Nagłówek: " . $_SESSION['naglowek'] . "</br></br>";
 				if(isset($_SESSION['error_info'])) {
 				echo $_SESSION['error_info'];
 				unset($_SESSION['error_info']);

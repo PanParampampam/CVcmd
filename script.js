@@ -18,7 +18,6 @@ function Help () {
 			"<tr><td>HELP<td><td>Wyświetla listę komend</td></tr>" +
 			"<tr><td>HTS<td><td>Poradnik jak zacząć</td></tr>" +
 			"<tr><td>LOGIN<td><td>Przejście do strony logowania</td></tr>" +
-			"<tr><td>LOGOUT<td><td>Wylogowanie</td></tr>" +
 			"<tr><td>SIGNIN<td><td>Założenie nowego konta użytkownika</td></tr></table>";	
 }
 
@@ -40,14 +39,11 @@ function Submit(key) {
 			case "login":
 				window.location.href = "login.php";
 				return;
-			case "logout":
-				window.location.href = "logout.php";
-				return;
 			case "signin":
 				window.location.href = "signin1user.php";
 				return;
 			default:
-				Result = "Polecenie '" + GetCommand + "' nie jest rozpoznawalne.";
+				Result = "<span style='color:red'>Polecenie '" + GetCommand + "' nie jest rozpoznawalne.</span>";
 		}
 		Counter = AllCommands.length;
 		SwitchCommands(); // i w tym momencie wywolujemy funkcje, ktore to wszystko odpowiednio wyswietla na ekranie

@@ -4,7 +4,7 @@ function SwitchCommands (){
 	var NewDiv = null;
 	var NewResult = null;
 	NewDiv = document.createElement("div");
-	NewDiv.innerHTML = 'C:\\&gt;' + document.getElementById("Commands").value + "<br/>";
+	NewDiv.innerHTML = 'C:\\' +  document.getElementById("User").value + '&gt;' + document.getElementById("Commands").value + "<br/>";
 	NewResult = document.createElement("div");
 	NewResult.innerHTML = Result + "<br/><br/>";
 	OldDiv = document.getElementById("PastCommands");
@@ -55,7 +55,7 @@ function Submit(key) {
 				window.location.href = "signin1user.php";
 				return;
 			default:
-				Result = "Polecenie '" + GetCommand + "' nie jest rozpoznawalne.";
+				Result = "<span style='color:red'>Polecenie '" + GetCommand + "' nie jest rozpoznawalne.</span>";
 		}
 		Counter = AllCommands.length;
 		SwitchCommands(); // i w tym momencie wywolujemy funkcje, ktore to wszystko odpowiednio wyswietla na ekranie

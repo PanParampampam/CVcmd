@@ -64,6 +64,7 @@
 				 unset($_SESSION['password']);
 				 unset($_SESSION['password_check']);
 				 unset($_SESSION['email']);
+				 unset($_SESSION['robot']);
 				 $_SESSION['info'] = 'C:\&gt;signin</br><span style="color:green">Udana rejestracja! Możesz się zalogować na swoje konto.</span></br></br>';
 				 header('Location: index.php');
 				 exit();
