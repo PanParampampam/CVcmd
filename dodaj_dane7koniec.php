@@ -38,6 +38,10 @@
 					throw new Exception(mysqli_connect_errno());
 				}
 				else	{
+					if ((!isset($_SESSION['godnosc'])) || (!isset($_SESSION['adres'])) || (!isset($_SESSION['tel'])) || (!isset($_SESSION['email'])) || (!isset($_SESSION['data_urodzenia']))) {
+						header('Location: cvcmd.php');
+						exit();
+					}
 					$user =  $_SESSION['user'];
 					$godnosc = $_SESSION['godnosc'];
 					$adres = $_SESSION['adres'];

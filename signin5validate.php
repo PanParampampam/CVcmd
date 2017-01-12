@@ -1,6 +1,6 @@
 ﻿<?php
-	$pytanie = array("W którym roku zakończyła się pierwsza wojna światowa?", 
-								"Kto był pierwszym koronowanym królem Polski?",
+	$pytanie = array("W którym roku zakończyła się druga wojna światowa?", 
+								"Pseudonim Władysława I (był niskiego wzrostu)",
 								"'Czerwony' w języku angielskim to?",
 								"'Zielony' w języku angielskim to?",
 								"Stolica Niemiec to?",
@@ -11,7 +11,7 @@
 								"Napisz nazwę kontynentu na którym znajduje się państwo Kenia");
 								
 	$odpowiedz = array("1945",
-								"bolesław chrobry",
+								"łokietek",
 								"red",
 								"green",
 								"berlin",

@@ -35,6 +35,10 @@
 					throw new Exception(mysqli_connect_errno());
 				}
 				else	{
+					if ((!isset($_SESSION['info'])) || (!isset($_SESSION['naglowek']))) {
+						header('Location: cvcmd.php');
+						exit();
+						}
 					$user =  $_SESSION['user'];
 					$id = $_SESSION['id'];
 					$naglowek = $_SESSION['naglowek'];

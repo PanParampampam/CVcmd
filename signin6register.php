@@ -52,25 +52,31 @@
 			//zlapala go i wyrzucila na ekranie
 		}
 		else	{
-				$nick = $_SESSION['nick'];
-				$password = $_SESSION['password'];
-				$email = $_SESSION['email'];
-				
-				if ($polaczenie->query("INSERT INTO uzytkownicy (`id`, `user`, `pass`, `email`) VALUES (NULL, '$nick', '$password', '$email')")) {
-				 unset($_SESSION['nick']);
-				 unset($_SESSION['password']);
-				 unset($_SESSION['password_check']);
-				 unset($_SESSION['email']);
-				 unset($_SESSION['robot']);
-				 $_SESSION['info'] = 'C:\&gt;signin</br><span style="color:green">Udana rejestracja! Możesz się zalogować na swoje konto.</span></br></br>';
-				 header('Location: index.php');
-				 exit();
-				}
-				else {
-					throw new Exception($polaczenie->error);
-				}
 			
+			if ((!isset($_SESSION['nick'])) || (!isset($_SESSION['password'])) ||  (!isset($_SESSION['password_check'])) || (!isset($_SESSION['email']))) {
+			header('Location: index.php');
+			exit();
+			}
 			
+			$nick = $_SESSION['nick'];
+			$password = $_SESSION['password'];
+			$email = $_SESSION['email'];
+			
+			if ($polaczenie->query("INSERT INTO uzytkownicy (`id`, `user`, `pass`, `email`) VALUES (NULL, '$nick', '$password', '$email')")) {
+			 unset($_SESSION['nick']);
+			 unset($_SESSION['password']);
+			 unset($_SESSION['password_check']);
+			 unset($_SESSION['email']);
+			 unset($_SESSION['robot']);
+			 $_SESSION['info'] = 'C:\&gt;signin</br><span style="color:green">Udana rejestracja! Możesz się zalogować na swoje konto.</span></br></br>';
+			 header('Location: index.php');
+			 exit();
+			}
+			else {
+				throw new Exception($polaczenie->error);
+			}
+		
+		
 			$polaczenie->close();
 		}
 	}
