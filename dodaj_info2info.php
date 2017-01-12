@@ -27,8 +27,7 @@
 	exit();
 	}
 	
-	if(isset($_SESSION['info']))
-	{
+	if(isset($_SESSION['info'])) {
 		$info = $_SESSION['info'];
 	}
 	
@@ -40,13 +39,14 @@
 		<link rel="stylesheet" href="style.css"/>
 		<link rel="shortcut icon" type="image/png" href="favicon.png">
 		<script src="focus.js"></script>
+		<script src="mousetrap.min.js"></script>
 		<title>CVcmd - rejestracja</title>
 		<meta name="description" content="Tworzenie CV w środowisku podobnym do lini poleceń"/>
 		<meta name="keywords" content="CV, cmd, cvcmd, command line, wiersz poleceń"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 		<div id = "C">
 			Formularz wprowadzania informacji do CV 2/3. Wprowadź dane.</br>
-			Podpowiedź: Aby wprowadzić symbol "&bull;" wpisz '&#38;bull;' lub wciśnij CTRL + ENTER. Będzie on widoczny po zatwierdzeniu.</br>
+			Podpowiedź: Aby wprowadzić symbol "&bull;" wciśnij CTRL + ENTER.</br>
 			Aby przejść do następnej linii wciśnij ENTER. Na końcu linii pojawi się symbol '&#60;/br>' - oznacza on przejście do następnej linii i zniknie po zatwierdzeniu.</br>
 			Aby powrócić do poprzedniego punktu wpisz BACK. Aby opuścić formularz bez wprowadzania danych wpisz EXIT.<br/>
 			Aby zatwierdzić wprowadzanie danych wciśnij SHIFT + ENTER.</br></br>
@@ -62,21 +62,19 @@
 	
 	<body>
 		<script>
-		document.addEventListener("keypress", function(key) {
-			if(key.keyCode == 13 && key.shiftKey) {
+			Mousetrap.bind ('shift+enter', function (){
 				document.forms["przekaz_info"].submit();
-			}
-			if(key.keyCode == 13) {
+			});
+			Mousetrap.bind ('enter', function (){
 				document.getElementById('Commands').value+="</br>";
-			}
-			if(key.ctrlKey) {
-				document.getElementById('Commands').value+="&bull;";
-			}
+			});
+			Mousetrap.bind ('ctrl+enter', function (){
+				document.getElementById('Commands').value+="•";
 			});
 		</script>
 		
 		<form method="post" name="przekaz_info" action="dodaj_info3zatwierdz.php">
-		<div id = "C">C:\<?php echo $_SESSION['user']?>\+info\info&gt; <textarea id="Commands" name="info" autocomplete="off" rows="20"><?php if(isset($info))echo $info ?></textarea>
+		<div id = "C">C:\<?php echo $_SESSION['user']?>\+info\info&gt; <textarea id="Commands" class="mousetrap" name="info" autocomplete="off" rows="20"><?php if(isset($info))echo $info ?></textarea>
 		</form>
 		
 	</body>

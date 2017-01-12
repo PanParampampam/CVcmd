@@ -36,9 +36,11 @@
 				}
 				else	{
 					$user =  $_SESSION['user'];
+					$id = $_SESSION['id'];
 					$naglowek = $_SESSION['naglowek'];
 					$info = $_SESSION['info'];
-					if ($polaczenie->query("UPDATE uzytkownicy SET `naglowek`='$naglowek', `info`='$info' WHERE `user`='$user'")) {
+					$polaczenie ->query("SET NAMES 'utf8'");
+					if ($polaczenie->query("INSERT INTO info (`id`, `id_usera`, `naglowek`, `info`) VALUES (NULL, '$id', '$naglowek', '$info')")) {
 						unset($_SESSION['naglowek']);
 						unset($_SESSION['info']);;
 						$_SESSION['info'] = 'C:' . $_SESSION['user'] . '&gt;+info</br><span style="color:green">Podane informacje zostały zapisane w bazie.</span></br></br>';

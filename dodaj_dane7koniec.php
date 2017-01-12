@@ -44,6 +44,8 @@
 					$tel = $_SESSION['tel'];
 					$email = $_SESSION['email'];
 					$data_urodzenia = $_SESSION['data_urodzenia'];
+					
+					$polaczenie ->query("SET NAMES 'utf8'");
 					if ($polaczenie->query("UPDATE uzytkownicy SET `godnosc`='$godnosc', `adres`='$adres', `tel`='$tel', `emailcv`='$email', `data_urodzenia`='$data_urodzenia' WHERE `user`='$user'")) {
 						unset($_SESSION['godnosc']);
 						unset($_SESSION['adres']);

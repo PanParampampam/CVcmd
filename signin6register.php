@@ -44,22 +44,19 @@
 	//dzieki tej funkcji raportujemy tylko wyjatki, czyli nie wycieka za duzo info do uzytkownikow
 	//np o nazwie roota
 	
-	try
-	{
+	try {
 		$polaczenie = new mysqli($host, $db_user, $db_password, $db_name);
-		if($polaczenie->connect_errno!=0)
-		{
+		if($polaczenie->connect_errno!=0)	{
 			throw new Exception(mysqli_connect_errno());
 			//rzuc nowym wyjatkiem - po to by sekcja catch zlapala go, zeby sekcja catch
 			//zlapala go i wyrzucila na ekranie
 		}
-		else
-		{
+		else	{
 				$nick = $_SESSION['nick'];
 				$password = $_SESSION['password'];
 				$email = $_SESSION['email'];
-				if ($polaczenie->query("INSERT INTO uzytkownicy (`id`, `user`, `pass`, `email`) VALUES (NULL, '$nick', '$password', '$email')"))
-				{
+				
+				if ($polaczenie->query("INSERT INTO uzytkownicy (`id`, `user`, `pass`, `email`) VALUES (NULL, '$nick', '$password', '$email')")) {
 				 unset($_SESSION['nick']);
 				 unset($_SESSION['password']);
 				 unset($_SESSION['password_check']);
@@ -69,8 +66,7 @@
 				 header('Location: index.php');
 				 exit();
 				}
-				else
-				{
+				else {
 					throw new Exception($polaczenie->error);
 				}
 			
@@ -78,8 +74,7 @@
 			$polaczenie->close();
 		}
 	}
-	catch(Exception $e) //zlap wyjatek i umiesc go w zmiennej $e
-	{
+	catch(Exception $e) { //zlap wyjatek i umiesc go w zmiennej $e
 		$_SESSION['info'] = 'C:\&gt;<span style="color:red">Błąd serwera! Przepraszamy za niedogodności i prosimy o rejestrację w innym terminie</span></br></br>' . $e;
 		header('Location: index.php');
 		exit();
