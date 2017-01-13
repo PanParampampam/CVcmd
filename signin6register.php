@@ -81,7 +81,7 @@
 		}
 	}
 	catch(Exception $e) { //zlap wyjatek i umiesc go w zmiennej $e
-		$_SESSION['info'] = 'C:\&gt;<span style="color:red">Błąd serwera! Przepraszamy za niedogodności i prosimy o rejestrację w innym terminie</span></br></br>' . $e;
+		$_SESSION['info'] = 'C:\&gt;<span style="color:red">Błąd serwera! Przepraszamy za niedogodności i prosimy o rejestrację w innym terminie.</span></br></br>' . $e;
 		header('Location: index.php');
 		exit();
 		//echo '</br>Informacja developoerska: '.$e;

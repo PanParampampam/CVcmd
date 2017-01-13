@@ -1,13 +1,7 @@
 ﻿<?php
 	session_start();
-	
 	include('session_timeout.php');
-	
-	if(!isset($_SESSION['zalogowany']))
-	{
-		header('Location: index.php');
-		exit;
-	}
+	include('zalogowany.php');
 	
 	if(isset($_POST['godnosc'])) {
 		
@@ -54,8 +48,8 @@
 		<?php
 			echo "Imię i nazwisko: " . $_SESSION['godnosc'] . "</br></br>";
 			if(isset($_SESSION['error_dane'])) {
-			echo $_SESSION['error_dane'];
-			unset($_SESSION['error_dane']);
+				echo $_SESSION['error_dane'];
+				unset($_SESSION['error_dane']);
 			}
 		?>
 		<form method="post" action="dodaj_dane3telefon.php">

@@ -1,13 +1,7 @@
 ﻿<?php
 	session_start();
-	
 	include('session_timeout.php');
-	
-	if(!isset($_SESSION['zalogowany']))
-	{
-		header('Location: index.php');
-		exit;
-	}
+	include('zalogowany.php');
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -34,25 +28,31 @@
 			try
 			{
 				$polaczenie = new mysqli($host, $db_user, $db_password, $db_name);
+				
 				if($polaczenie->connect_errno!=0)	{
 					throw new Exception(mysqli_connect_errno());
 				}
+				
 				else	{
-
+					$polaczenie ->query("SET NAMES 'utf8'");
 					$id = $_SESSION['id'];
-					if ($polaczenie->query("SELECT naglowek FROM info WHERE id_usera='$id'")) {
+					$sql = "SELECT * FROM info WHERE id_usera='$id'";
+					$rezultat = mysqli_query($polaczenie, $sql);
+
+					if (mysqli_num_rows($rezultat) > 0) {
+						while($row = mysqli_fetch_assoc($rezultat)) {
+							echo "Nagłówek: " . $row["naglowek"]. " - Info: " . $row["info"] . "<br>";
+						}
+					}
+					else {
+						echo "Brak wyników";
+					}
 						
-					}
-					else	{
-						throw new Exception($polaczenie->error);
-					}
-				
-				
+				}			
 				$polaczenie->close();
-				}
 			}
 				catch(Exception $e)  {
-					$_SESSION['info'] = 'C:\\' . $_SESSION['user'] . '&gt;+info</br><span style="color:red">Błąd serwera! Przepraszamy za niedogodności i prosimy o rejestrację w innym terminie</span></br></br>';
+					$_SESSION['info'] = 'C:\\' . $_SESSION['user'] . '&gt;+info</br><span style="color:red">Błąd serwera! Przepraszamy za niedogodności i prosimy o spróbowanie ponownie w innym terminie.</span></br></br>';
 					header('Location: cvcmd.php');
 					exit();
 					//echo '</br>Informacja developoerska: '.$e;

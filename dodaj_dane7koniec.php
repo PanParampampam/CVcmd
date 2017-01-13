@@ -1,13 +1,7 @@
 ﻿<?php
 	session_start();
-	
 	include('session_timeout.php');
-	
-	if(!isset($_SESSION['zalogowany']))
-	{
-		header('Location: index.php');
-		exit;
-	}
+	include('zalogowany.php');
 	
 	if(isset($_POST['koniec'])) {
 		
@@ -68,7 +62,7 @@
 				}
 			}
 				catch(Exception $e)  {
-					$_SESSION['info'] = 'C:\\' . $_SESSION['user'] . '&gt;+dane</br><span style="color:red">Błąd serwera! Przepraszamy za niedogodności i prosimy o rejestrację w innym terminie</span></br></br>';
+					$_SESSION['info'] = 'C:\\' . $_SESSION['user'] . '&gt;+dane</br><span style="color:red">Błąd serwera! Przepraszamy za niedogodności i prosimy o spróbowanie ponownie w innym terminie.</span></br></br>';
 					header('Location: cvcmd.php');
 					exit();
 					//echo '</br>Informacja developoerska: '.$e;
