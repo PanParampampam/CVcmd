@@ -50,13 +50,13 @@
 	</head>
 	
 	<body>
-	
+		
 		<?php
-		echo "Nagłówek: " . $_SESSION['naglowek'] . "</br></br>";
-		echo $_SESSION['info'] . "</br>";
+		echo "Treść: <strong>" . $_SESSION['naglowek'] . "</strong></br></br>";
+		echo '<div style="white-space: pre-line; margin-left: 40px;">' . $_SESSION['info'] . "</br></br></div>";
 		if(isset($_SESSION['error_info'])) {
-		echo $_SESSION['error_info'];
-		unset($_SESSION['error_info']);
+			echo $_SESSION['error_info'];
+			unset($_SESSION['error_info']);
 		}
 		?>
 		

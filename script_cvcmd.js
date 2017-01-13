@@ -21,7 +21,9 @@ function Help () {
 			"<tr><td>HTS<td><td>Poradnik jak zacząć</td></tr>" +
 			"<tr><td>LOGIN<td><td>Przejście do strony logowania</td></tr>" +
 			"<tr><td>LOGOUT<td><td>Wylogowanie</td></tr>" +
-			"<tr><td>SIGNIN<td><td>Założenie nowego konta użytkownika</td></tr></table>";	
+			"<tr><td>SIGNIN<td><td>Założenie nowego konta użytkownika</td></tr>" +
+		//	"<tr><td>SIGNOUT<td><td>Usunięcie konta użytkownika</td></tr>" +
+			"<tr><td>WYGENERUJ<td><td>Wygenerowanie CV z podanych danych i informacji</td></tr></table>";	
 }
 
 function Submit(key) { 
@@ -53,6 +55,9 @@ function Submit(key) {
 				return;
 			case "signin":
 				window.location.href = "signin1user.php";
+				return;
+			case "wygeneruj":
+				window.location.href = "wygeneruj.php";
 				return;
 			default:
 				Result = "<span style='color:red'>Polecenie '" + GetCommand + "' nie jest rozpoznawalne.</span>";

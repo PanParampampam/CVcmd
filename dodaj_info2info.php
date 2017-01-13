@@ -47,14 +47,14 @@
 		<div id = "C">
 			Formularz wprowadzania informacji do CV 2/3. Wprowadź dane.</br>
 			Podpowiedź: Aby wprowadzić symbol "&bull;" wciśnij CTRL + ENTER.</br>
-			Aby przejść do następnej linii wciśnij ENTER. Na końcu linii pojawi się symbol '&#60;/br>' - oznacza on przejście do następnej linii i zniknie po zatwierdzeniu.</br>
-			Aby powrócić do poprzedniego punktu wpisz BACK. Aby opuścić formularz bez wprowadzania danych wpisz EXIT.<br/>
+			Aby powrócić do poprzedniego punktu wpisz BACK (lub wciśnij SHIFT + BACKSPACE). Powrót do punktu 1/3 nie nadpisze danych zawartych w punkcie 2/3 .</br>
+			Aby opuścić formularz bez wprowadzania danych wpisz EXIT.<br/>
 			Aby zatwierdzić wprowadzanie danych wciśnij SHIFT + ENTER.</br></br>
 			<?php
 				echo "Nagłówek: " . $_SESSION['naglowek'] . "</br></br>";
 				if(isset($_SESSION['error_info'])) {
-				echo $_SESSION['error_info'];
-				unset($_SESSION['error_info']);
+					echo $_SESSION['error_info'];
+					unset($_SESSION['error_info']);
 				}
 			?>
 		</div>
@@ -65,8 +65,9 @@
 			Mousetrap.bind ('shift+enter', function (){
 				document.forms["przekaz_info"].submit();
 			});
-			Mousetrap.bind ('enter', function (){
-				document.getElementById('Commands').value+="</br>";
+			Mousetrap.bind ('shift+backspace', function (){
+				document.getElementById('Commands').value="back";
+				document.forms["przekaz_info"].submit();
 			});
 			Mousetrap.bind ('ctrl+enter', function (){
 				document.getElementById('Commands').value+="•";
