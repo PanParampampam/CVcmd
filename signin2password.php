@@ -8,7 +8,7 @@
 		require_once('connect.php');
 		$polaczenie = @new mysqli($host, $db_user, $db_password, $db_name);
 		if ($polaczenie->connect_errno!=0) {
-			$_SESSION['info'] = "C:\&gt;signin</br><span style=color:red>Error: $polaczenie->connect_errno</span>";
+			$_SESSION['info'] = "CVcmd:\&gt;signin</br><span style=color:red>Error: $polaczenie->connect_errno</span>";
 			header('Location: index.php');
 			exit();
 		}
@@ -17,7 +17,7 @@
 			
 			$back_or_exit = strtolower($_POST['nick']);
 			if ($back_or_exit == "back") {
-				$_SESSION['error_nick'] ="C:\signin\uzytkownik&gt;back</br><span style=color:red>Podana nazwa użytkownika jest już zajęta.</span></br></br>";
+				$_SESSION['error_nick'] ="CVcmd:\signin\uzytkownik&gt;back</br><span style=color:red>Podana nazwa użytkownika jest już zajęta.</span></br></br>";
 				header('Location: signin1user.php');
 				exit();
 			}
@@ -33,20 +33,20 @@
 			mysqli_real_escape_string($polaczenie, $nick)));
 			$istnieje_w_bazie = $rezultat->num_rows;
 			if($istnieje_w_bazie > 0) {
-				$_SESSION['error_nick'] ="C:\signin\uzytkownik&gt;" . $_POST['nick'] . "</br><span style=color:red>Podana nazwa użytkownika jest już zajęta.</span></br></br>";
+				$_SESSION['error_nick'] ="CVcmd:\signin\uzytkownik&gt;" . $_POST['nick'] . "</br><span style=color:red>Podana nazwa użytkownika jest już zajęta.</span></br></br>";
 				header('Location: signin1user.php');
 				exit();
 			}
 			
 		
 			if ((strlen($_POST['nick'])) < 3 || (strlen($_POST['nick']) > 15)) {
-				$_SESSION['error_nick'] ="C:\signin\uzytkownik&gt;" . $_POST['nick'] . "</br><span style=color:red>Nazwa użytkownika musi posiadać od 3 do 15 znaków.</span></br></br>";
+				$_SESSION['error_nick'] ="CVcmd:\signin\uzytkownik&gt;" . $_POST['nick'] . "</br><span style=color:red>Nazwa użytkownika musi posiadać od 3 do 15 znaków.</span></br></br>";
 				header('Location: signin1user.php');
 				exit();
 			}
 			
 			if(ctype_alnum($_POST['nick']) == false) {
-				$_SESSION['error_nick'] = "C:\signin\uzytkownik&gt;" . $_POST['nick'] . "</br><span style=color:red>Nick nie może zawierać polskich znaków, musi się składać z liter i/lub cyfr.</span></br></br>";
+				$_SESSION['error_nick'] = "CVcmd:\signin\uzytkownik&gt;" . $_POST['nick'] . "</br><span style=color:red>Nick nie może zawierać polskich znaków, musi się składać z liter i/lub cyfr.</span></br></br>";
 				header('Location: signin1user.php');
 				exit();
 			}
@@ -86,7 +86,7 @@
 	<body>
 	
 		<form method="post" action="signin3password_check.php">
-			<div id = "C">C:\signin\hasło&gt;<input type="password" id="Commands" name="password"/>
+			<div id = "C">CVcmd:\signin\hasło&gt;<input type="password" id="Commands" name="password"/>
 		</form>
 	
 	</body>

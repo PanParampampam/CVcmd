@@ -37,6 +37,6 @@
 			?>
 		<div id="PastCommands"></div>
 		<div id="Result"></div>
-		<div id="C">C:\&gt;<input type="text" id="Commands" autocomplete="off" onkeydown="Submit(event)"/>
+		<div id="C">CVcmd:\&gt;<input type="text" id="Commands" autocomplete="off" onkeydown="Submit(event)"/>
 	</body>
 </html>

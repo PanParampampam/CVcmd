@@ -22,7 +22,7 @@
 		require_once('connect.php');
 		$polaczenie =  @new mysqli($host, $db_user, $db_password, $db_name);
 		if ($polaczenie->connect_errno!=0) {
-			$_SESSION['info'] = "C:\&gt;signin</br><span style=color:red>Error: $polaczenie->connect_errno</span></br></br>";
+			$_SESSION['info'] = "CVcmd:\&gt;signin</br><span style=color:red>Error: $polaczenie->connect_errno</span></br></br>";
 			header('Location: index.php');
 			exit();
 		}
@@ -31,7 +31,7 @@
 		
 			$email_check = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
 			if (filter_var($email_check, FILTER_VALIDATE_EMAIL) == false || ($email_check != $_POST['email'])) {
-				$_SESSION['error_email'] ="C:\signin\e-mail&gt;" . $_POST['email'] . "</br><span style=color:red>Nieprawidłowy adres e-mail.</span></br></br>";
+				$_SESSION['error_email'] ="CVcmd:\signin\e-mail&gt;" . $_POST['email'] . "</br><span style=color:red>Nieprawidłowy adres e-mail.</span></br></br>";
 				header('Location: signin4email.php');
 				exit();
 			}
@@ -39,7 +39,7 @@
 			$rezultat = $polaczenie->query("SELECT * FROM uzytkownicy WHERE email='$email_check'");
 			$istnieje_w_bazie = $rezultat->num_rows;
 			if($istnieje_w_bazie > 0) {
-				$_SESSION['error_email'] ="C:\signin\e-mail&gt;" . $_POST['email'] . "</br><span style=color:red>Podany adres e-mail jest zajęty.</span></br></br>";
+				$_SESSION['error_email'] ="CVcmd:\signin\e-mail&gt;" . $_POST['email'] . "</br><span style=color:red>Podany adres e-mail jest zajęty.</span></br></br>";
 				header('Location: signin4email.php');
 				exit();
 			}
@@ -83,7 +83,7 @@
 	<body>
 	
 		<form method="post" action="signin6register.php">
-			<div id = "C">C:\signin\walidacja&gt;<input type="text" id="Commands" name="robot" autocomplete="off"/>
+			<div id = "C">CVcmd:\signin\walidacja&gt;<input type="text" id="Commands" name="robot" autocomplete="off"/>
 		</form>
 	
 	</body>

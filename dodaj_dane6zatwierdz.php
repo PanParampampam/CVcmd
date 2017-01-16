@@ -19,7 +19,7 @@
 			exit();
 		}
 		if ($back_or_exit == "") {
-			$_SESSION['error_dane'] ='C:\\' . $_SESSION['user'] . '\+dane\data urodzenia&gt;</br><span style="color:red">Podaj dane</span></br></br>';
+			$_SESSION['error_dane'] ='CVcmd:\\' . $_SESSION['user'] . '\+dane\data urodzenia&gt;</br><span style="color:red">Podaj dane</span></br></br>';
 			header('Location: dodaj_dane5data_urodzenia.php');
 			exit();
 		}
@@ -65,7 +65,7 @@
 		?>
 	
 		<form method="post" action="dodaj_dane7koniec.php">
-			<div id = "C">C:\<?php echo $_SESSION['user']?>\+dane\koniec&gt; <input type="text" id="Commands" name="koniec" autocomplete="off"/>
+			<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\+dane\koniec&gt; <input type="text" id="Commands" name="koniec" autocomplete="off"/>
 		</form>
 	</body>
 </html>

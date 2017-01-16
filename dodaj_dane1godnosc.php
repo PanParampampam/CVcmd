@@ -29,7 +29,7 @@
 			}
 		?>
 		<form method="post" action="dodaj_dane2adres.php">
-			<div id = "C">C:\<?php echo $_SESSION['user']?>\+dane\imię i nazwisko&gt; <input type="text" id="Commands" name="godnosc" autocomplete="off"/>
+			<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\+dane\imię i nazwisko&gt; <input type="text" id="Commands" name="godnosc" autocomplete="off"/>
 		</form>
 	
 	</body>

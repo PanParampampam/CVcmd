@@ -29,7 +29,7 @@
 				header('Location: index.php');
 			}
 			else {
-				$_SESSION['error_robot'] ="C:\signin\walidacja&gt;" . $_POST['robot'] . "</br><span style=color:red>Nieudana walidacja. Pozostało prób: " . $_SESSION['validate_count'] . "</span></br></br>";
+				$_SESSION['error_robot'] ="CVcmd:\signin\walidacja&gt;" . $_POST['robot'] . "</br><span style=color:red>Nieudana walidacja. Pozostało prób: " . $_SESSION['validate_count'] . "</span></br></br>";
 				header('Location: signin5humanordancer.php');
 				exit();
 			}
@@ -68,7 +68,7 @@
 			 unset($_SESSION['password_check']);
 			 unset($_SESSION['email']);
 			 unset($_SESSION['robot']);
-			 $_SESSION['info'] = 'C:\&gt;signin</br><span style="color:green">Udana rejestracja! Możesz się zalogować na swoje konto.</span></br></br>';
+			 $_SESSION['info'] = 'CVcmd:\&gt;signin</br><span style="color:green">Udana rejestracja! Możesz się zalogować na swoje konto.</span></br></br>';
 			 header('Location: index.php');
 			 exit();
 			}
@@ -81,7 +81,7 @@
 		}
 	}
 	catch(Exception $e) { //zlap wyjatek i umiesc go w zmiennej $e
-		$_SESSION['info'] = 'C:\&gt;<span style="color:red">Błąd serwera! Przepraszamy za niedogodności i prosimy o rejestrację w innym terminie.</span></br></br>' . $e;
+		$_SESSION['info'] = 'CVcmd:\&gt;<span style="color:red">Błąd serwera! Przepraszamy za niedogodności i prosimy o rejestrację w innym terminie.</span></br></br>' . $e;
 		header('Location: index.php');
 		exit();
 		//echo '</br>Informacja developoerska: '.$e;

@@ -36,6 +36,6 @@
 		<div id="PastCommands"></div>
 		<textarea hidden  id="User"><?php echo $user?></textarea>
 		<div id="Result"></div>
-		<div id="C">C:\<?php echo $user?>&gt;<input type="text" id="Commands" autocomplete="off" onkeydown="Submit(event)"/>
+		<div id="C">CVcmd:\<?php echo $user?>&gt;<input type="text" id="Commands" autocomplete="off" onkeydown="Submit(event)"/>
 	</body>
 </html>

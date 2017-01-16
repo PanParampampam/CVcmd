@@ -21,7 +21,7 @@
 	$polaczenie = @new mysqli($host, $db_user, $db_password, $db_name);
 	
 	if ($polaczenie->connect_errno!=0) {
-		$_SESSION['info'] = "C:\&gt;<span style=color:red>Error: $polaczenie->connect_errno</span></br></br>";
+		$_SESSION['info'] = "CVcmd:\&gt;<span style=color:red>Error: $polaczenie->connect_errno</span></br></br>";
 		header('Location: index.php');
 		exit();
 	}
@@ -44,16 +44,16 @@
 					;
 					unset($_SESSION['login']);
 					$rezultat->close();
-					$_SESSION['info']='C:\&gt;login</br><span style=color:green>Zalogowano. Witaj ' . $_SESSION['user'] . '!</span></br></br>';
+					$_SESSION['info']='CVcmd:\&gt;login</br><span style=color:green>Zalogowano. Witaj ' . $_SESSION['user'] . '!</span></br></br>';
 					header('Location: cvcmd.php');
 				}
 				else {
-					$_SESSION['info']='C:\l&gt;login</br><span style=color:red>Nieprawidłowy login lub hasło</span></br></br>';
+					$_SESSION['info']='CVcmd:\l&gt;login</br><span style=color:red>Nieprawidłowy login lub hasło</span></br></br>';
 					header('Location: index.php');
 				}
 			}
 			else {
-				$_SESSION['info']='C:\&gt;login</br><span style=color:red>Nieprawidłowy login lub hasło</span></br></br>';
+				$_SESSION['info']='CVcmd:\&gt;login</br><span style=color:red>Nieprawidłowy login lub hasło</span></br></br>';
 				header('Location: index.php');
 				
 			}

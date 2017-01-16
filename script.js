@@ -4,7 +4,7 @@ function SwitchCommands (){
 	var NewDiv = null;
 	var NewResult = null;
 	NewDiv = document.createElement("div");
-	NewDiv.innerHTML = 'C:\\&gt;' + document.getElementById("Commands").value + "<br/>";
+	NewDiv.innerHTML = 'CVcmd:\\&gt;' + document.getElementById("Commands").value + "<br/>";
 	NewResult = document.createElement("div");
 	NewResult.innerHTML = Result + "<br/><br/>";
 	OldDiv = document.getElementById("PastCommands");

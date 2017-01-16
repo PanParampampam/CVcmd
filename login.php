@@ -21,7 +21,7 @@
 	
 	<body>
 		<form action="password.php" method="post">
-		<div id = "C">C:\login\login&gt;<input type="text" id="Commands" name="login" autocomplete="off"/>
+		<div id = "C">CVcmd:\login\login&gt;<input type="text" id="Commands" name="login" autocomplete="off"/>
 		</form>
 	</body>
 </html>

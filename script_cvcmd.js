@@ -4,7 +4,7 @@ function SwitchCommands (){
 	var NewDiv = null;
 	var NewResult = null;
 	NewDiv = document.createElement("div");
-	NewDiv.innerHTML = 'C:\\' +  document.getElementById("User").value + '&gt;' + document.getElementById("Commands").value + "<br/>";
+	NewDiv.innerHTML = 'CVcmd:\\' +  document.getElementById("User").value + '&gt;' + document.getElementById("Commands").value + "<br/>";
 	NewResult = document.createElement("div");
 	NewResult.innerHTML = Result + "<br/><br/>";
 	OldDiv = document.getElementById("PastCommands");
@@ -23,7 +23,7 @@ function Help () {
 			"<tr><td>LOGOUT<td><td>Wylogowanie</td></tr>" +
 			"<tr><td>SIGNIN<td><td>Założenie nowego konta użytkownika</td></tr>" +
 		//	"<tr><td>SIGNOUT<td><td>Usunięcie konta użytkownika</td></tr>" +
-			"<tr><td>WYGENERUJ<td><td>Wygenerowanie CV z podanych danych i informacji</td></tr></table>";	
+			"<tr><td>CV<td><td>Wyświetla i pozwala edytować wprowadzone dane oraz informacje, a także wygenerować z nich gotowe CV</td></tr></table>";	
 }
 
 function Submit(key) { 
@@ -56,8 +56,8 @@ function Submit(key) {
 			case "signin":
 				window.location.href = "signin1user.php";
 				return;
-			case "wygeneruj":
-				window.location.href = "wygeneruj.php";
+			case "cv":
+				window.location.href = "cv.php";
 				return;
 			default:
 				Result = "<span style='color:red'>Polecenie '" + GetCommand + "' nie jest rozpoznawalne.</span>";

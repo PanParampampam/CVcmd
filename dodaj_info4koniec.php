@@ -41,7 +41,7 @@
 					if ($polaczenie->query("INSERT INTO info (`id`, `id_usera`, `naglowek`, `info`) VALUES (NULL, '$id', '$naglowek', '$info')")) {
 						unset($_SESSION['naglowek']);
 						unset($_SESSION['info']);;
-						$_SESSION['info'] = 'C:' . $_SESSION['user'] . '&gt;+info</br><span style="color:green">Podane informacje zostały zapisane w bazie.</span></br></br>';
+						$_SESSION['info'] = 'CVcmd:' . $_SESSION['user'] . '&gt;+info</br><span style="color:green">Podane informacje zostały zapisane w bazie.</span></br></br>';
 						header('Location: cvcmd.php');
 					}
 					else	{
@@ -53,7 +53,7 @@
 				}
 			}
 				catch(Exception $e)  {
-					$_SESSION['info'] = 'C:\\' . $_SESSION['user'] . '&gt;+info</br><span style="color:red">Błąd serwera! Przepraszamy za niedogodności i prosimy o spróbowanie ponownie w innym terminie.</span></br></br>';
+					$_SESSION['info'] = 'CVcmd:\\' . $_SESSION['user'] . '&gt;+info</br><span style="color:red">Błąd serwera! Przepraszamy za niedogodności i prosimy o spróbowanie ponownie w innym terminie.</span></br></br>';
 					header('Location: cvcmd.php');
 					exit();
 					//echo '</br>Informacja developoerska: '.$e;
@@ -62,7 +62,7 @@
 			}
 		
 		else {
-			$_SESSION['error_info'] ='C:\\' . $_SESSION['user'] . '\+info\koniec&gt;</br><span style="color:red">Polecenie "' . $_POST['koniec'] . '" nie jest rozpoznawalne.</span></br></br>';
+			$_SESSION['error_info'] ='CVcmd:\\' . $_SESSION['user'] . '\+info\koniec&gt;</br><span style="color:red">Polecenie "' . $_POST['koniec'] . '" nie jest rozpoznawalne.</span></br></br>';
 			header('Location: dodaj_info3zatwierdz.php');
 			exit();
 		}

@@ -34,7 +34,7 @@
 	
 	<body>
 		<form action="login_script.php" method="post">
-		<div id = "C">C:\login\hasło&gt;<input type="password" id="Commands" name="haslo"/>
+		<div id = "C">CVcmd:\login\hasło&gt;<input type="password" id="Commands" name="haslo"/>
 		</form>
 	</body>
 </html>

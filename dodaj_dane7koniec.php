@@ -50,7 +50,7 @@
 						unset($_SESSION['tel']);
 						unset($_SESSION['email']);
 						unset($_SESSION['data_urodzenia']);
-						$_SESSION['info'] = 'C:' . $_SESSION['user'] . '&gt;+dane</br><span style="color:green">Podane dane zostały zapisane w bazie.</span></br></br>';
+						$_SESSION['info'] = 'CVcmd:' . $_SESSION['user'] . '&gt;+dane</br><span style="color:green">Podane dane zostały zapisane w bazie.</span></br></br>';
 						header('Location: cvcmd.php');
 					}
 					else	{
@@ -62,7 +62,7 @@
 				}
 			}
 				catch(Exception $e)  {
-					$_SESSION['info'] = 'C:\\' . $_SESSION['user'] . '&gt;+dane</br><span style="color:red">Błąd serwera! Przepraszamy za niedogodności i prosimy o spróbowanie ponownie w innym terminie.</span></br></br>';
+					$_SESSION['info'] = 'CVcmd:\\' . $_SESSION['user'] . '&gt;+dane</br><span style="color:red">Błąd serwera! Przepraszamy za niedogodności i prosimy o spróbowanie ponownie w innym terminie.</span></br></br>';
 					header('Location: cvcmd.php');
 					exit();
 					//echo '</br>Informacja developoerska: '.$e;
@@ -71,7 +71,7 @@
 			}
 		
 		else {
-			$_SESSION['error_dane'] ='C:\\' . $_SESSION['user'] . '\+dane\koniec&gt;</br><span style="color:red">Polecenie "' . $_POST['koniec'] . '" nie jest rozpoznawalne.</span></br></br>';
+			$_SESSION['error_dane'] ='CVcmd:\\' . $_SESSION['user'] . '\+dane\koniec&gt;</br><span style="color:red">Polecenie "' . $_POST['koniec'] . '" nie jest rozpoznawalne.</span></br></br>';
 			header('Location: dodaj_dane6zatwierdz.php');
 			exit();
 		}

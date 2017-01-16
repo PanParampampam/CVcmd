@@ -69,7 +69,7 @@
 		</script>
 		
 		<form method="post" name="przekaz_info" action="dodaj_info3zatwierdz.php">
-		<div id = "C">C:\<?php echo $_SESSION['user']?>\+info\info&gt; <textarea id="Commands" class="mousetrap" name="info" autocomplete="off" rows="20"><?php if(isset($info))echo $info ?></textarea>
+		<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\+info\info&gt; <textarea id="Commands" class="mousetrap" name="info" autocomplete="off" rows="20"><?php if(isset($info))echo $info ?></textarea>
 		</form>
 		
 	</body>

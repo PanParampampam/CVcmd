@@ -17,7 +17,7 @@
 			exit();
 		}
 		if ($back_or_exit == "") {
-			$_SESSION['error_dane'] ='C:\\' . $_SESSION['user'] . '\+dane\adres&gt;</br><span style="color:red">Podaj dane</span></br></br>';
+			$_SESSION['error_dane'] ='CVcmd:\\' . $_SESSION['user'] . '\+dane\adres&gt;</br><span style="color:red">Podaj dane</span></br></br>';
 			header('Location: dodaj_dane2adres.php');
 			exit();
 		}
@@ -58,7 +58,7 @@
 			}
 		?>
 		<form method="post" action="dodaj_dane4email.php">
-			<div id = "C">C:\<?php echo $_SESSION['user']?>\+dane\tel&gt; <input type="text" id="Commands" name="tel" autocomplete="off"/>
+			<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\+dane\tel&gt; <input type="text" id="Commands" name="tel" autocomplete="off"/>
 		</form>
 	
 	</body>
