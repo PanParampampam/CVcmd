@@ -69,9 +69,28 @@
 				}
 		?>
 		
-		Aby edytować dane wpisz DANE. Aby edytować informacje lub nagłówki wpisz INFO. Aby wyjść do strony głównej wpisz EXIT.</br></br>
-		<form method="post" action="CV2.php">
-		<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\CV&gt; <input type="text" id="Commands" name="edycja" autocomplete="off"/>
+		Aby edytować dane wpisz DANE. Aby edytować lub dodać informacje lub nagłówki wpisz INFO. Aby wyjść do strony głównej wpisz EXIT.</br></br>
+		
+		<?php
+			if(isset($_POST['cv'])) {
+				$cv = strtolower($_POST['cv']);
+				switch ($cv) {
+					case "dane":
+						header('Location: dodaj_dane1godnosc.php');
+						break;
+					case "info":
+						header('Location: dodaj_info1naglowek.php');
+						break;
+					case "exit":
+						header('Location: cvcmd.php');
+						break;
+					default:
+						echo 'CVcmd:\\' . $_SESSION['user'] . '\wyświetl&gt;' . $_POST['cv'] . '</br><span style="color:red">Polecenie "' . $_POST['cv'] . '" nie jest rozpoznawalne.</span></br></br>';
+				}
+			}
+		?>
+		<form method="post">
+		<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\CV&gt;<input type="text" id="Commands" name="cv" autocomplete="off"/>
 		</form>
 		
 	</body>
