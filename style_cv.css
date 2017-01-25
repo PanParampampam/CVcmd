@@ -1,0 +1,26 @@
+	html {
+		height: 100%;
+		cursor: default;
+		/*tak wygląda komentarz*/
+	}
+	body {
+		margin: 0;
+		padding: 0;
+		background-color: #FFFFFF;
+		font: 12pt "Tahoma";
+	}
+	#CurriculumVitae {
+		font: 18pt "Tahoma";
+		float: right;
+		color: #0084D1;
+	}
+	#Dane {
+		font: 14pt "Tahoma";
+		float: left;
+		color: #0084D1;
+	}
+	
+	#Linie {
+		float: left;
+		color: #C3C3C3;
+	}

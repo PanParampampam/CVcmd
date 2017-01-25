@@ -7,15 +7,15 @@
 <html lang="pl">
 	<head>
 		<meta charset="utf-8"/>
-		<link rel="stylesheet" href="style.css"/>
+		<link rel="stylesheet" href="style_cv.css"/>
 		<link rel="shortcut icon" type="image/png" href="favicon.png">
 		<script src="focus.js"></script>
 		<title>CVcmd - rejestracja</title>
 		<meta name="description" content="Tworzenie CV w środowisku podobnym do lini poleceń"/>
 		<meta name="keywords" content="CV, cmd, cvcmd, command line, wiersz poleceń"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-		<div id = "C">
-			Informacje zawarte w bazie danych:</br></br>
+		<div id = "CurriculumVitae">
+			Curriculum Vitae</br></br>
 		</div>
 	</head>
 	
@@ -39,6 +39,8 @@
 					$cv_info = "SELECT naglowek, info FROM info WHERE id_usera='$id'";
 					
 					$rezultat_dane = mysqli_query($polaczenie, $cv_dane);
+					echo '<div id = "Dane">Dane osobowe</div>';
+					echo '<div id = "Linie">-----------------------------------------------------------------------------------</div>';
 					if (mysqli_num_rows($rezultat_dane) == 1) {
 						while($row = mysqli_fetch_assoc($rezultat_dane)) {
 							echo 'Imię i Nazwisko: ' . $row["godnosc"] . "</br>Adres: " . $row["adres"] . "</br>Nr telefonu: " . $row["tel"] .
