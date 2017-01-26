@@ -1,26 +1,39 @@
 	html {
-		height: 100%;
 		cursor: default;
+		height: 100%;
 		/*tak wygląda komentarz*/
 	}
+	
 	body {
+		background-color: #FFFFFF;
+		font: 10pt "Arial";
+		height:297mm;
 		margin: 0;
 		padding: 0;
-		background-color: #FFFFFF;
-		font: 12pt "Tahoma";
+		width:210mm;
 	}
+
 	#CurriculumVitae {
-		font: 18pt "Tahoma";
-		float: right;
 		color: #0084D1;
-	}
-	#Dane {
-		font: 14pt "Tahoma";
-		float: left;
-		color: #0084D1;
+		font: 16pt "Arial";
+		position: relative;
+		text-align: right;
 	}
 	
-	#Linie {
+	#Naglowki {
+		border-bottom: 2px solid #C3C3C3;
+		color: #0084D1;
 		float: left;
+		font: 11pt "Arial";
+		text-align: left;
+	}
+	
+	#Info {
+		white-space: pre-line;
+	}
+	
+	footer {
 		color: #C3C3C3;
+		font: 8pt "Arial";
+		text-align: bottom;
 	}

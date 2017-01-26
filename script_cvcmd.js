@@ -15,7 +15,7 @@ function SwitchCommands (){
 
 function Help () {
 	Result = "<table style='width:100%, text-align:left'>" +
-			"<tr><td>+DANE<td><td>Dodaj lub edytuj dane osobowe do swojego CV</td></tr>"  +
+			"<tr><td>+DANE<td><td>Dodaj lub edytuj dane osobowe w Twoim CV</td></tr>"  +
 			"<tr><td>+INFO<td><td>Dodaj lub edytuj zawartosc Twojego CV</td></tr>"  +
 			"<tr><td>HELP<td><td>Wyświetla listę komend</td></tr>" +
 			"<tr><td>HTS<td><td>Poradnik jak zacząć</td></tr>" +

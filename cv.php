@@ -69,7 +69,9 @@
 				}
 		?>
 		
-		Aby edytować dane wpisz DANE. Aby edytować lub dodać informacje lub nagłówki wpisz INFO. Aby wygenerować CV wpisz GENERUJ.</br>
+		Aby edytować dane wpisz DANE. Aby edytować lub dodać informacje lub nagłówki wpisz INFO.</br>
+		Aby zobaczyć jak będzie wyglądało Twoje CV wpisz ZOBACZ (następnie wciśnij ENTER aby powrócić). </br>
+		<strong>Wyświetlone w takiej formie CV można wydrukować z poziomu przeglądarki.</strong></br>
 		Aby wyjść do strony głównej wpisz EXIT.</br></br>
 		
 		<?php
@@ -82,8 +84,8 @@
 					case "info":
 						header('Location: dodaj_info1naglowek.php');
 						break;
-					case "generuj":
-						header('Location: cv_generuj.php');
+					case "zobacz":
+						header('Location: cv_zobacz.php');
 						break;
 					case "exit":
 						header('Location: cvcmd.php');
