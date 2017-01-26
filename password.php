@@ -24,7 +24,7 @@
 		<link rel="stylesheet" href="style.css"/>
 		<link rel="shortcut icon" type="image/png" href="favicon.png">
 		<script src="focus.js"></script>
-		<title>CVcmd</title>
+		<title>CVcmd:\login</title>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 		<div id = "C">
 			Formularz logowania 2/2. Podaj hasło.<br/>

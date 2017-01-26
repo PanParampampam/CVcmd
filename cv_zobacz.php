@@ -11,7 +11,7 @@
 		<link rel="shortcut icon" type="image/png" href="favicon.png">
 		<script src="focus.js"></script>
 		<script src="mousetrap.min.js"></script>
-		<title>CVcmd - podgląd CV</title>
+		<title>CVcmd:\zobaczCV</title>
 		<meta name="description" content="Tworzenie CV w środowisku podobnym do lini poleceń"/>
 		<meta name="keywords" content="CV, cmd, cvcmd, command line, wiersz poleceń"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
@@ -40,7 +40,7 @@
 					$cv_info = "SELECT naglowek, info FROM info WHERE id_usera='$id'";
 					$rezultat_dane = mysqli_query($polaczenie, $cv_dane);
 					
-					echo '<div id = "Naglowki"><strong>&#9632; Dane osobowe</strong></div>';
+					echo '<div id = "Naglowki"><strong>&#9632; Dane osobowe</strong><hr></div>';
 					
 					if (mysqli_num_rows($rezultat_dane) == 1) {
 						while($row = mysqli_fetch_assoc($rezultat_dane)) {
@@ -55,7 +55,7 @@
 					$rezultat_info = mysqli_query($polaczenie, $cv_info);
 					if (mysqli_num_rows($rezultat_info) > 0) {
 						while($row = mysqli_fetch_assoc($rezultat_info)) {
-							echo '<div id = "Naglowki"><strong>&#9632; ' . $row["naglowek"] . '</strong></div>' .
+							echo '<div id = "Naglowki"><strong>&#9632; ' . $row["naglowek"] . '</strong><hr></div>' .
 							'<div id = "Info">' . $row["info"] . "</div>";
 						}
 					}

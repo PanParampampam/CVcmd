@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="style.css"/>
 		<link rel="shortcut icon" type="image/png" href="favicon.png">
 		<script src="focus.js"></script>
-		<title>CVcmd - rejestracja</title>
+		<title>CVcmd:\cv</title>
 		<meta name="description" content="Tworzenie CV w środowisku podobnym do lini poleceń"/>
 		<meta name="keywords" content="CV, cmd, cvcmd, command line, wiersz poleceń"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>

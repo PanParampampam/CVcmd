@@ -7,10 +7,10 @@
 	body {
 		background-color: #FFFFFF;
 		font: 10pt "Arial";
-		height:297mm;
+		height: 297mm;
 		margin: 0;
 		padding: 0;
-		width:210mm;
+		width: 210mm;
 	}
 
 	#CurriculumVitae {
@@ -21,11 +21,15 @@
 	}
 	
 	#Naglowki {
-		border-bottom: 2px solid #C3C3C3;
 		color: #0084D1;
 		float: left;
 		font: 11pt "Arial";
 		text-align: left;
+	}
+	
+	hr {
+		color: #C3C3C3;
+		width: 210mm;
 	}
 	
 	#Info {
@@ -35,5 +39,6 @@
 	footer {
 		color: #C3C3C3;
 		font: 8pt "Arial";
+		margin-top: 247mm;
 		text-align: bottom;
 	}

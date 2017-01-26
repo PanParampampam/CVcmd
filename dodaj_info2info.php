@@ -34,7 +34,7 @@
 		<link rel="shortcut icon" type="image/png" href="favicon.png">
 		<script src="focus.js"></script>
 		<script src="mousetrap.min.js"></script>
-		<title>CVcmd - rejestracja</title>
+		<title>CVcmd:\+info</title>
 		<meta name="description" content="Tworzenie CV w środowisku podobnym do lini poleceń"/>
 		<meta name="keywords" content="CV, cmd, cvcmd, command line, wiersz poleceń"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
