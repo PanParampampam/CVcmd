@@ -83,24 +83,31 @@
 			});
 		</script>
 
-		<script type="text/javascript">
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    $('#blah').attr('src', e.target.result);
-                }
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
+		<script>
+ function showMyImage(fileInput) {
+        var files = fileInput.files;
+        for (var i = 0; i < files.length; i++) {           
+            var file = files[i];
+            var imageType = /image.*/;     
+            if (!file.type.match(imageType)) {
+                continue;
+            }           
+            var img=document.getElementById("thumbnil");            
+            img.file = file;    
+            var reader = new FileReader();
+            reader.onload = (function(aImg) { 
+                return function(e) { 
+                    aImg.src = e.target.result; 
+                }; 
+            })(img);
+            reader.readAsDataURL(file);
+        }    
+    }
     </script>
 	
-	    <form id="form1" runat="server">
-        <input type='file' onchange="readURL(this);" />
-        <img id="blah" src="#" alt="your image" />
-    </form>
+<input type="file" accept="image/*"  onchange="showMyImage(this)" />
+ <br/>
+<img id="thumbnil" style="width:20%; margin-top:10px;"  src="" alt="image"/>
 		
 		
 	</body>
