@@ -7,10 +7,17 @@
 	body {
 		background-color: #FFFFFF;
 		font: 10pt "Arial";
-		height: 297mm;
+		height: 293mm;
 		margin: 0;
 		padding: 0;
-		width: 210mm;
+		width: 205mm;
+	}
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
+		font: 10pt "Arial";
+		width:100%;
+		text-align:left;
 	}
 
 	#CurriculumVitae {
@@ -21,6 +28,7 @@
 	}
 	
 	#Naglowki {
+		border-spacing: 0px;
 		color: #0084D1;
 		float: left;
 		font: 11pt "Arial";
@@ -33,12 +41,13 @@
 	}
 	
 	#Info {
+		position: static;
 		white-space: pre-line;
 	}
 	
 	footer {
 		color: #C3C3C3;
 		font: 8pt "Arial";
-		margin-top: 247mm;
-		text-align: bottom;
+		position: static;
+		bottom: 0;
 	}

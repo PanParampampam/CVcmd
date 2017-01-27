@@ -44,11 +44,11 @@
 					
 					if (mysqli_num_rows($rezultat_dane) == 1) {
 						while($row = mysqli_fetch_assoc($rezultat_dane)) {
-							echo "Imię i Nazwisko:			" . $row["godnosc"] . 
-							"</br>Adres:			" . $row["adres"] . 
-							"</br>Nr telefonu:			" . $row["tel"] .
-							"</br>E-mail:			" . $row["emailcv"] . 
-							"</br>Data urodzenia:			" . $row["data_urodzenia"] ;
+							echo '<table><tr><td>Imię i nazwisko:<td>' . $row["godnosc"] . '</td></tr>' .
+							'<tr><td>Adres:<td>'  . $row["adres"] . '</td></tr>' .
+							'<tr><td>Telefon:<td>'  . $row["tel"] . '</td></tr>' .
+							'<tr><td>E-mail:<td>' . $row["emailcv"] . '</td></tr>' .
+							'<tr><td>Data urodzenia:<td>'  . $row["data_urodzenia"] . '</td></tr></table></br>';
 						}
 					}
 					
@@ -56,7 +56,7 @@
 					if (mysqli_num_rows($rezultat_info) > 0) {
 						while($row = mysqli_fetch_assoc($rezultat_info)) {
 							echo '<div id = "Naglowki"><strong>&#9632; ' . $row["naglowek"] . '</strong><hr></div>' .
-							'<div id = "Info">' . $row["info"] . "</div>";
+							'<div id = "Info">' . $row["info"] . "</div></br>";
 						}
 					}
 					else {
@@ -82,6 +82,26 @@
 				window.location.href = "cv.php";
 			});
 		</script>
+
+		<script type="text/javascript">
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+	
+	    <form id="form1" runat="server">
+        <input type='file' onchange="readURL(this);" />
+        <img id="blah" src="#" alt="your image" />
+    </form>
+		
 		
 	</body>
 </html>
