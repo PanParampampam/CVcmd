@@ -81,34 +81,33 @@
 			Mousetrap.bind ('enter', function (){
 				window.location.href = "cv.php";
 			});
-		</script>
 
-		<script>
- function showMyImage(fileInput) {
-        var files = fileInput.files;
-        for (var i = 0; i < files.length; i++) {           
-            var file = files[i];
-            var imageType = /image.*/;     
-            if (!file.type.match(imageType)) {
-                continue;
-            }           
-            var img=document.getElementById("thumbnil");            
-            img.file = file;    
-            var reader = new FileReader();
-            reader.onload = (function(aImg) { 
-                return function(e) { 
-                    aImg.src = e.target.result; 
-                }; 
-            })(img);
-            reader.readAsDataURL(file);
-        }    
-    }
+			 function showMyImage(fileInput) {
+					var files = fileInput.files;
+					for (var i = 0; i < files.length; i++) {           
+						var file = files[i];
+						var imageType = /image.*/;     
+						if (!file.type.match(imageType)) {
+							continue;
+						}           
+						var img=document.getElementById("thumbnil");            
+						img.file = file;    
+						var reader = new FileReader();
+						reader.onload = (function(aImg) { 
+							return function(e) { 
+								aImg.src = e.target.result; 
+							}; 
+						})(img);
+						reader.readAsDataURL(file);
+					}    
+				}
     </script>
 	
 <input type="file" accept="image/*"  onchange="showMyImage(this)" />
  <br/>
 <img id="thumbnil" style="width:20%; margin-top:10px;"  src="" alt="image"/>
-		
+<img src="Who.jpg" id="upfile1" style="cursor:pointer" onclick="document.getElementById("Commands").trigger(); />
+<input type="file" id="file1"  name="file1" style="display:none" accept="image/*"  onchange="showMyImage(this)"  />
 		
 	</body>
 </html>
