@@ -1,7 +1,6 @@
 	html {
 		cursor: default;
 		height: 100%;
-		/*tak wygląda komentarz*/
 	}
 	
 	body {
@@ -16,7 +15,7 @@
 		border-collapse: collapse;
 		border-spacing: 0;
 		font: 10pt "Arial";
-		width:100%;
+		width:70%;
 		text-align:left;
 	}
 
@@ -45,9 +44,20 @@
 		white-space: pre-line;
 	}
 	
-	footer {
+	#footer {
 		color: #C3C3C3;
 		font: 8pt "Arial";
-		position: static;
-		bottom: 0;
+	}
+	
+	.image-upload > input	{
+		display: none;
+	}
+
+	.image-upload img {
+		border-top: 20px;
+		border-bottom: 20px;
+		cursor: pointer;
+		float: right;
+		height: 41mm;
+		width: 27mm;
 	}
