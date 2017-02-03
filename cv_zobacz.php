@@ -43,12 +43,46 @@
 					echo '<div id = "Naglowki"><strong>&#9632; Dane osobowe</strong><hr></div>';
 			?>
 	
-					<div class="image-upload">
-						<label for="file-input">
-							<img id="Foto"/>
-						</label>
-						<input id="file-input" type="file" accept="image/*"  onchange="showMyImage(this)"/>
-					</div>
+			<form method="post" enctype="multipart/form-data" name="pokaz_foto">
+				Select image to upload:
+				<input type="file" name="fileToUpload" id="fileToUpload">
+			</form>
+
+
+			<?php
+				$target_file = "uploads/" . basename($_FILES["fileToUpload"]["name"]);
+				$uploadOk = true;
+				$extension = pathinfo($target_file, PATHINFO_EXTENSION);
+				$new = $id . '.' . $extension;
+				$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+				// Check if image file is a actual image or fake image
+				if(isset($_POST["submit"])) {
+					$check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+					if($check == false) {
+						$uploadOk = false;
+					}
+				}
+
+
+				if ($_FILES["fileToUpload"]["size"] > 5000000) {
+					echo "Sorry, your file is too large.";
+					$uploadOk = false;
+				}
+				if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+					$uploadOk = false;
+				}
+				// Check if $uploadOk is set to 0 by an error
+				if ($uploadOk == false) {
+					echo "Sorry, your file was not uploaded.";
+				// if everything is ok, try to upload file
+				} else {
+					if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "uploads/$new")) {
+						echo "<img id='foto' src='uploads/$new'>";
+					} else {
+						echo "Sorry, there was an error uploading your file.";
+					}
+				}
+			?>
 
 			<?php	
 					if (mysqli_num_rows($rezultat_dane) == 1) {
@@ -69,7 +103,7 @@
 						}
 					}
 					else {
-						echo "Brak wyników";
+						echo "Żadne informacje nie zostały wprowadzone do CV";
 					}
 						
 				}			
