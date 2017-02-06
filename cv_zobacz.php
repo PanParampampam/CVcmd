@@ -2,6 +2,7 @@
 	session_start();
 	include('session_timeout.php');
 	include('zalogowany.php');
+	
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -53,7 +54,7 @@
 				$target_file = "uploads/" . basename($_FILES["fileToUpload"]["name"]);
 				$uploadOk = true;
 				$extension = pathinfo($target_file, PATHINFO_EXTENSION);
-				$new = $id . '.' . $extension;
+				$new_foto = $id . '.' . $extension;
 				$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
 				if(isset($_POST["submit"])) {
@@ -69,6 +70,7 @@
 				}
 				
 				if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+					echo "nie zjecie";
 					$uploadOk = false;
 				}
 
@@ -76,8 +78,12 @@
 					//echo "Sorry, your file was not uploaded.";
 
 				} else {
-					if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "uploads/$new")) {
-						echo "<img id='foto' src='uploads/$new'>";
+					if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "uploads/$new_foto")) {
+						include('smart_resize_image.function.php');
+						$resize = "uploads/" . $new_foto;
+						smart_resize_image($resize , null, 0 , 134 , true , $resize , true , false ,100 );
+						echo "<img id='foto' src='uploads/$new_foto'>";
+						$_SESSION['usun_zdjecie'] = $resize;
 					} else {
 						//echo "Sorry, there was an error uploading your file.";
 					}

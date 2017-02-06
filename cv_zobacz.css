@@ -15,7 +15,7 @@
 		border-collapse: collapse;
 		border-spacing: 0;
 		font: 10pt "Arial";
-		width:70%;
+		width:60%;
 		text-align:left;
 	}
 
@@ -55,6 +55,4 @@
 
 	 #foto {
 		float: right;
-		height: 41mm;
-		width: 27mm;
 	}
