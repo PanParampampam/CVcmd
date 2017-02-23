@@ -73,8 +73,8 @@
 			Aby powrócić do poprzedniego punktu wpisz BACK. Aby opuścić formularz bez rejestrowania wpisz EXIT.<br/><br/>
 			<?php
 				if(isset($_SESSION['error_robot'])) {
-				echo $_SESSION['error_robot'];
-				unset($_SESSION['error_robot']);
+					echo $_SESSION['error_robot'];
+					unset($_SESSION['error_robot']);
 				}
 			?>
 		</div>

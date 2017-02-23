@@ -1,0 +1,47 @@
+
+	body {
+		background-color: #FFFFFF;
+	}
+	#CurriculumVitae {
+		color: #0084D1;
+		font: 16pt;
+		text-align: right;
+	}
+	#Naglowek {
+		border-spacing: 0px;
+		color: #0084D1;
+		font: 11pt;
+		text-align: left;
+	}
+	hr {
+		color: #C3C3C3;
+	}
+	#Strona {
+		page-break-inside: avoid;
+	}
+	
+	table {
+		font-size: 10pt;
+	}
+	#Info {
+		text-align: left;
+		white-space: pre-line;
+		 font-size: 10pt;
+	}
+	 #foto {
+		float: right;
+	}
+	
+	*{ font-family: DejaVu Sans;}
+	
+	hr {
+		border: none;
+		height: 1.25pt;
+		color: #C3C3C3; /* old IE */
+		background-color: #C3C3C3; /* Modern Browsers */
+	}
+	
+	#footer {
+		color: #C3C3C3;
+		font-size: 8pt;
+	}

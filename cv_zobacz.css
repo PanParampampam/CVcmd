@@ -3,54 +3,63 @@
 		height: 100%;
 	}
 	
+	*{ font-family: DejaVu Sans;}
+	
+	@page {
+		margin: 12in;
+	}
+	
 	body {
 		background-color: #FFFFFF;
-		font: 10pt "Arial";
+		font-size: 10pt;
 		height: 293mm;
-		margin: 0;
-		padding: 0;
+		margin: 9mm 14mm 9mm 14mm;
+		padding: 9mm 14mm 9mm 14mm;
 		width: 205mm;
 	}
 	table {
 		border-collapse: collapse;
 		border-spacing: 0;
-		font: 10pt "Arial";
+		font-size: 10pt;
 		width:60%;
 		text-align:left;
 	}
 
 	#CurriculumVitae {
 		color: #0084D1;
-		font: 16pt "Arial";
+		font-size: 16pt;
 		position: relative;
 		text-align: right;
 	}
 	
-	#Naglowki {
+	#Naglowek {
+		page-break-before: always;
 		border-spacing: 0px;
 		color: #0084D1;
-		float: left;
-		font: 11pt "Arial";
+		font-size: 11pt;
 		text-align: left;
 	}
 	
 	hr {
-		color: #C3C3C3;
 		width: 210mm;
+		border: none;
+		height: 1.25pt;
+		color: #C3C3C3; /* old IE */
+		background-color: #C3C3C3; /* Modern Browsers */
+	}
+	
+	#Strona {
+		page-break-inside: avoid;
 	}
 	
 	#Info {
-		position: static;
+		text-align:left;
 		white-space: pre-line;
 	}
 	
 	#footer {
 		color: #C3C3C3;
-		font: 8pt "Arial";
-	}
-	
-	.image-upload > input	{
-		display: none;
+		font-size: 8pt;
 	}
 
 	 #foto {

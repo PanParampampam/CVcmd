@@ -2,11 +2,23 @@
 	session_start();
 	include('session_timeout.php');
 	include('zalogowany.php');
-	
 ?>
 <!DOCTYPE html>
 <html lang="pl">
 	<head>
+	
+		<div id = "pomoc">
+			<p>Tak wygląda Twoje CV!</p>
+			<p>Dodaj do niego swoje zdjęcie wciskając 1 (zostanie ono usunięte z naszej bazy po tym jak się wylogujesz).</p>
+			<p>Następnie możesz je wydrukować z poziomu przeglądarki wciskając 2, lub <strong>zapisać jako pdf wciskając 3.</strong></p>
+			<p>Możesz także skopiować tę stronę do pliku doc lub odt zachowując stworzone na tej stronie formatowanie.</p>
+			<p>Aby powrócić wciśnij ENTER.</p>
+		</div>
+		
+		<?php
+			ob_start();
+		?>
+		
 		<meta charset="utf-8"/>
 		<link rel="stylesheet" href="cv_zobacz.css"/>
 		<link rel="shortcut icon" type="image/png" href="favicon.png">
@@ -16,12 +28,17 @@
 		<meta name="description" content="Tworzenie CV w środowisku podobnym do lini poleceń"/>
 		<meta name="keywords" content="CV, cmd, cvcmd, command line, wiersz poleceń"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-		<div id = "CurriculumVitae">
-			<strong>Curriculum Vitae</strong>
-		</div>
+		
+
+
 	</head>
 	
 	<body>
+
+	
+		<div id = "CurriculumVitae">
+			<strong>Curriculum Vitae</strong>
+		</div>
 	
 		<?php
 			require_once "connect.php";
@@ -41,12 +58,13 @@
 					$cv_info = "SELECT naglowek, info FROM info WHERE id_usera='$id'";
 					$rezultat_dane = mysqli_query($polaczenie, $cv_dane);
 					
-					echo '<div id = "Naglowki"><strong>&#9632; Dane osobowe</strong><hr></div>';
+					echo '<div id = "Naglowek"><strong>&#9632; Dane osobowe</strong><hr></div>';
 			?>
 	
 			<form method="post" enctype="multipart/form-data" name="pokaz_foto" style>
 				<input type="file" name="fileToUpload" id="fileToUpload" onchange="this.form.submit();" style="display: none;">
 			</form>
+
 
 
 			<?php
@@ -104,8 +122,8 @@
 					$rezultat_info = mysqli_query($polaczenie, $cv_info);
 					if (mysqli_num_rows($rezultat_info) > 0) {
 						while($row = mysqli_fetch_assoc($rezultat_info)) {
-							echo '<div id = "Naglowki"><strong>&#9632; ' . $row["naglowek"] . '</strong><hr></div>' .
-							'<div id = "Info">' . $row["info"] . "</div></br></br>";
+							echo '<div id = "Strona"><span id = "Naglowek"><strong>&#9632; ' . $row["naglowek"] . '</strong><hr></span>' .
+							'<span id = "Info">' . $row["info"] . "</span></div></br></br>";
 						}
 					}
 					else {
@@ -126,5 +144,10 @@
 		<div id="footer">Wyrażam zgodę na przetwarzanie moich danych osobowych zawartych w mojej ofercie pracy dla potrzeb niezbędnych do realizacji procesu rekrutacji 
 		(zgodnie z Ustawą z dnia 29.08.1997 roku o Ochronie Danych Osobowych; Dz. U. z 2002r. Nr 101, poz. 926 z póź. zm.).</div>
 
+		
+		<?php
+			file_put_contents('uploads/' . $id . '.html', ob_get_contents());
+		?>
+		
 	</body>
 </html>
