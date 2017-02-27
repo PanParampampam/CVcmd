@@ -100,7 +100,7 @@
 						include('smart_resize_image.function.php');
 						$resize = "uploads/" . $new_foto;
 						smart_resize_image($resize , null, 0 , 134 , true , $resize , true , false ,100 );
-						echo "<img id='foto' src='uploads/$new_foto'>";
+						echo "<img id='foto' src='http://localhost/cvcmd/uploads/$new_foto'>";
 						$_SESSION['usun_zdjecie'] = $resize;
 					} else {
 						//echo "Sorry, there was an error uploading your file.";
@@ -146,7 +146,7 @@
 
 		
 		<?php
-			file_put_contents('uploads/' . $id . '.html', ob_get_contents());
+			file_put_contents('generator/' . $id . '.html', ob_get_contents());
 		?>
 		
 	</body>
