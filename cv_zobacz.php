@@ -28,8 +28,6 @@
 		<meta name="description" content="Tworzenie CV w środowisku podobnym do lini poleceń"/>
 		<meta name="keywords" content="CV, cmd, cvcmd, command line, wiersz poleceń"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-		
-
 
 	</head>
 	
@@ -65,7 +63,7 @@
 				<input type="file" name="fileToUpload" id="fileToUpload" onchange="this.form.submit();" style="display: none;">
 			</form>
 
-
+			<button id="pdf" style="display: none;" onclick="window.location.href = 'generator/cv_na_pdf.php';"></button>
 
 			<?php
 				error_reporting(0);
@@ -147,6 +145,7 @@
 		
 		<?php
 			file_put_contents('generator/' . $id . '.html', ob_get_contents());
+			$_SESSION['usun_cv'] = "generator/" . $id . ".html";
 		?>
 		
 	</body>
