@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="pl">
 	<head>
-	
+		<link rel="stylesheet" type="text/css" href="print.css" media="print" />
 		<div id = "pomoc">
 			<p>Tak wygląda Twoje CV!</p>
 			<p>Dodaj do niego swoje zdjęcie wciskając 1 (zostanie ono usunięte z naszej bazy po tym jak się wylogujesz).</p>
@@ -114,6 +114,9 @@
 							'<tr><td>Telefon:<td>'  . $row["tel"] . '</td></tr>' .
 							'<tr><td>E-mail:<td>' . $row["emailcv"] . '</td></tr>' .
 							'<tr><td>Data urodzenia:<td>'  . $row["data_urodzenia"] . '</td></tr></table></br></br>';
+							
+							$_SESSION["godnosc"] = $row["godnosc"]; //zapisane do nazwy CV
+							
 						}
 					}
 					

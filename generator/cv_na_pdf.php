@@ -15,6 +15,7 @@
 	$dompdf->output();
 	
 	$id = $_SESSION['id'] . ".html";
+	$godnosc = $_SESSION['godnosc'];
 	$html = file_get_contents($id);
 	$html = mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8');
 	$dompdf->loadHtml($html);
@@ -26,5 +27,5 @@
 	$dompdf->render();
 
 	// Output the generated PDF to Browser
-	$dompdf->stream();
+	$dompdf->stream("CV - " . $godnosc);
 ?>
