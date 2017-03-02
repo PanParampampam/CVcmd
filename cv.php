@@ -19,9 +19,10 @@
 	
 	<body>
 	
-		Aby edytować dane wpisz DANE. Aby edytować lub dodać informacje lub nagłówki wpisz INFO.</br>
-		Aby zobaczyć jak będzie wyglądało Twoje CV wpisz ZOBACZ (następnie wciśnij ENTER aby powrócić). </br>
-		<strong>Wyświetlone w takiej formie CV można wydrukować z poziomu przeglądarki.</strong></br>
+		Aby edytować lub wprowadzić dane osobowe wpisz +DANE. </br>
+		Aby dodać nowe informacje wpisz +INFO.</br>
+		Aby edytować, usunąć lub zmienić kolejność informacji wpisz INFO.</br>
+		<strong>Aby przejśc do ostatniego kroku po którym będziesz mógł wydrukować/ściągnąć swoje CV wpisz DALEJ.</strong></br>
 		Aby wyjść do strony głównej wpisz EXIT.</br></br>
 	
 		<form method="post">
@@ -32,13 +33,16 @@
 			if(isset($_POST['cv'])) {
 				$cv = strtolower($_POST['cv']);
 				switch ($cv) {
-					case "dane":
+					case "+dane":
 						header('Location: dodaj_dane1godnosc.php');
 						break;
-					case "info":
+					case "+info":
 						header('Location: dodaj_info1naglowek.php');
 						break;
-					case "zobacz":
+					case "-info":
+						header('Location: -info.php');
+						break;
+					case "dalej":
 						header('Location: cv_zobacz.php');
 						break;
 					case "exit":
