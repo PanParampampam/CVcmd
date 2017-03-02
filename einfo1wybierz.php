@@ -20,8 +20,8 @@
 	<body>
 	
 			Poniżej znajdują się wszystkie dodane przez Ciebie informacje.<br/></br>
-			Aby usunąć daną sekcje wpisz nazwę jej <span style="color:red">nagłówka</span>. (każda sekcja to "nagłówek" oraz "info")</br>
-			Aby wyjść bez usuwania danych wpisz EXIT.<br/><br/>
+			Aby edytować daną sekcje wpisz nazwę jej <span style="color:green">nagłówka</span>. (każda sekcja to "nagłówek" oraz "info")</br>
+			Aby wyjść bez zmieniania danych wpisz EXIT.<br/><br/>
 			
 		<?php
 			if(isset($_SESSION['error_wybierz'])) {
@@ -30,8 +30,8 @@
 			}
 		?>
 	
-		<form method="post" action="-info2zatwierdz.php">
-			<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\-info&gt;<input type="text" id="Commands" name="wybierz" autocomplete="off"/>
+		<form method="post" action="einfo2zatwierdz.php">
+			<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\einfo&gt;<input type="text" id="Commands" name="wybierz" autocomplete="off"/>
 		</form>
 		
 		</br></br>========================================================</br></br>
@@ -56,7 +56,7 @@
 					$rezultat_info = mysqli_query($polaczenie, $cv_info);
 					if (mysqli_num_rows($rezultat_info) > 0) {
 						while($row = mysqli_fetch_assoc($rezultat_info)) {
-							echo '<div style="white-space: pre-line;">Nagłówek: <span style="color:red">' . $row["naglowek"]. "</span></br>Info: " . $row["info"] . "</div></br>";
+							echo '<div style="white-space: pre-line;">Nagłówek: <span style="color:green">' . $row["naglowek"]. "</span></br>Info: " . $row["info"] . "</div></br>";
 							echo "========================================================</br></br>";
 						}			
 					}
@@ -68,7 +68,7 @@
 				$polaczenie->close();
 			}
 				catch(Exception $e)  {
-					$_SESSION['info'] = 'CVcmd:\\' . $_SESSION['user'] . '&gt;-info</br><span style="color:red">Błąd serwera! Przepraszamy za niedogodności i prosimy o spróbowanie ponownie w innym terminie.</span></br></br>';
+					$_SESSION['info'] = 'CVcmd:\\' . $_SESSION['user'] . '&gt;einfo</br><span style="color:red">Błąd serwera! Przepraszamy za niedogodności i prosimy o spróbowanie ponownie w innym terminie.</span></br></br>';
 					header('Location: cvcmd.php');
 					exit();
 					//echo '</br>Informacja developoerska: '.$e;
