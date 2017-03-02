@@ -19,8 +19,8 @@
 	
 	<body>
 	
-			Poniżej znajdują się wszystkie dodane przez Ciebie informacje (każda sekcja to "nagłówek" oraz "info")<br/>
-			Aby usunąć daną sekcje wpisz nazwę jej <span style="color:red">nagłówka</span>.</br>
+			Poniżej znajdują się wszystkie dodane przez Ciebie informacje.<br/></br>
+			Aby usunąć daną sekcje wpisz nazwę jej <span style="color:red">nagłówka</span>. (każda sekcja to "nagłówek" oraz "info")</br>
 			Aby wyjść bez usuwania danych wpisz EXIT.<br/><br/>
 			
 		<?php
@@ -33,6 +33,8 @@
 		<form method="post" action="-info2zatwierdz.php">
 			<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\-info&gt;<input type="text" id="Commands" name="wybierz" autocomplete="off"/>
 		</form>
+		
+		</br></br>========================================================</br></br>
 		
 		<?php	
 		

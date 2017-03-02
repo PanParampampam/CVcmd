@@ -7,6 +7,7 @@
 	
 		$back_or_exit = strtolower($_POST['wybierz']);
 		if ($back_or_exit == "exit") {
+			unset($_SESSION['wybierz']);
 			header('Location: cvcmd.php');
 			exit();
 		}
@@ -33,13 +34,23 @@
 	
 	<body>
 	
-			Poniżej znajdują się wszystkie dodane przez Ciebie informacje (każda sekcja to "nagłówek" oraz "info")<br/>
-			Aby usunąć daną sekcje wpisz nazwę jej <span style="color:red">nagłówka</span>.</br>
+			<?php
+				if(isset($_SESSION['error_zatwierdz'])) {
+					echo $_SESSION['error_zatwierdz'];
+					unset($_SESSION['error_zatwierdz']);
+				}
+			?>
+	
+			Poniżej znajdują się wybrana do usunięcia sekcja.<br/></br>
+			Aby ją usunąć wpisz USUN</br>
+			Aby wybrać inną sekcję wpisz BACK</br>
 			Aby wyjść bez usuwania danych wpisz EXIT.<br/><br/>
 	
-		<form method="post" action="-info2zatwierdz.php">
-			<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\-info&gt;<input type="text" id="Commands" name="naglowek" autocomplete="off"/>
+		<form method="post" action="-info3usun.php">
+			<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\-info\zatwierdz&gt;<input type="text" id="Commands" name="zatwierdz" autocomplete="off"/>
 		</form>
+		
+		</br></br>========================================================</br></br>
 		
 		<?php	
 		
@@ -57,6 +68,8 @@
 					$polaczenie ->query("SET NAMES 'utf8'");
 					$id = $_SESSION['id'];
 					$wybierz = $_POST['wybierz'];
+					$_SESSION['wybierz'] = $_POST['wybierz'];
+					
 					$cv_info = "SELECT naglowek, info FROM info WHERE id_usera='$id' AND naglowek='$wybierz'";
 						
 					$rezultat_info = mysqli_query($polaczenie, $cv_info);
