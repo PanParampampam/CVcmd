@@ -3,28 +3,38 @@
 	include('session_timeout.php');
 	include('zalogowany.php');
 	
-	if(isset($_POST['naglowek'])) {
-		
-		$back_or_exit = strtolower($_POST['naglowek']);
+	if(isset($_POST['enaglowek'])) {
+
+		$back_or_exit = strtolower($_POST['enaglowek']);
+		if ($back_or_exit == "back") {
+			unset($_SESSION["stare_info"]);
+			header('Location: einfo1wybierz.php');
+			exit();
+		}
 		if ($back_or_exit == "exit") {
-			unset($_SESSION['naglowek']);
-			unset($_SESSION['info']);
+			$SESSION['stary_naglowek'];
+			unset($_SESSION["einfo"]);
+			unset($_SESSION["enaglowek"]);
 			header('Location: cvcmd.php');
 			exit();
 		}
+		if ($back_or_exit == "") {
+			$_SESSION['error_wybierz'] ='CVcmd:\\' . $_SESSION['user'] . '\einfo\naglowek&gt;</br><span style="color:red">Wprowadź komendę</span></br></br>';
+			header('Location: einfo2naglowek.php');
+			exit();
+		}
 		
-		else $_SESSION['naglowek'] = $_POST['naglowek'];
+		else $_SESSION['enaglowek'] = $_POST['enaglowek'];		
 	}
 	
-	else if (!isset($_SESSION['naglowek'])) {
-	header('Location: cvcmd.php');
-	exit();
+	else if (!isset($_SESSION['enaglowek'])) {
+		header('Location: cvcmd.php');
+		exit();
 	}
 	
-	if(isset($_SESSION['info'])) {
-		$info = $_SESSION['info'];
+	if(isset($_SESSION['einfo'])) {
+		$einfo = $_SESSION['einfo'];
 	}
-	
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -39,13 +49,13 @@
 		<meta name="keywords" content="CV, cmd, cvcmd, command line, wiersz poleceń"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 		<div id = "C">
-			Formularz wprowadzania informacji do CV 2/3. Wprowadź dane.</br>
+			Edycja wybranej sekcji 2/3. Wprowadź nowe informacje.</br>
 			Podpowiedź: Aby wprowadzić symbol "&bull;" wciśnij CTRL + ENTER.</br>
 			Aby powrócić do poprzedniego punktu wpisz BACK (lub wciśnij SHIFT + BACKSPACE). Powrót do punktu 1/3 nie nadpisze danych zawartych w punkcie 2/3 .</br>
-			Aby opuścić formularz bez wprowadzania danych wpisz EXIT.<br/>
-			Aby zatwierdzić wprowadzanie danych wciśnij SHIFT + ENTER.</br></br>
+			Aby opuścić formularz bez edytowania danych wpisz EXIT.<br/>
+			Aby zatwierdzić edycje danych wciśnij SHIFT + ENTER.</br></br>
 			<?php
-				echo "Nagłówek: " . $_SESSION['naglowek'] . "</br></br>";
+				echo "Nagłówek: " . $_SESSION['enaglowek'] . "</br></br>";
 			?>
 		</div>
 	</head>
@@ -64,9 +74,9 @@
 			});
 		</script>
 		
-		<form method="post" name="przekaz_info" action="dodaj_info3zatwierdz.php">
-		<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\+info\info&gt; 
-		<textarea id="Commands" class="mousetrap" name="info" autocomplete="off" rows="20"><?php if(isset($info))echo $info ?></textarea>
+		<form method="post" name="przekaz_info" action="einfo4zatwierdz.php">
+		<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\einfo\info&gt; 
+		<textarea id="Commands" class="mousetrap" name="einfo" autocomplete="off" rows="20"><?php if(isset($einfo))echo $einfo ?></textarea>
 		</form>
 		
 	</body>

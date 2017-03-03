@@ -62,7 +62,7 @@
 			}
 		
 		else {
-			$_SESSION['error_info'] ='CVcmd:\\' . $_SESSION['user'] . '\+info\koniec&gt;</br><span style="color:red">Polecenie "' . $_POST['koniec'] . '" nie jest rozpoznawalne.</span></br></br>';
+			$_SESSION['error_info'] ='CVcmd:\\' . $_SESSION['user'] . '\+info\zatwierdz&gt;</br><span style="color:red">Polecenie "' . $_POST['koniec'] . '" nie jest rozpoznawalne.</span></br></br>';
 			header('Location: dodaj_info3zatwierdz.php');
 			exit();
 		}

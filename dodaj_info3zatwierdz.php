@@ -55,7 +55,7 @@
 		?>
 		
 		<form method="post" action="dodaj_info4koniec.php">
-		<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\+info\koniec&gt; <input type="text" id="Commands" name="koniec" autocomplete="off"/>
+		<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\+info\zatwierdz&gt; <input type="text" id="Commands" name="koniec" autocomplete="off"/>
 		</form>
 		
 	</body>

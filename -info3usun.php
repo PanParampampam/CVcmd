@@ -34,7 +34,7 @@
 					$polaczenie ->query("SET NAMES 'utf8'");
 					if ($polaczenie->query("DELETE FROM info WHERE id_usera='$id' AND naglowek='$wybierz'")) {
 						unset($_SESSION['wybierz']);
-						$_SESSION['error_wybierz'] = 'CVcmd:' . $_SESSION['user'] . '-info/wybierz&gt;</br><span style="color:green">Podana sekcja została usunięta z bazy danych.</span></br></br>';
+						$_SESSION['error_wybierz'] = 'CVcmd:' . $_SESSION['user'] . '\-info&gt;usun</br><span style="color:green">Podana sekcja została usunięta z bazy danych.</span></br></br>';
 						header('Location: -info1wybierz.php');
 					}
 					else	{

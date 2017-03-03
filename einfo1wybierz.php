@@ -30,7 +30,7 @@
 			}
 		?>
 	
-		<form method="post" action="einfo2zatwierdz.php">
+		<form method="post" action="einfo2naglowek.php">
 			<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\einfo&gt;<input type="text" id="Commands" name="wybierz" autocomplete="off"/>
 		</form>
 		
