@@ -10,9 +10,16 @@
 		<div id = "pomoc">
 			<p>Tak wygląda Twoje CV!</p>
 			<p>Dodaj do niego swoje zdjęcie wciskając 1 (zostanie ono usunięte z naszej bazy po tym jak się wylogujesz).</p>
+			<?php
+				if(isset($_SESSION['error_zdjecie'])) {
+				echo $_SESSION['error_zdjecie'];
+				unset($_SESSION['error_zdjecie']);
+				}
+			?>
 			<p>Następnie możesz je wydrukować z poziomu przeglądarki wciskając 2, lub <strong>zapisać jako pdf wciskając 3.</strong></p>
 			<p>Możesz także skopiować tę stronę do pliku doc lub odt zachowując stworzone na tej stronie formatowanie.</p>
 			<p>Aby powrócić wciśnij ENTER.</p>
+
 		</div>
 		
 		<?php
@@ -81,19 +88,16 @@
 				}
 
 				if ($_FILES["fileToUpload"]["size"] > 5000000) {
-					echo "Sorry, your file is too large.";
+					$_SESSION['error_zdjecie'] = "<p style=color:red>Zdjęcie jest za duże.</p>";
 					$uploadOk = false;
 				}
 				
 				if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-					echo "nie zjecie";
+					$_SESSION['error_zdjecie'] = "<p style=color:red>Zdjęcie musi być w formacie jpg/png/jpeg.</p>";
 					$uploadOk = false;
 				}
 
-				if ($uploadOk == false) {
-					//echo "Sorry, your file was not uploaded.";
-
-				} else {
+				if ($uploadOk == true) {
 					if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "uploads/$new_foto")) {
 						include('smart_resize_image.function.php');
 						$resize = "uploads/" . $new_foto;
