@@ -34,6 +34,7 @@
 		<link rel="shortcut icon" type="image/png" href="favicon.png">
 		<script src="focus.js"></script>
 		<script src="mousetrap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<title>CVcmd:\+info</title>
 		<meta name="description" content="Tworzenie CV w środowisku podobnym do lini poleceń"/>
 		<meta name="keywords" content="CV, cmd, cvcmd, command line, wiersz poleceń"/>

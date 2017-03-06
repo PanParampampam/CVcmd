@@ -41,8 +41,9 @@
 					if ($polaczenie->query("INSERT INTO info (`id`, `id_usera`, `naglowek`, `info`) VALUES (NULL, '$id', '$naglowek', '$info')")) {
 						unset($_SESSION['naglowek']);
 						unset($_SESSION['info']);;
-						$_SESSION['info'] = 'CVcmd:' . $_SESSION['user'] . '&gt;+info</br><span style="color:green">Podane informacje zostały zapisane w bazie.</span></br></br>';
+						$_SESSION['info'] = 'CVcmd:' . $_SESSION['user'] . '&gt;+info</br><span style="color:green">Podane informacje zostały zapisane.</span></br></br>';
 						header('Location: cvcmd.php');
+						exit();
 					}
 					else	{
 						throw new Exception($polaczenie->error);

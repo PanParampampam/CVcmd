@@ -40,11 +40,12 @@
 					$info = $_SESSION['einfo'];
 					$polaczenie ->query("SET NAMES 'utf8'");
 					if ($polaczenie->query("UPDATE info SET `naglowek`='$naglowek', `info`='$info' WHERE `id_usera`='$id' AND `naglowek`='$stary_naglowek'")) {
-						unset($SESSION['stary_naglowek']);
 						unset($_SESSION['enaglowek']);
 						unset($_SESSION['einfo']);
-						$_SESSION['info'] = 'CVcmd:' . $_SESSION['user'] . '&gt;einfo</br><span style="color:green">Podane informacje zostały zapisane w bazie.</span></br></br>';
-						header('Location: cvcmd.php');
+						$_SESSION['error_wybierz'] = 'CVcmd:' . $_SESSION['user'] . '\einfo&gt;' . $_SESSION['stary_naglowek'] . '</br><span style="color:green">Podana sekcja została zmieniona.</span></br></br>';
+						unset($_SESSION['stary_naglowek']);
+						header('Location: einfo1wybierz.php');
+						exit();
 					}
 					else	{
 						throw new Exception($polaczenie->error);

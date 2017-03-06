@@ -39,6 +39,7 @@
 		<meta charset="utf-8"/>
 		<link rel="stylesheet" href="style.css"/>
 		<link rel="shortcut icon" type="image/png" href="favicon.png">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="focus.js"></script>
 		<title>CVcmd:\+dane</title>
 		<meta name="description" content="Tworzenie CV w środowisku podobnym do lini poleceń"/>
