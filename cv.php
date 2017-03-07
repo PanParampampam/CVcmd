@@ -21,8 +21,9 @@
 	<body>
 	
 		Aby edytować lub wprowadzić dane osobowe wpisz +DANE. </br>
-		Aby dodać nowe informacje wpisz +INFO.</br>
-		Aby edytować, usunąć lub zmienić kolejność informacji wpisz INFO.</br>
+		Aby dodać nowe sekcje +INFO.</br>
+		Aby edytować sekcje wpisz EINFO.</br>
+		Aby usunąć sekcje wpisz -INFO.</br>
 		<strong>Aby przejśc do ostatniego kroku po którym będziesz mógł wydrukować/ściągnąć swoje CV wpisz DALEJ.</strong></br>
 		Aby wyjść do strony głównej wpisz EXIT.</br></br>
 	
@@ -40,8 +41,11 @@
 					case "+info":
 						header('Location: dodaj_info1naglowek.php');
 						break;
+					case "einfo":
+						header('Location: einfo1wybierz.php');
+						break;
 					case "-info":
-						header('Location: -info.php');
+						header('Location: -info1wybierz.php');
 						break;
 					case "dalej":
 						header('Location: cv_zobacz.php');
