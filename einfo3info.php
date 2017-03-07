@@ -12,7 +12,7 @@
 			exit();
 		}
 		if ($back_or_exit == "exit") {
-			$SESSION['stary_naglowek'];
+			unset($_SESSION['stary_naglowek']);
 			unset($_SESSION["einfo"]);
 			unset($_SESSION["enaglowek"]);
 			header('Location: cvcmd.php');
@@ -50,11 +50,11 @@
 		<meta name="keywords" content="CV, cmd, cvcmd, command line, wiersz poleceń"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 		<div id = "C">
-			Edycja wybranej sekcji 2/3. Wprowadź nowe informacje.</br>
+			3/4 Edycja wybranej sekcji. Wprowadź nowe informacje.</br></br>
 			Podpowiedź: Aby wprowadzić symbol "&bull;" wciśnij CTRL + ENTER.</br>
-			Aby powrócić do poprzedniego punktu wpisz BACK (lub wciśnij SHIFT + BACKSPACE). Powrót do punktu 1/3 nie nadpisze danych zawartych w punkcie 2/3 .</br>
-			Aby opuścić formularz bez edytowania danych wpisz EXIT.<br/>
-			Aby zatwierdzić edycje danych wciśnij SHIFT + ENTER.</br></br>
+			Aby zatwierdzić wprowadzanie danych wciśnij SHIFT + ENTER.</br>
+			Aby powrócić do poprzedniego punktu wciśnij SHIFT + BACKSPACE. Powrót do punktu 1/3 nie nadpisze danych zawartych w punkcie 2/3 .</br>
+			Aby opuścić formularz bez wprowadzania danych wpisz EXIT.<br/></br>
 			<?php
 				echo "Nagłówek: " . $_SESSION['enaglowek'] . "</br></br>";
 			?>

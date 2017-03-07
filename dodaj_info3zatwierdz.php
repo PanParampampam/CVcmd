@@ -38,9 +38,10 @@
 		<meta name="keywords" content="CV, cmd, cvcmd, command line, wiersz poleceń"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 		<div id = "C">
-			Formularz wprowadzania informacji do CV 3/3. Twoje CV zostanie zaktualizowane o poniższe informacje.<br/>
-			Aby powrócić do poprzedniego punktu wpisz BACK. Aby opuścić formularz bez wprowadzania danych wpisz EXIT. Aby zatwierdzić wpisz ACCEPT.<br/>
-			Podpowiedź: Powrót do punktu 1/3 nie nadpisze danych zawartych w punkcie 2/3 .</br></br>
+			3/3 Wprowadzanie nowej sekcji CV. Twoje CV zostanie zaktualizowane o poniższe informacje.<br/></br>
+			Aby zatwierdzić wpisz ACCEPT.<br/>
+			Aby powrócić do poprzedniego punktu wpisz BACK. (Powrót do punktu 1/3 nie usunie danych zawartych w punkcie 2/3)<br/>
+			Aby opuścić formularz bez wprowadzania danych wpisz EXIT. <br/><br/>
 		</div>
 	</head>
 	

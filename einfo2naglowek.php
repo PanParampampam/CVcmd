@@ -7,7 +7,7 @@
 
 		$back_or_exit = strtolower($_POST['wybierz']);
 		if ($back_or_exit == "exit") {
-			$SESSION['stary_naglowek'];
+			unset($_SESSION['stary_naglowek']);
 			unset($_SESSION["einfo"]);
 			header('Location: cvcmd.php');
 			exit();
@@ -80,7 +80,7 @@
 	
 	<body>
 	
-		Edycja wybranej sekcji 1/3. Podaj nową nazwę nagłówka.<br/></br>
+		2/4 Edycja wybranej sekcji. Podaj nową nazwę nagłówka.<br/></br>
 		Aby powrócić do wyboru sekcji wpisz BACK.</br>
 		Aby wyjść bez zmieniania danych wpisz EXIT.<br/><br/>
 	

@@ -20,8 +20,8 @@
 	
 	<body>
 	
-			Poniżej znajdują się wszystkie dodane przez Ciebie informacje.<br/></br>
-			Aby edytować daną sekcje wpisz nazwę jej <span style="color:green">nagłówka</span>. (każda sekcja to "nagłówek" oraz "info")</br>
+			1/4 Poniżej znajdują się wszystkie dodane przez Ciebie sekcje. (każda sekcja to "nagłówek" oraz "info")<br/></br>
+			Aby edytować daną sekcje wpisz nazwę jej <span style="color:yellow">nagłówka</span>.</br>
 			Aby wyjść bez zmieniania danych wpisz EXIT.<br/><br/>
 			
 		<?php
@@ -57,12 +57,21 @@
 					$rezultat_info = mysqli_query($polaczenie, $cv_info);
 					if (mysqli_num_rows($rezultat_info) > 0) {
 						while($row = mysqli_fetch_assoc($rezultat_info)) {
-							echo '<div style="white-space: pre-line;">Nagłówek: <span style="color:green">' . $row["naglowek"]. "</span></br>Info: " . $row["info"] . "</div></br>";
-							echo "========================================================</br></br>";
+							if ($row["naglowek"] == $_SESSION['enaglowek']) {
+								echo '<div style="white-space: pre-line;">Nagłówek: <span style="color:green">' . $row["naglowek"]. "</span></br>Info: " . $row["info"] . "</div></br>";
+								echo "========================================================</br></br>";
+								unset($_SESSION['enaglowek']);
+							}
+							else {
+								echo '<div style="white-space: pre-line;">Nagłówek: <span style="color:yellow">' . $row["naglowek"]. "</span></br>Info: " . $row["info"] . "</div></br>";
+								echo "========================================================</br></br>";
+							}
 						}			
 					}
 					else {
-						echo "Brak wyników";
+						$_SESSION['info'] = 'CVcmd:\\' . $_SESSION['user'] . '&gt;einfo</br><span style="color:red">Brak sekcji. Stwórz sekcje wpisując +INFO.</span></br></br>';
+						header('Location: cvcmd.php');
+						exit();
 					}
 						
 				}			

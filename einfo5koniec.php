@@ -11,7 +11,7 @@
 			exit();
 		}
 		if ($back_or_exit == "exit") {
-			$SESSION['stary_naglowek'];
+			unset($_SESSION['stary_naglowek']);
 			unset($_SESSION['enaglowek']);
 			unset($_SESSION['einfo']);;
 			header('Location: cvcmd.php');
@@ -40,7 +40,6 @@
 					$info = $_SESSION['einfo'];
 					$polaczenie ->query("SET NAMES 'utf8'");
 					if ($polaczenie->query("UPDATE info SET `naglowek`='$naglowek', `info`='$info' WHERE `id_usera`='$id' AND `naglowek`='$stary_naglowek'")) {
-						unset($_SESSION['enaglowek']);
 						unset($_SESSION['einfo']);
 						$_SESSION['error_wybierz'] = 'CVcmd:' . $_SESSION['user'] . '\einfo&gt;' . $_SESSION['stary_naglowek'] . '</br><span style="color:green">Podana sekcja została zmieniona.</span></br></br>';
 						unset($_SESSION['stary_naglowek']);

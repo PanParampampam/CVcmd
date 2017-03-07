@@ -17,7 +17,7 @@
 		<meta name="keywords" content="CV, cmd, cvcmd, command line, wiersz poleceń"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 		<div id = "C">
-			Formularz wprowadzania informacji do CV 1/3. Podaj nagłówek (np. Wykształcenie, Doświadczenie, Umiejętności, Zainteresowania itp.)<br/>
+			1/3 Wprowadzanie nowej sekcji do CV. Podaj nagłówek (np. Wykształcenie, Doświadczenie, Umiejętności, Zainteresowania itp.)<br/></br>
 			Aby opuścić formularz bez wprowadzania danych wpisz EXIT.<br/><br/>
 		</div>
 	</head>

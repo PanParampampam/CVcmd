@@ -11,7 +11,7 @@
 		<link rel="shortcut icon" type="image/png" href="favicon.png">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="focus.js"></script>
-		<title>CVcmd:\-info</title>
+		<title>CVcmd:\zinfo</title>
 		<meta name="description" content="Tworzenie CV w środowisku podobnym do lini poleceń"/>
 		<meta name="keywords" content="CV, cmd, cvcmd, command line, wiersz poleceń"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
@@ -20,9 +20,9 @@
 	
 	<body>
 	
-			1/2 Poniżej znajdują się wszystkie dodane przez Ciebie sekcje. (każda sekcja to "nagłówek" oraz "info")<br/></br>
-			Aby usunąć daną sekcje wpisz nazwę jej <span style="color:red">nagłówka</span>.</br>
-			Aby wyjść bez usuwania danych wpisz EXIT.<br/><br/>
+			1/3 Poniżej znajdują się wszystkie dodane przez Ciebie sekcje. (każda sekcja to "nagłówek" oraz "info")<br/></br>
+			Wybierz nazwę pierwszego <span style="color:yellow">nagłówka</span> sekcji, które chcesz pozamieniać.</br>
+			Aby wyjść bez zmieniania danych wpisz EXIT.<br/><br/>
 			
 		<?php
 			if(isset($_SESSION['error_wybierz'])) {
@@ -31,8 +31,8 @@
 			}
 		?>
 	
-		<form method="post" action="-info2zatwierdz.php">
-			<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\-info&gt;<input type="text" id="Commands" name="wybierz" autocomplete="off"/>
+		<form method="post" action="zinfo2wybierz2.php">
+			<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\zinfo&gt;<input type="text" id="Commands" name="wybierz" autocomplete="off"/>
 		</form>
 		
 		</br></br>========================================================</br></br>
@@ -55,32 +55,28 @@
 					$cv_info = "SELECT naglowek, info FROM info WHERE id_usera='$id'";
 						
 					$rezultat_info = mysqli_query($polaczenie, $cv_info);
-					if (mysqli_num_rows($rezultat_info) > 0) {
+					if (mysqli_num_rows($rezultat_info) > 1) {
 						while($row = mysqli_fetch_assoc($rezultat_info)) {
-							echo '<div style="white-space: pre-line;">Nagłówek: <span style="color:red">' . $row["naglowek"]. "</span></br>Info: " . $row["info"] . "</div></br>";
+							echo '<div style="white-space: pre-line;">Nagłówek: <span style="color:yellow">' . $row["naglowek"] . "</span></br>Info: " . $row["info"] . "</div></br>";
 							echo "========================================================</br></br>";
 						}			
 					}
 					else {
-						$_SESSION['info'] = 'CVcmd:\\' . $_SESSION['user'] . '&gt;-info</br><span style="color:red">Brak sekcji. Stwórz sekcje wpisując +INFO.</span></br></br>';
-						header('Location: cvcmd.php');
-						exit();
+					$_SESSION['info'] = 'CVcmd:\\' . $_SESSION['user'] . '&gt;zinfo</br><span style="color:red">Brak sekcji. Stwórz sekcje wpisując +INFO.</span></br></br>';
+					header('Location: cvcmd.php');
+					exit();
 					}
 						
 				}			
 				$polaczenie->close();
 			}
 				catch(Exception $e)  {
-					$_SESSION['info'] = 'CVcmd:\\' . $_SESSION['user'] . '&gt;-info</br><span style="color:red">Błąd serwera! Przepraszamy za niedogodności i prosimy o spróbowanie ponownie w innym terminie.</span></br></br>';
+					$_SESSION['info'] = 'CVcmd:\\' . $_SESSION['user'] . '&gt;zinfo</br><span style="color:red">Błąd serwera! Przepraszamy za niedogodności i prosimy o spróbowanie ponownie w innym terminie.</span></br></br>';
 					header('Location: cvcmd.php');
 					exit();
 					//echo '</br>Informacja developoerska: '.$e;
 				}
 		?>
-		
-
-		
-
 		
 	</body>
 </html>

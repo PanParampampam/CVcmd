@@ -40,11 +40,11 @@
 		<meta name="keywords" content="CV, cmd, cvcmd, command line, wiersz poleceń"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 		<div id = "C">
-			Formularz wprowadzania informacji do CV 2/3. Wprowadź dane.</br>
+			2/3 Wprowadzanie nowej sekcji do CV. Wprowadź dane.</br></br>
 			Podpowiedź: Aby wprowadzić symbol "&bull;" wciśnij CTRL + ENTER.</br>
-			Aby powrócić do poprzedniego punktu wpisz BACK (lub wciśnij SHIFT + BACKSPACE). Powrót do punktu 1/3 nie nadpisze danych zawartych w punkcie 2/3 .</br>
-			Aby opuścić formularz bez wprowadzania danych wpisz EXIT.<br/>
-			Aby zatwierdzić wprowadzanie danych wciśnij SHIFT + ENTER.</br></br>
+			Aby zatwierdzić wprowadzanie danych wciśnij SHIFT + ENTER.</br>
+			Aby powrócić do poprzedniego punktu wciśnij SHIFT + BACKSPACE. Powrót do punktu 1/3 nie nadpisze danych zawartych w punkcie 2/3 .</br>
+			Aby opuścić formularz bez wprowadzania danych wpisz EXIT.<br/></br>
 			<?php
 				echo "Nagłówek: " . $_SESSION['naglowek'] . "</br></br>";
 			?>

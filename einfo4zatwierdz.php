@@ -11,7 +11,7 @@
 			exit();
 		}
 		if ($back_or_exit == "exit") {
-			$SESSION['stary_naglowek'];
+			unset($_SESSION['stary_naglowek']);
 			unset($_SESSION['enaglowek']);
 			unset($_SESSION['einfo']);
 			header('Location: cvcmd.php');
@@ -39,11 +39,10 @@
 		<meta name="keywords" content="CV, cmd, cvcmd, command line, wiersz poleceń"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 		<div id = "C">
-			Edycja wybranej sekcji 3/3. Twoje CV zostanie zaktualizowane o poniższe informacje.<br/></br>
-			Aby powrócić do poprzedniego punktu wpisz BACK. </br>
-			Aby opuścić formularz bez wprowadzania danych wpisz EXIT.</br> 
+			4/4 Edycja wybranej sekcji. Twoje CV zostanie zaktualizowane o poniższe informacje.<br/></br>
 			Aby zatwierdzić wpisz ACCEPT.<br/>
-			Podpowiedź: Powrót do punktu 1/3 nie nadpisze danych zawartych w punkcie 2/3 .</br></br>
+			Aby powrócić do poprzedniego punktu wpisz BACK. (Powrót do punktu 1/3 nie nadpisze danych zawartych w punkcie 2/3)</br>
+			Aby opuścić formularz bez zmieniania danych wpisz EXIT.</br> </br>
 		</div>
 	</head>
 	

@@ -42,9 +42,9 @@
 				}
 			?>
 	
-			Poniżej znajdują się wybrana do usunięcia sekcja.<br/></br>
-			Aby ją usunąć wpisz USUN</br>
-			Aby wybrać inną sekcję wpisz BACK</br>
+			2/2 Poniżej znajdują się wybrana do usunięcia sekcja.<br/></br>
+			Aby ją usunąć wpisz USUN.</br>
+			Aby wybrać inną sekcję wpisz BACK.</br>
 			Aby wyjść bez usuwania danych wpisz EXIT.<br/><br/>
 	
 		<form method="post" action="-info3usun.php">

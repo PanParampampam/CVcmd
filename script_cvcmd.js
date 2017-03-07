@@ -17,8 +17,9 @@ function Help () {
 	Result = "<table style='width:100%, text-align:left'>" +
 			"<tr><td>+DANE<td><td>Dodaj lub edytuj dane osobowe w Twoim CV</td></tr>"  +
 			"<tr><td>+INFO<td><td>Dodaj sekcje do Twojego CV</td></tr>"  +
-			"<tr><td>eINFO<td><td>Edytuj sekcje w Twoim CV</td></tr>"  +
-			"<tr><td>-INFO<td><td>Usuń sekcje z Twojego CV</td></tr>"  +
+			"<tr><td>eINFO<td><td>Edytuj sekcje</td></tr>"  +
+			"<tr><td>zINFO<td><td>Zamień dwie sekcje miejscami</td></tr>"  +
+			"<tr><td>-INFO<td><td>Usuń sekcje</td></tr>"  +
 			"<tr><td>HELP<td><td>Wyświetla listę komend</td></tr>" +
 			"<tr><td>HTS<td><td>Poradnik jak zacząć</td></tr>" +
 			"<tr><td>LOGIN<td><td>Przejście do strony logowania</td></tr>" +
@@ -45,6 +46,9 @@ function Submit(key) {
 				return;
 			case "einfo":
 				window.location.href = "einfo1wybierz.php";
+				return;
+			case "zinfo":
+				window.location.href = "zinfo1wybierz.php";
 				return;
 			case "-info":
 				window.location.href = "-info1wybierz.php";
