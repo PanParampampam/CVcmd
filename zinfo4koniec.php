@@ -45,7 +45,7 @@
 					$polaczenie ->query("SET NAMES 'utf8'");
 					if ($polaczenie->query("UPDATE info SET `naglowek`='$naglowek2', `info`='$info2' WHERE `id_usera`='$id' AND `naglowek`='$naglowek1'") 
 						and $polaczenie->query("UPDATE info SET `naglowek`='$naglowek1', `info`='$info1' WHERE `id_usera`='$id' AND `naglowek`='$naglowek2'")) {
-						$_SESSION['error_wybierz'] = 'CVcmd:' . $_SESSION['user'] . '\zinfo&gt;accept</br><span style="color:green">Podana sekcja zostały zamienione.</span></br></br>';
+						$_SESSION['error_wybierz'] = 'CVcmd:' . $_SESSION['user'] . '\zinfo&gt;accept</br><span style="color:green">Podane sekcje zostały zamienione.</span></br></br>';
 						unset($_SESSION['naglowek1']);
 						unset($_SESSION['info1']);
 						unset($_SESSION['naglowek2']);

@@ -6,6 +6,10 @@
 	if(isset($_POST['wybierz2'])) {
 
 		$back_or_exit = strtolower($_POST['wybierz2']);
+		if ($back_or_exit == "back") {
+			header('Location: zinfo1wybierz.php');
+			exit();
+		}
 		if ($back_or_exit == "exit") {
 			unset($_SESSION['naglowek1']);
 			unset($_SESSION['info1']);
@@ -51,7 +55,7 @@
 				}
 				else {
 					$_SESSION['error_wybierz'] ='CVcmd:\\' . $_SESSION['user'] . '\zinfo&gt;' . $_POST['wybierz2'] . '</br><span style="color:red">Podaj nazwę nagłówka lub polecenie.</span></br></br>';
-					header('Location: zinfo1wybierz.php');
+					header('Location: zinfo2wybierz2.php');
 					exit();
 				}
 					
