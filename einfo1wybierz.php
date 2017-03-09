@@ -32,7 +32,7 @@
 		?>
 	
 		<form method="post" action="einfo2naglowek.php">
-			<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\einfo&gt;<input type="text" id="Commands" name="wybierz" autocomplete="off"/>
+			<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\einfo\wybierz&gt;<input type="text" id="Commands" name="wybierz" autocomplete="off"/>
 		</form>
 		
 		</br></br>========================================================</br></br>
@@ -57,16 +57,18 @@
 					$rezultat_info = mysqli_query($polaczenie, $cv_info);
 					if (mysqli_num_rows($rezultat_info) > 0) {
 						while($row = mysqli_fetch_assoc($rezultat_info)) {
-							if ($row["naglowek"] == $_SESSION['enaglowek']) {
-								echo '<div style="white-space: pre-line;">Nagłówek: <span style="color:green">' . $row["naglowek"]. "</span></br>Info: " . $row["info"] . "</div></br>";
-								echo "========================================================</br></br>";
-								unset($_SESSION['enaglowek']);
+							if (isset($_SESSION['enaglowek'])) {
+								if ($row["naglowek"] == $_SESSION['enaglowek']) {
+									echo '<div style="white-space: pre-line;">Nagłówek: <span style="color:green">' . $row["naglowek"]. "</span></br>Info: " . $row["info"] . "</div></br>";
+									echo "========================================================</br></br>";
+									unset($_SESSION['enaglowek']);
+								}
 							}
 							else {
 								echo '<div style="white-space: pre-line;">Nagłówek: <span style="color:yellow">' . $row["naglowek"]. "</span></br>Info: " . $row["info"] . "</div></br>";
 								echo "========================================================</br></br>";
 							}
-						}			
+						}		
 					}
 					else {
 						$_SESSION['info'] = 'CVcmd:\\' . $_SESSION['user'] . '&gt;einfo</br><span style="color:red">Brak sekcji. Stwórz sekcje wpisując +INFO.</span></br></br>';
@@ -84,10 +86,6 @@
 					//echo '</br>Informacja developoerska: '.$e;
 				}
 		?>
-		
-
-		
-
 		
 	</body>
 </html>

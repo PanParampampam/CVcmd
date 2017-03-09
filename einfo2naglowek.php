@@ -7,13 +7,14 @@
 
 		$back_or_exit = strtolower($_POST['wybierz']);
 		if ($back_or_exit == "exit") {
+			unset($_SESSION['enaglowek']);
 			unset($_SESSION['stary_naglowek']);
 			unset($_SESSION["einfo"]);
 			header('Location: cvcmd.php');
 			exit();
 		}
 		if ($back_or_exit == "") {
-			$_SESSION['error_wybierz'] ='CVcmd:\\' . $_SESSION['user'] . '\einfo&gt;</br><span style="color:red">Wprowadź komendę</span></br></br>';
+			$_SESSION['error_wybierz'] ='CVcmd:\\' . $_SESSION['user'] . '\einfo\wybierz&gt;</br><span style="color:red">Wprowadź komendę</span></br></br>';
 			header('Location: einfo1wybierz.php');
 			exit();
 		}
@@ -43,7 +44,7 @@
 					}
 				}
 				else {
-					$_SESSION['error_wybierz'] ='CVcmd:\\' . $_SESSION['user'] . '\einfo&gt;' . $_POST['wybierz'] . '</br><span style="color:red">Podaj nazwę nagłówka lub polecenie.</span></br></br>';
+					$_SESSION['error_wybierz'] ='CVcmd:\\' . $_SESSION['user'] . '\einfo\wybierz&gt;' . $_POST['wybierz'] . '</br><span style="color:red">Podaj nazwę nagłówka lub polecenie.</span></br></br>';
 					header('Location: einfo1wybierz.php');
 				}
 					

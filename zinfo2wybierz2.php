@@ -18,7 +18,7 @@
 			exit();
 		}
 		if ($back_or_exit == "") {
-			$_SESSION['error_wybierz'] ='CVcmd:\\' . $_SESSION['user'] . '\zinfo&gt;</br><span style="color:red">Wprowadź komendę</span></br></br>';
+			$_SESSION['error_wybierz'] ='CVcmd:\\' . $_SESSION['user'] . '\zinfo\wybierz1&gt;</br><span style="color:red">Wprowadź komendę</span></br></br>';
 			header('Location: zinfo1wybierz.php');
 			exit();
 		}
@@ -44,7 +44,7 @@
 					}
 				}
 				else {
-					$_SESSION['error_wybierz'] ='CVcmd:\\' . $_SESSION['user'] . '\zinfo&gt;' . $_POST['wybierz'] . '</br><span style="color:red">Podaj nazwę nagłówka lub polecenie.</span></br></br>';
+					$_SESSION['error_wybierz'] ='CVcmd:\\' . $_SESSION['user'] . '\zinfo\wybierz1&gt;' . $_POST['wybierz'] . '</br><span style="color:red">Podaj nazwę nagłówka lub polecenie.</span></br></br>';
 					header('Location: zinfo1wybierz.php');
 					exit();
 				}
@@ -94,7 +94,7 @@
 		?>
 	
 		<form method="post" action="zinfo3zatwierdz.php">
-			<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\zinfo&gt;<input type="text" id="Commands" name="wybierz2" autocomplete="off"/>
+			<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\zinfo\wybierz1&gt;<input type="text" id="Commands" name="wybierz2" autocomplete="off"/>
 		</form>
 		
 		</br></br>========================================================</br></br>

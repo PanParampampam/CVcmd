@@ -19,13 +19,13 @@
 			exit();
 		}
 		if ($back_or_exit == "") {
-			$_SESSION['error_wybierz'] ='CVcmd:\\' . $_SESSION['user'] . '\zinfo&gt;</br><span style="color:red">Wprowadź komendę</span></br></br>';
+			$_SESSION['error_wybierz'] ='CVcmd:\\' . $_SESSION['user'] . '\zinfo\wybierz2&gt;</br><span style="color:red">Wprowadź komendę</span></br></br>';
 			header('Location: zinfo2wybierz2.php');
 			exit();
 		}
 		
 		if ($back_or_exit == strtolower($_SESSION['naglowek1'])) {
-			$_SESSION['error_wybierz'] ='CVcmd:\\' . $_SESSION['user'] . '\zinfo&gt;' . $_POST['wybierz2'] . '</br><span style="color:red">Nie możesz podać dwókrotnie tej samej sekcji.</span></br></br>';
+			$_SESSION['error_wybierz'] ='CVcmd:\\' . $_SESSION['user'] . '\zinfo\wybierz2&gt;' . $_POST['wybierz2'] . '</br><span style="color:red">Nie możesz podać dwókrotnie tej samej sekcji.</span></br></br>';
 			header('Location: zinfo2wybierz2.php');
 			exit();
 		}

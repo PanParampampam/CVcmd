@@ -32,7 +32,7 @@
 		?>
 	
 		<form method="post" action="zinfo2wybierz2.php">
-			<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\zinfo&gt;<input type="text" id="Commands" name="wybierz" autocomplete="off"/>
+			<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\zinfo\wybierz1&gt;<input type="text" id="Commands" name="wybierz" autocomplete="off"/>
 		</form>
 		
 		</br></br>========================================================</br></br>

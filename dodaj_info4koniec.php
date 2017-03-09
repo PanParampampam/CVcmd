@@ -39,10 +39,9 @@
 					$info = $_SESSION['info'];
 					$polaczenie ->query("SET NAMES 'utf8'");
 					if ($polaczenie->query("INSERT INTO info (`id`, `id_usera`, `naglowek`, `info`) VALUES (NULL, '$id', '$naglowek', '$info')")) {
-						unset($_SESSION['naglowek']);
 						unset($_SESSION['info']);;
-						$_SESSION['info'] = 'CVcmd:' . $_SESSION['user'] . '&gt;+info</br><span style="color:green">Podane informacje zostały zapisane.</span></br></br>';
-						header('Location: cvcmd.php');
+						$_SESSION['dodano'] = 'CVcmd:' . $_SESSION['user'] . '+info\naglowek&gt;' . $_SESSION['naglowek'] . '</br><span style="color:green">Podane informacje zostały zapisane.</span></br></br>';
+						header('Location: dodaj_info1naglowek.php');
 						exit();
 					}
 					else	{
