@@ -12,8 +12,49 @@
 			header('Location: cvcmd.php');
 			exit();
 		}
+		if ($back_or_exit == "") {
+			$_SESSION['error_naglowek'] ='CVcmd:\\' . $_SESSION['user'] . '\+info\nagłówek&gt;</br><span style="color:red">Wprowadź komendę lub nazwę nagłówka</span></br></br>';
+			header('Location: +info1naglowek.php');
+			exit();
+		}
 		
-		else $_SESSION['naglowek'] = $_POST['naglowek'];
+		require_once "connect.php";
+		mysqli_report(MYSQLI_REPORT_STRICT);
+
+		try {
+			$polaczenie = new mysqli($host, $db_user, $db_password, $db_name);
+			
+			if($polaczenie->connect_errno!=0)	{
+				throw new Exception(mysqli_connect_errno());
+			}
+			
+			else	{
+				$polaczenie ->query("SET NAMES 'utf8'");
+				$id = $_SESSION['id'];
+				$naglowek = $_POST['naglowek'];
+				$cv_info = "SELECT naglowek, info FROM info WHERE id_usera='$id' AND naglowek='$naglowek'";
+					
+				$rezultat_info = mysqli_query($polaczenie, $cv_info);
+				if (mysqli_num_rows($rezultat_info) > 0) {
+					$row = mysqli_fetch_assoc($rezultat_info);
+					$_SESSION['istniejacy_naglowek'] = $row['naglowek'];
+					$_SESSION['error_naglowek'] ='CVcmd:\\' . $_SESSION['user'] . '\+info\nagłówek&gt;' . $_POST['naglowek'] . '</br><span style="color:red">Sekcja o takim nagłówku już istnieje.</span></br></br>';
+					header('Location: +info1naglowek.php');
+					exit();
+					}
+					
+				else $_SESSION['naglowek'] = $_POST['naglowek'];
+				}
+			$polaczenie->close();
+		}
+			catch(Exception $e)  {
+				$_SESSION['info'] = 'CVcmd:\\' . $_SESSION['user'] . '&gt;+info</br><span style="color:red">Błąd serwera! Przepraszamy za niedogodności i prosimy o spróbowanie ponownie w innym terminie.</span></br></br>';
+				header('Location: cvcmd.php');
+				exit();
+				//echo '</br>Informacja developoerska: '.$e;
+			}
+		
+		
 	}
 	
 	else if (!isset($_SESSION['naglowek'])) {
@@ -65,7 +106,7 @@
 			});
 		</script>
 		
-		<form method="post" name="przekaz_info" action="dodaj_info3zatwierdz.php">
+		<form method="post" name="przekaz_info" action="+info3zatwierdz.php">
 		<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\+info\info&gt; 
 		<textarea id="Commands" class="mousetrap" name="info" autocomplete="off" rows="20"><?php if(isset($info))echo $info ?></textarea>
 		</form>

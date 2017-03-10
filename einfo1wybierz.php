@@ -63,6 +63,10 @@
 									echo "========================================================</br></br>";
 									unset($_SESSION['enaglowek']);
 								}
+								else {
+									echo '<div style="white-space: pre-line;">Nagłówek: <span style="color:yellow">' . $row["naglowek"]. "</span></br>Info: " . $row["info"] . "</div></br>";
+									echo "========================================================</br></br>";
+								}
 							}
 							else {
 								echo '<div style="white-space: pre-line;">Nagłówek: <span style="color:yellow">' . $row["naglowek"]. "</span></br>Info: " . $row["info"] . "</div></br>";

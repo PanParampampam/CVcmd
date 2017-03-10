@@ -7,7 +7,7 @@
 		
 		$back_or_exit = strtolower($_POST['koniec']);
 		if ($back_or_exit == "back") {
-			header('Location: dodaj_info2info.php');
+			header('Location: +info2info.php');
 			exit();
 		}
 		if ($back_or_exit == "exit") {
@@ -39,9 +39,11 @@
 					$info = $_SESSION['info'];
 					$polaczenie ->query("SET NAMES 'utf8'");
 					if ($polaczenie->query("INSERT INTO info (`id`, `id_usera`, `naglowek`, `info`) VALUES (NULL, '$id', '$naglowek', '$info')")) {
-						unset($_SESSION['info']);;
-						$_SESSION['dodano'] = 'CVcmd:' . $_SESSION['user'] . '+info\naglowek&gt;' . $_SESSION['naglowek'] . '</br><span style="color:green">Podane informacje zostały zapisane.</span></br></br>';
-						header('Location: dodaj_info1naglowek.php');
+						unset($_SESSION['info']);
+						unset($_SESSION['naglowek']);
+						$_SESSION['error_naglowek'] = 'CVcmd:' . $_SESSION['user'] . '+info\naglowek&gt;' . $naglowek . '</br><span style="color:green">Podane informacje zostały zapisane.</span></br></br>';
+						$_SESSION['utworzony_naglowek'] = $naglowek;
+						header('Location: +info1naglowek.php');
 						exit();
 					}
 					else	{
@@ -63,7 +65,7 @@
 		
 		else {
 			$_SESSION['error_info'] ='CVcmd:\\' . $_SESSION['user'] . '\+info\zatwierdz&gt;</br><span style="color:red">Polecenie "' . $_POST['koniec'] . '" nie jest rozpoznawalne.</span></br></br>';
-			header('Location: dodaj_info3zatwierdz.php');
+			header('Location: +info3zatwierdz.php');
 			exit();
 		}
 			

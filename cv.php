@@ -40,7 +40,7 @@
 						header('Location: dodaj_dane1godnosc.php');
 						break;
 					case "+info":
-						header('Location: dodaj_info1naglowek.php');
+						header('Location: +info1naglowek.php');
 						break;
 					case "einfo":
 						header('Location: einfo1wybierz.php');

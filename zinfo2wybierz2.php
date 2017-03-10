@@ -39,8 +39,8 @@
 				$rezultat_info = mysqli_query($polaczenie, $cv_info);
 				if (mysqli_num_rows($rezultat_info) > 0) {
 					while($row = mysqli_fetch_assoc($rezultat_info)) {
-					$_SESSION['naglowek1'] = $row["naglowek"];
-					$_SESSION['info1'] = $row["info"];
+						$_SESSION['naglowek1'] = $row["naglowek"];
+						$_SESSION['info1'] = $row["info"];
 					}
 				}
 				else {

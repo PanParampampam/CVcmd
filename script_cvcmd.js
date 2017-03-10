@@ -42,7 +42,7 @@ function Submit(key) {
 				window.location.href = "dodaj_dane1godnosc.php";
 				return;
 			case "+info":
-				window.location.href = "dodaj_info1naglowek.php";
+				window.location.href = "+info1naglowek.php";
 				return;
 			case "einfo":
 				window.location.href = "einfo1wybierz.php";

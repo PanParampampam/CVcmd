@@ -38,14 +38,15 @@
 				$rezultat_info = mysqli_query($polaczenie, $cv_info);
 				if (mysqli_num_rows($rezultat_info) > 0) {
 					while($row = mysqli_fetch_assoc($rezultat_info)) {
-					$stary_naglowek = $row["naglowek"];
-					$_SESSION['stary_naglowek'] = $stary_naglowek;
-					$_SESSION['einfo'] = $row["info"];
+						$stary_naglowek = $row["naglowek"];
+						$_SESSION['stary_naglowek'] = $stary_naglowek;
+						$_SESSION['einfo'] = $row["info"];
 					}
 				}
 				else {
 					$_SESSION['error_wybierz'] ='CVcmd:\\' . $_SESSION['user'] . '\einfo\wybierz&gt;' . $_POST['wybierz'] . '</br><span style="color:red">Podaj nazwę nagłówka lub polecenie.</span></br></br>';
 					header('Location: einfo1wybierz.php');
+					exit();
 				}
 					
 			}			

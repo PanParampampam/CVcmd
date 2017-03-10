@@ -24,13 +24,13 @@
 		Aby opuścić formularz bez wprowadzania danych wpisz EXIT.<br/><br/>
 		
 		<?php
-			if(isset($_SESSION['dodano'])) {
-				echo $_SESSION['dodano'];
-				unset($_SESSION['dodano']);
+			if(isset($_SESSION['error_naglowek'])) {
+				echo $_SESSION['error_naglowek'];
+				unset($_SESSION['error_naglowek']);
 			}
 		?>
 	
-		<form method="post" action="dodaj_info2info.php">
+		<form method="post" action="+info2info.php">
 			<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\+info\nagłówek&gt;<input type="text" id="Commands" name="naglowek" autocomplete="off"/>
 		</form>
 		
@@ -56,26 +56,30 @@
 					$rezultat_info = mysqli_query($polaczenie, $cv_info);
 					if (mysqli_num_rows($rezultat_info) > 0) {
 						while($row = mysqli_fetch_assoc($rezultat_info)) {
-							if (isset($_SESSION['naglowek'])) {
-								if ($row["naglowek"] == $_SESSION['naglowek']) {
-									echo '<div style="white-space: pre-line;">Nagłówek: <span style="color:green">' . $row["naglowek"]. "</span></br>Info: " . $row["info"] . "</div></br>";
-									echo "========================================================</br></br>";
-									unset($_SESSION['naglowek']);
-								}
+							if ((isset($_SESSION['utworzony_naglowek'])) and ($row["naglowek"] == $_SESSION['utworzony_naglowek'])) {
+								echo '<div style="white-space: pre-line;">Nagłówek: <span style="color:green">' . $row["naglowek"]. "</span></br>Info: " . $row["info"] . "</div></br>";
+								echo "========================================================</br></br>";
+								unset($_SESSION['utworzony_naglowek']);
+							}
+							else if ((isset($_SESSION['istniejacy_naglowek'])) and ($row["naglowek"] == $_SESSION['istniejacy_naglowek'])) {
+								echo '<div style="white-space: pre-line;">Nagłówek: <span style="color:red">' . $row["naglowek"]. "</span></br>Info: " . $row["info"] . "</div></br>";
+								echo "========================================================</br></br>";
+								unset($_SESSION['istniejacy_naglowek']);
 							}
 							else {
 								echo '<div style="white-space: pre-line;">Nagłówek: <span style="color:yellow">' . $row["naglowek"]. "</span></br>Info: " . $row["info"] . "</div></br>";
 								echo "========================================================</br></br>";
 							}
-						}		
+						}
 					}
 					else {
-						$_SESSION['info'] = 'CVcmd:\\' . $_SESSION['user'] . '&gt;einfo</br><span style="color:red">Brak sekcji. Stwórz sekcje wpisując +INFO.</span></br></br>';
-						header('Location: cvcmd.php');
-						exit();
+						echo 'W tym miejscu pokazane będą utworzone przez Ciebie sekcje, na przykładzie: </br>';
+						echo 'Nagłówek: Umiejętności</br>';
+						echo 'Info: Podróże w czasie, znajomość różnych kultur, bieganie</br></br>';
+						echo "========================================================</br></br>";
 					}
 						
-				}			
+				}	
 				$polaczenie->close();
 			}
 				catch(Exception $e)  {

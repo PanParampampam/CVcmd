@@ -7,7 +7,7 @@
 		
 		$back_or_exit = strtolower($_POST['info']);
 		if ($back_or_exit == "back") {
-			header('Location: dodaj_info1naglowek.php');
+			header('Location: +info1naglowek.php');
 			exit();
 		}
 		if ($back_or_exit == "exit") {
@@ -56,7 +56,7 @@
 		}
 		?>
 		
-		<form method="post" action="dodaj_info4koniec.php">
+		<form method="post" action="+info4koniec.php">
 		<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\+info\zatwierdz&gt; <input type="text" id="Commands" name="koniec" autocomplete="off"/>
 		</form>
 		
