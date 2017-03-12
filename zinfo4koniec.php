@@ -11,8 +11,10 @@
 			exit();
 		}
 		if ($back_or_exit == "exit") {
+			unset($_SESSION['id1']);
 			unset($_SESSION['naglowek1']);
 			unset($_SESSION['info1']);
+			unset($_SESSION['id2']);
 			unset($_SESSION['naglowek2']);
 			unset($_SESSION['info2']);
 			header('Location: cvcmd.php');
@@ -36,22 +38,26 @@
 						header('Location: cvcmd.php');
 						exit();
 					}
+					
 					$id = $_SESSION['id'];
+					$id1 = $_SESSION['id1'];
+					$id2 = $_SESSION['id2'];
 					$naglowek1 = $_SESSION['naglowek1'];
 					$info1 = $_SESSION['info1'];
 					$naglowek2 = $_SESSION['naglowek2'];
 					$info2 = $_SESSION['info2'];
 					
 					$polaczenie ->query("SET NAMES 'utf8'");
-					if ($polaczenie->query("UPDATE info SET `naglowek`='$naglowek2', `info`='$info2' WHERE `id_usera`='$id' AND `naglowek`='$naglowek1'") 
-						and $polaczenie->query("UPDATE info SET `naglowek`='$naglowek1', `info`='$info1' WHERE `id_usera`='$id' AND `naglowek`='$naglowek2'")) {
-						$_SESSION['error_wybierz'] = 'CVcmd:' . $_SESSION['user'] . '\zinfo&gt;accept</br><span style="color:green">Podane sekcje zostały zamienione.</span></br></br>';
-						unset($_SESSION['naglowek1']);
-						unset($_SESSION['info1']);
-						unset($_SESSION['naglowek2']);
-						unset($_SESSION['info2']);
-						header('Location: zinfo1wybierz.php');
-						exit();
+					if ($polaczenie->query("UPDATE info SET `naglowek`='$naglowek1', `info`='$info1' WHERE `id_usera`='$id' AND `id`='$id2'")) {
+						if ($polaczenie->query("UPDATE info SET `naglowek`='$naglowek2', `info`='$info2' WHERE `id_usera`='$id' AND `id`='$id1'")) {
+							$_SESSION['error_wybierz'] = 'CVcmd:' . $_SESSION['user'] . '\zinfo&gt;accept</br><span style="color:green">Podane sekcje zostały zamienione.</span></br></br>';
+							unset($_SESSION['id1']);
+							unset($_SESSION['info1']);
+							unset($_SESSION['id2']);
+							unset($_SESSION['info2']);
+							header('Location: zinfo1wybierz.php');
+							exit();
+						}
 					}
 					else	{
 						throw new Exception($polaczenie->error);

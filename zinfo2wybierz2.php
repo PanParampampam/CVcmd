@@ -10,8 +10,10 @@
 
 		$back_or_exit = strtolower($_POST['wybierz']);
 		if ($back_or_exit == "exit") {
+			unset($_SESSION['id1']);
 			unset($_SESSION['naglowek1']);
 			unset($_SESSION['info1']);
+			unset($_SESSION['id2']);
 			unset($_SESSION['naglowek2']);
 			unset($_SESSION['info2']);
 			header('Location: cvcmd.php');
@@ -34,11 +36,12 @@
 				$polaczenie ->query("SET NAMES 'utf8'");
 				$id = $_SESSION['id'];
 				$wybierz = $_POST['wybierz'];
-				$cv_info = "SELECT naglowek, info FROM info WHERE id_usera='$id' AND naglowek='$wybierz'";
+				$cv_info = "SELECT id, naglowek, info FROM info WHERE id_usera='$id' AND naglowek='$wybierz'";
 					
 				$rezultat_info = mysqli_query($polaczenie, $cv_info);
 				if (mysqli_num_rows($rezultat_info) > 0) {
 					while($row = mysqli_fetch_assoc($rezultat_info)) {
+						$_SESSION['id1'] = $row["id"];
 						$_SESSION['naglowek1'] = $row["naglowek"];
 						$_SESSION['info1'] = $row["info"];
 					}

@@ -57,9 +57,21 @@
 					$rezultat_info = mysqli_query($polaczenie, $cv_info);
 					if (mysqli_num_rows($rezultat_info) > 1) {
 						while($row = mysqli_fetch_assoc($rezultat_info)) {
-							echo '<div style="white-space: pre-line;">Nagłówek: <span style="color:yellow">' . $row["naglowek"] . "</span></br>Info: " . $row["info"] . "</div></br>";
-							echo "========================================================</br></br>";
-						}			
+							if (isset($_SESSION['naglowek1']) and ($row['naglowek'] == $_SESSION['naglowek1'])) {
+								echo '<div style="white-space: pre-line;">Nagłówek: <span style="color:green">' . $row["naglowek"] . "</span></br>Info: " . $row["info"] . "</div></br>";
+								echo "========================================================</br></br>";
+								unset ($_SESSION['naglowek1']);
+							}
+							if (isset($_SESSION['naglowek2']) and ($row['naglowek'] == $_SESSION['naglowek2'])) {
+								echo '<div style="white-space: pre-line;">Nagłówek: <span style="color:green">' . $row["naglowek"] . "</span></br>Info: " . $row["info"] . "</div></br>";
+								echo "========================================================</br></br>";
+								unset ($_SESSION['naglowek2']);
+							}
+							else {
+								echo '<div style="white-space: pre-line;">Nagłówek: <span style="color:yellow">' . $row["naglowek"] . "</span></br>Info: " . $row["info"] . "</div></br>";
+								echo "========================================================</br></br>";
+							}
+						}
 					}
 					else {
 					$_SESSION['info'] = 'CVcmd:\\' . $_SESSION['user'] . '&gt;zinfo</br><span style="color:red">Brak sekcji. Stwórz sekcje wpisując +INFO.</span></br></br>';
