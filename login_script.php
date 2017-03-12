@@ -48,14 +48,15 @@
 					header('Location: cvcmd.php');
 				}
 				else {
-					$_SESSION['info']='CVcmd:\l&gt;login</br><span style=color:red>Nieprawidłowy login lub hasło</span></br></br>';
+					$_SESSION['info']='CVcmd:\l&gt;login</br><span style=color:red>Nieprawidłowy login lub hasło.</span></br></br>';
 					header('Location: index.php');
+					exit();
 				}
 			}
 			else {
-				$_SESSION['info']='CVcmd:\&gt;login</br><span style=color:red>Nieprawidłowy login lub hasło</span></br></br>';
+				$_SESSION['info']='CVcmd:\&gt;login</br><span style=color:red>Nieprawidłowy login lub hasło.</span></br></br>';
 				header('Location: index.php');
-				
+				exit();
 			}
 		}
 		

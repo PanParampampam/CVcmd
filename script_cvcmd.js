@@ -20,13 +20,13 @@ function Help () {
 			"<tr><td>eINFO<td><td>Edytuj sekcje</td></tr>"  +
 			"<tr><td>zINFO<td><td>Zamień dwie sekcje miejscami</td></tr>"  +
 			"<tr><td>-INFO<td><td>Usuń sekcje</td></tr>"  +
+			"<tr><td>CV<td><td>Wyświetla i pozwala edytować wprowadzone dane oraz informacje, a także wygenerować z nich gotowe CV</td></tr>" +
 			"<tr><td>HELP<td><td>Wyświetla listę komend</td></tr>" +
 			"<tr><td>HTS<td><td>Poradnik jak zacząć</td></tr>" +
 			"<tr><td>LOGIN<td><td>Przejście do strony logowania</td></tr>" +
 			"<tr><td>LOGOUT<td><td>Wylogowanie</td></tr>" +
 			"<tr><td>SIGNIN<td><td>Założenie nowego konta użytkownika</td></tr>" +
-		//	"<tr><td>SIGNOUT<td><td>Usunięcie konta użytkownika</td></tr>" +
-			"<tr><td>CV<td><td>Wyświetla i pozwala edytować wprowadzone dane oraz informacje, a także wygenerować z nich gotowe CV</td></tr></table>";	
+			"<tr><td>SIGNOUT<td><td>Usunięcie konta użytkownika</td></tr></table>";
 }
 
 function Submit(key) { 
@@ -67,6 +67,9 @@ function Submit(key) {
 				return;
 			case "signin":
 				window.location.href = "signin1user.php";
+				return;
+			case "signout":
+				window.location.href = "signout1password.php";
 				return;
 			case "cv":
 				window.location.href = "cv.php";

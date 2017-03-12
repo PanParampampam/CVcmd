@@ -19,18 +19,20 @@
 	</head>
 	
 	<body>
-	
+		Poniżej znajdują się wszystkie informacje zawarte w Twoim CV.</br></br>
+		<strong>Aby przejśc do ostatniego kroku po którym będziesz mógł wydrukować/ściągnąć swoje CV wpisz DALEJ.</strong></br>
 		Aby edytować lub wprowadzić dane osobowe wpisz +DANE. </br>
 		Aby dodać nową sekcje wpisz +INFO.</br>
 		Aby edytować sekcje wpisz eINFO.</br>
 		Aby zamienić sekcje miejscami wpisz zINFO.</br>
 		Aby usunąć sekcje wpisz -INFO.</br>
-		<strong>Aby przejśc do ostatniego kroku po którym będziesz mógł wydrukować/ściągnąć swoje CV wpisz DALEJ.</strong></br>
 		Aby wyjść do strony głównej wpisz EXIT.</br></br>
 	
 		<form method="post">
 			<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\CV&gt;<input type="text" id="Commands" name="cv" autocomplete="off"/>
 		</form>
+		
+		</br></br>========================================================</br></br>
 		
 		<?php
 			if(isset($_POST['cv'])) {
@@ -62,11 +64,6 @@
 				}
 			}
 		?>
-
-		
-		<div id = "C">
-			</br>Informacje zawarte w bazie danych:</br></br>
-		</div>
 		
 		<?php
 			require_once "connect.php";
