@@ -12,11 +12,12 @@
 			<p>Dodaj do niego swoje zdjęcie wciskając 1 (zostanie ono usunięte z naszej bazy po tym jak się wylogujesz).</p>
 			<?php
 				if(isset($_SESSION['error_zdjecie'])) {
-				echo $_SESSION['error_zdjecie'];
-				unset($_SESSION['error_zdjecie']);
+					echo $_SESSION['error_zdjecie'];
+					unset($_SESSION['error_zdjecie']);
 				}
 			?>
-			<p>Następnie możesz je wydrukować z poziomu przeglądarki wciskając 2, lub <strong>zapisać jako pdf wciskając 3.</strong></p>
+			<p>Następnie możesz je wydrukować z poziomu przeglądarki wciskając 2 (zależnie od używanej przeglądarki konieczne może się okazać ustawienie marginesów i wyłączenie nagłówka/stopki)
+			<p>lub <strong>zapisać jako pdf wciskając 3.</strong></p>
 			<p>Możesz także skopiować tę stronę do pliku doc lub odt zachowując stworzone na tej stronie formatowanie.</p>
 			<p>Aby powrócić wciśnij ENTER.</p>
 
@@ -31,7 +32,7 @@
 		<link rel="shortcut icon" type="image/png" href="favicon.png">
 		<script src="mousetrap.min.js"></script>
 		<script src="cv_zobacz.js"></script>
-		<title>CVcmd:\zobaczCV</title>
+		<title>CVcmd:\CV</title>
 		<meta name="description" content="Tworzenie CV w środowisku podobnym do lini poleceń"/>
 		<meta name="keywords" content="CV, cmd, cvcmd, command line, wiersz poleceń"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
@@ -86,6 +87,7 @@
 						$uploadOk = false;
 					}
 				}
+				
 
 				if ($_FILES["fileToUpload"]["size"] > 5000000) {
 					$_SESSION['error_zdjecie'] = "<p style=color:red>Zdjęcie jest za duże.</p>";

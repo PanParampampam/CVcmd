@@ -6,15 +6,14 @@
 	*{ font-family: DejaVu Sans;}
 	
 	@page {
-		margin: 12in;
+		size: 7in 9.25in;
+		margin: 27mm 16mm 27mm 16mm;
 	}
 	
 	body {
 		background-color: #FFFFFF;
 		font-size: 10pt;
 		height: 293mm;
-		margin: 9mm 14mm 9mm 14mm;
-		padding: 9mm 14mm 9mm 14mm;
 		width: 205mm;
 	}
 	table {
