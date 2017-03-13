@@ -33,7 +33,7 @@
 	}
 	
 	#Naglowek {
-		page-break-before: always;
+		/*page-break-before: always;*/
 		border-spacing: 0px;
 		color: #0084D1;
 		font-size: 11pt;

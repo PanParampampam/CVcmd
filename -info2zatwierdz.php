@@ -42,7 +42,7 @@
 				}
 			?>
 	
-			2/2 Poniżej znajdują się wybrana do usunięcia sekcja.<br/></br>
+			2/2 Poniżej znajduje się wybrana do usunięcia sekcja.<br/></br>
 			Aby ją usunąć wpisz USUN.</br>
 			Aby wybrać inną sekcję wpisz BACK.</br>
 			Aby wyjść bez usuwania danych wpisz EXIT.<br/><br/>
@@ -76,7 +76,7 @@
 					$rezultat_info = mysqli_query($polaczenie, $cv_info);
 					if (mysqli_num_rows($rezultat_info) > 0) {
 						while($row = mysqli_fetch_assoc($rezultat_info)) {
-							echo '</br></br><div style="white-space: pre-line;">Nagłówek: <span style="color:red">' . $row["naglowek"]. "</span></br>Info: " . $row["info"] . "</div></br>";
+							echo '<div style="white-space: pre-line;">Nagłówek: <span style="color:red">' . $row["naglowek"]. "</span></br>Info: " . $row["info"] . "</div></br>";
 							echo "========================================================</br></br>";
 						}			
 					}
