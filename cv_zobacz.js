@@ -3,7 +3,7 @@
 });
 
 Mousetrap.bind ('1', function (){
-	document.getElementById("fileToUpload").click();
+	document.getElementById("zdjecie").click();
 });
 
 Mousetrap.bind ('2', function (){

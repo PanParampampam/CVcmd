@@ -11,9 +11,26 @@
 			<p>Tak wygląda Twoje CV!</p>
 			<p>Dodaj do niego swoje zdjęcie wciskając 1 (zostanie ono usunięte z naszej bazy po tym jak się wylogujesz).</p>
 			<?php
-				if(isset($_SESSION['error_zdjecie'])) {
-					echo $_SESSION['error_zdjecie'];
-					unset($_SESSION['error_zdjecie']);
+				if(isset($_FILES['zdjecie'])){
+					$error= null;
+					error_reporting(0);
+					$target_file = "uploads/" . basename($_FILES["zdjecie"]["name"]);
+					$extension = pathinfo($target_file, PATHINFO_EXTENSION);
+					$new_foto = $id . '.' . $extension;
+					$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+				  
+					$expensions= array("jpeg","jpg","png");
+					if(in_array($extension, $expensions)=== false) {
+						$error="<p style=color:red>Zdjęcie musi być w formacie jpg/jpeg/png.</p>";
+					}
+				  
+					if($file_size > 10485760){
+						$error="<p style=color:red>Zdjęcie nie może mieć więcej niż 10MB.</p>";
+					}
+				}
+				
+				if(empty($error) == false) {
+					echo $error;
 				}
 			?>
 			<p>Następnie możesz je wydrukować z poziomu przeglądarki wciskając 2 (zależnie od używanej przeglądarki konieczne może się okazać ustawienie marginesów i wyłączenie nagłówka/stopki)
@@ -68,46 +85,23 @@
 			?>
 	
 			<form method="post" enctype="multipart/form-data" name="pokaz_foto" style>
-				<input type="file" name="fileToUpload" id="fileToUpload" onchange="this.form.submit();" style="display: none;">
+				<input type="file" name="zdjecie" id="zdjecie" onchange="this.form.submit();" style="display: none;">
 			</form>
 
 			<button id="pdf" style="display: none;" onclick="window.location.href = 'generator/cv_na_pdf.php';"></button>
 
 			<?php
-				error_reporting(0);
-				$target_file = "uploads/" . basename($_FILES["fileToUpload"]["name"]);
-				$uploadOk = true;
-				$extension = pathinfo($target_file, PATHINFO_EXTENSION);
-				$new_foto = $id . '.' . $extension;
-				$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-
-				if(isset($_POST["submit"])) {
-					$check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-					if($check == false) {
-						$uploadOk = false;
-					}
-				}
-				
-
-				if ($_FILES["fileToUpload"]["size"] > 5000000) {
-					$_SESSION['error_zdjecie'] = "<p style=color:red>Zdjęcie jest za duże.</p>";
-					$uploadOk = false;
-				}
-				
-				if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-					$_SESSION['error_zdjecie'] = "<p style=color:red>Zdjęcie musi być w formacie jpg/png/jpeg.</p>";
-					$uploadOk = false;
-				}
-
-				if ($uploadOk == true) {
-					if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "uploads/$new_foto")) {
+				if((isset($_FILES['zdjecie'])) and (empty($error)==true)) {
+					error_reporting(0);
+					$target_file = "uploads/" . basename($_FILES["zdjecie"]["name"]);
+					$extension = pathinfo($target_file, PATHINFO_EXTENSION);
+					$new_foto = $id . '.' . $extension;
+					if (move_uploaded_file($_FILES["zdjecie"]["tmp_name"], "uploads/$new_foto")) {
 						include('smart_resize_image.function.php');
 						$resize = "uploads/" . $new_foto;
-						smart_resize_image($resize , null, 0 , 134 , true , $resize , true , false ,100 );
+						smart_resize_image($resize , null, 0 , 134 , true , $resize , true , false ,100 ); //nazwa/nie wazne/szer/wys/proporcje/nowa nazwa/usun stare/nie wazne/jakosc
 						echo "<img id='foto' src='http://localhost/cvcmd/uploads/$new_foto'>";
 						$_SESSION['usun_zdjecie'] = $resize;
-					} else {
-						//echo "Sorry, there was an error uploading your file.";
 					}
 				}
 			?>
