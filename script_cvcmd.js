@@ -22,11 +22,23 @@ function Help () {
 			"<tr><td>-INFO<td><td>Usuń sekcje</td></tr>"  +
 			"<tr><td>CV<td><td>Wyświetla i pozwala edytować wprowadzone dane oraz informacje, a także wygenerować z nich gotowe CV</td></tr>" +
 			"<tr><td>HELP<td><td>Wyświetla listę komend</td></tr>" +
-			"<tr><td>HTS<td><td>Poradnik jak zacząć</td></tr>" +
+			"<tr><td>HOW<td><td>Poradnik jak zacząć</td></tr>" +
 			"<tr><td>LOGIN<td><td>Przejście do strony logowania</td></tr>" +
 			"<tr><td>LOGOUT<td><td>Wylogowanie</td></tr>" +
 			"<tr><td>SIGNIN<td><td>Założenie nowego konta użytkownika</td></tr>" +
 			"<tr><td>SIGNOUT<td><td>Usunięcie konta użytkownika</td></tr></table>";
+}
+
+function How () {
+	Result = "Zacznij od dodania swoich danych osobowych poleceniem +DANE. Następnie możesz zająć się tworzeniem sekcji swojego CV. " +
+				"Na każdą sekcje składa się nagłówek, oraz informacje, na przykładzie:</br></br>" +
+				"<strong>Umiejętności</strong></br>" +
+				"&bull; Regeneracja do 12 razy włącznie</br>&bull; Zdolności telepatyczne</br>&bull; Wykrywanie dotykiem obecności jonów i sprawdzanie rodzaju substancji za pomocą języka</br></br>" +
+				"Możesz dodać dowolną liczbę sekcji, a następnie je edytować, zamieniać miejscami lub usuwać. </br>" +
+				"W każdej chwili możesz zobaczyć wszystkie dodane przez Ciebie informacje (dane osobiste i sekcje) za pomocą komendy CV.</br>" +
+				"Stamtąd możesz przejść do ostatniego kroku, gdzie będziez mógł dodać swoje zdjęcie (będzie ono usuwane z naszej bazy po wylogowaniu lub po upływie 12 godzin),</br>" +
+				"A następnie wydrukować, przekopiować (np do pliku DOC lub ODT) lub zapisać swoje CV (jako plik PDF).</br>" +
+				"Kiedy uznasz swoje CV za skończone możesz usunąć swoje konto poleceniem SIGNOUT. Usunięte zostaną przy tym wszystkie informacje z nim związane (dane osobowe, sekcje, zdjęcie).";
 }
 
 function Submit(key) { 
@@ -56,8 +68,8 @@ function Submit(key) {
 			case "help":
 				Help();
 				break;
-			case "hts": //póki co sprawdzam tym poprawne działanie tablicy
-				Result = AllCommands + Counter;
+			case "how":
+				How();
 				break;
 			case "login":
 				window.location.href = "login.php";

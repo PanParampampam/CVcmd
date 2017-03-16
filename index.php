@@ -22,9 +22,9 @@
 		<meta name="keywords" content="CV, cmd, cvcmd, command line, wiersz poleceń"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 		<div id = "C">
-			Program do tworzenia CV. Wersja 0.9<br/>
-			Twórca: Jakub Giedrys. Projekt na zasadzie open source. <br/>
-			Aby zobaczyć listę komend wpisz HELP.<br/><br/>
+			Strona do tworzenia CV z możliwością zapisania go jako PDF.<br/>
+			Twórca: Jakub Giedrys. Kontakt: giedrysjakub@gmail.com. <br/>
+			Aby zobaczyć listę komend wpisz HELP (Wielkość liter przy wpisywaniu komend nie ma znaczenia).<br/><br/>
 		</div>
 	</head>
 	

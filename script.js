@@ -16,9 +16,14 @@ function SwitchCommands (){
 function Help () {
 	Result = "<table style='width:100%, text-align:left'>" +
 			"<tr><td>HELP<td><td>Wyświetla listę komend</td></tr>" +
-			"<tr><td>HTS<td><td>Poradnik jak zacząć</td></tr>" +
+			"<tr><td>HOW<td><td>Poradnik jak zacząć</td></tr>" +
 			"<tr><td>LOGIN<td><td>Przejście do strony logowania</td></tr>" +
 			"<tr><td>SIGNIN<td><td>Założenie nowego konta użytkownika</td></tr></table>";	
+}
+
+function How () {
+	Result = "Zacznij od stworzenia i zalogowania się na konto użytkownika. Po stworzeniu konta uzyskasz dostęp do wszystkich komend związanych z tworzeniem CV.</br>" +
+				"Na podany przez Ciebie e-mail nigdy nie zostaną wysłane żadne niechciane informacje, ponadto konto możesz usunąć w każdej chwili, usuwając przy tym z naszej bazy danych wszystkie informacje z nim związane.";
 }
 
 function Submit(key) { 
@@ -33,8 +38,8 @@ function Submit(key) {
 			case "help":
 				Help();
 				break;
-			case "hts": //póki co sprawdzam tym poprawne działanie tablicy
-				Result = AllCommands + Counter;
+			case "how":
+				How();
 				break;
 			case "login":
 				window.location.href = "login.php";
