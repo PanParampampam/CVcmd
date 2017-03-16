@@ -60,8 +60,9 @@
 								echo '<div style="white-space: pre-line;">Nagłówek: <span style="color:green">' . $row["naglowek"]. "</span></br>Info: " . $row["info"] . "</div></br>";
 								echo "========================================================</br></br>";
 								unset($_SESSION['utworzony_naglowek']);
+								continue;
 							}
-							else if ((isset($_SESSION['istniejacy_naglowek'])) and ($row["naglowek"] == $_SESSION['istniejacy_naglowek'])) {
+							if ((isset($_SESSION['istniejacy_naglowek'])) and ($row["naglowek"] == $_SESSION['istniejacy_naglowek'])) {
 								echo '<div style="white-space: pre-line;">Nagłówek: <span style="color:red">' . $row["naglowek"]. "</span></br>Info: " . $row["info"] . "</div></br>";
 								echo "========================================================</br></br>";
 								unset($_SESSION['istniejacy_naglowek']);

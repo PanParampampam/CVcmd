@@ -77,7 +77,7 @@
 		
 		<form method="post" name="przekaz_info" action="einfo4zatwierdz.php">
 		<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\einfo\info&gt; 
-		<textarea id="Commands" class="mousetrap" name="einfo" autocomplete="off" rows="20"><?php if(isset($einfo))echo $einfo ?></textarea>
+		<textarea id="Commands" class="mousetrap" name="einfo" autocomplete="off" rows="20"><?php if(isset($einfo))echo $einfo ?></textarea></div>
 		</form>
 		
 	</body>

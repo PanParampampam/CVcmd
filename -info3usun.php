@@ -17,7 +17,7 @@
 			exit();
 		}
 		
-		if ($back_or_exit == "usun") {
+		if ($back_or_exit == "delete") {
 			
 			require_once "connect.php";
 			mysqli_report(MYSQLI_REPORT_STRICT);
@@ -56,7 +56,7 @@
 			}
 		
 		else {
-			$_SESSION['error_zatwierdz'] ='CVcmd:\\' . $_SESSION['user'] . '\-info\zatwierdz&gt;</br><span style="color:red">Polecenie "' . $_POST['koniec'] . '" nie jest rozpoznawalne.</span></br></br>';
+			$_SESSION['error_zatwierdz'] ='CVcmd:\\' . $_SESSION['user'] . '\-info\zatwierdź&gt;</br><span style="color:red">Polecenie "' . $_POST['koniec'] . '" nie jest rozpoznawalne.</span></br></br>';
 			header('Location: -info2zatwierdz.php');
 			exit();
 		}

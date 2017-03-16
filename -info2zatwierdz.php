@@ -43,12 +43,12 @@
 			?>
 	
 			2/2 Poniżej znajduje się wybrana do usunięcia sekcja.<br/></br>
-			Aby ją usunąć wpisz USUN.</br>
+			Aby ją usunąć wpisz DELETE.</br>
 			Aby wybrać inną sekcję wpisz BACK.</br>
 			Aby wyjść bez usuwania danych wpisz EXIT.<br/><br/>
 	
 		<form method="post" action="-info3usun.php">
-			<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\-info\zatwierdz&gt;<input type="text" id="Commands" name="zatwierdz" autocomplete="off"/>
+			<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\-info\zatwierdź&gt;<input type="text" id="Commands" name="zatwierdz" autocomplete="off"/>
 		</form>
 		
 		</br></br>========================================================</br></br>

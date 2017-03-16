@@ -61,11 +61,13 @@
 								echo '<div style="white-space: pre-line;">Nagłówek: <span style="color:green">' . $row["naglowek"] . "</span></br>Info: " . $row["info"] . "</div></br>";
 								echo "========================================================</br></br>";
 								unset ($_SESSION['naglowek1']);
+								continue;
 							}
 							if (isset($_SESSION['naglowek2']) and ($row['naglowek'] == $_SESSION['naglowek2'])) {
 								echo '<div style="white-space: pre-line;">Nagłówek: <span style="color:green">' . $row["naglowek"] . "</span></br>Info: " . $row["info"] . "</div></br>";
 								echo "========================================================</br></br>";
 								unset ($_SESSION['naglowek2']);
+								continue;
 							}
 							else {
 								echo '<div style="white-space: pre-line;">Nagłówek: <span style="color:yellow">' . $row["naglowek"] . "</span></br>Info: " . $row["info"] . "</div></br>";

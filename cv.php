@@ -20,7 +20,7 @@
 	
 	<body>
 		Poniżej znajdują się wszystkie informacje zawarte w Twoim CV.</br></br>
-		<strong>Aby przejśc do ostatniego kroku po którym będziesz mógł wydrukować/ściągnąć swoje CV wpisz DALEJ.</strong></br>
+		<strong>Aby przejśc do ostatniego kroku po którym będziesz mógł wydrukować/ściągnąć swoje CV wpisz ACCEPT.</strong></br>
 		Aby edytować lub wprowadzić dane osobowe wpisz +DANE. </br>
 		Aby dodać nową sekcje wpisz +INFO.</br>
 		Aby edytować sekcje wpisz eINFO.</br>
@@ -53,7 +53,7 @@
 					case "-info":
 						header('Location: -info1wybierz.php');
 						break;
-					case "dalej":
+					case "accept":
 						header('Location: cv_zobacz.php');
 						break;
 					case "exit":

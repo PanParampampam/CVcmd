@@ -107,9 +107,8 @@
 		</script>
 		
 		<form method="post" name="przekaz_info" action="+info3zatwierdz.php">
-		<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\+info\info&gt; 
-		<textarea id="Commands" class="mousetrap" name="info" autocomplete="off" rows="20"><?php if(isset($info))echo $info ?></textarea>
-		</form>
+		<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\+info\info&gt;
+		<textarea id="Commands" class="mousetrap" name="info" autocomplete="off" rows="20"><?php if(isset($info))echo $info ?></textarea></div>
 		
 	</body>
 </html>

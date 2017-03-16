@@ -10,16 +10,13 @@
 		color: #CCCCCC;
 		font-family: FixedSys, Terminal, system, verdana, arial;
 		font-size: 12px;
-	}
+	}	
+
 	#PastCommands #Result #C {
-		width: 100%;
-		position: relative;
+		position: static;
 		float: left;
 	}
-	#Commands {
-		float: right;
-		position: fixed;
-	}
+
 	input, textarea {
 		outline-style: none;
 		box-shadow: none;
@@ -31,7 +28,10 @@
 		color: #CCCCCC;
 		font-family: FixedSys, Terminal, system, verdana, arial;
 		font-size: 12px;
-		float: right;
 		cursor: default;
 		width: 205mm;
+	}
+	
+	textarea {
+		position: absolute;
 	}
