@@ -16,6 +16,11 @@
 			header('Location: -info1wybierz.php');
 			exit();
 		}
+		else $_SESSION['wybierz'] = $_POST['wybierz'];
+	}
+	else if(!isset($_SESSION['error_zatwierdz'])) {
+		header('Location: index.php');
+		exit;
 	}
 ?>
 <!DOCTYPE html>
@@ -35,17 +40,17 @@
 	
 	<body>
 	
-			<?php
-				if(isset($_SESSION['error_zatwierdz'])) {
-					echo $_SESSION['error_zatwierdz'];
-					unset($_SESSION['error_zatwierdz']);
-				}
-			?>
-	
-			2/2 Poniżej znajduje się wybrana do usunięcia sekcja.<br/></br>
-			Aby ją usunąć wpisz DELETE.</br>
-			Aby wybrać inną sekcję wpisz BACK.</br>
-			Aby wyjść bez usuwania danych wpisz EXIT.<br/><br/>
+		2/2 Poniżej znajduje się wybrana do usunięcia sekcja.<br/></br>
+		Aby ją usunąć wpisz DELETE.</br>
+		Aby wybrać inną sekcję wpisz BACK.</br>
+		Aby wyjść bez usuwania danych wpisz EXIT.<br/><br/>
+		
+		<?php
+			if(isset($_SESSION['error_zatwierdz'])) {
+				echo $_SESSION['error_zatwierdz'];
+				unset($_SESSION['error_zatwierdz']);
+			}
+		?>
 	
 		<form method="post" action="-info3usun.php">
 			<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\-info\zatwierdź&gt;<input type="text" id="Commands" name="zatwierdz" autocomplete="off"/>
@@ -68,12 +73,10 @@
 				else	{
 					$polaczenie ->query("SET NAMES 'utf8'");
 					$id = $_SESSION['id'];
-					$wybierz = $_POST['wybierz'];
-					$_SESSION['wybierz'] = $_POST['wybierz'];
-					
-					$cv_info = "SELECT naglowek, info FROM info WHERE id_usera='$id' AND naglowek='$wybierz'";
-						
+					$wybierz = $_SESSION['wybierz'];
+					$cv_info = "SELECT naglowek, info FROM info WHERE id_usera='$id' AND naglowek='$wybierz'";	
 					$rezultat_info = mysqli_query($polaczenie, $cv_info);
+					
 					if (mysqli_num_rows($rezultat_info) > 0) {
 						while($row = mysqli_fetch_assoc($rezultat_info)) {
 							echo '<div style="white-space: pre-line;">Nagłówek: <span style="color:red">' . $row["naglowek"]. "</span></br>Info: " . $row["info"] . "</div></br>";

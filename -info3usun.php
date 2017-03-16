@@ -53,10 +53,10 @@
 					//echo '</br>Informacja developoerska: '.$e;
 				}
 				exit();
-			}
+		}
 		
 		else {
-			$_SESSION['error_zatwierdz'] ='CVcmd:\\' . $_SESSION['user'] . '\-info\zatwierdź&gt;</br><span style="color:red">Polecenie "' . $_POST['koniec'] . '" nie jest rozpoznawalne.</span></br></br>';
+			$_SESSION['error_zatwierdz'] = 'CVcmd:\\' . $_SESSION['user'] . '\-info\zatwierdź&gt;</br><span style="color:red">Polecenie "' . $_POST['zatwierdz'] . '" nie jest rozpoznawalne.</span></br></br>';
 			header('Location: -info2zatwierdz.php');
 			exit();
 		}
