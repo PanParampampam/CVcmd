@@ -15,6 +15,7 @@ function SwitchCommands (){
 
 function Help () {
 	Result = "<table style='width:100%, text-align:left'>" +
+			"<tr><td>EXAMPLE<td><td>Przykładowe CV</td></tr>" +
 			"<tr><td>HELP<td><td>Wyświetla listę komend</td></tr>" +
 			"<tr><td>HOW<td><td>Poradnik jak zacząć</td></tr>" +
 			"<tr><td>LOGIN<td><td>Przejście do strony logowania</td></tr>" +
@@ -35,6 +36,9 @@ function Submit(key) {
 				Result = '';
 				AllCommands.pop();
 				break;
+			case "example":
+				window.location.href = "example.php";
+				return;
 			case "help":
 				Help();
 				break;

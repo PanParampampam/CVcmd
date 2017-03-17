@@ -21,6 +21,7 @@ function Help () {
 			"<tr><td>zINFO<td><td>Zamień dwie sekcje miejscami</td></tr>"  +
 			"<tr><td>-INFO<td><td>Usuń sekcje</td></tr>"  +
 			"<tr><td>CV<td><td>Wyświetla i pozwala edytować wprowadzone dane oraz informacje, a także wygenerować z nich gotowe CV</td></tr>" +
+			"<tr><td>EXAMPLE<td><td>Przykładowe CV</td></tr>" +
 			"<tr><td>HELP<td><td>Wyświetla listę komend</td></tr>" +
 			"<tr><td>HOW<td><td>Poradnik jak zacząć</td></tr>" +
 			"<tr><td>LOGIN<td><td>Przejście do strony logowania</td></tr>" +
@@ -64,6 +65,9 @@ function Submit(key) {
 				return;
 			case "-info":
 				window.location.href = "-info1wybierz.php";
+				return;
+			case "example":
+				window.location.href = "example.php";
 				return;
 			case "help":
 				Help();
