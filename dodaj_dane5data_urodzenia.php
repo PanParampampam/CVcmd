@@ -63,7 +63,7 @@
 			}
 		?>
 		<form method="post" action="dodaj_dane6zatwierdz.php">
-			<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\+dane\data urodzenia&gt; <input type="text" id="Commands" name="data_urodzenia" autocomplete="off"/>
+			<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\+dane\data urodzenia&gt;<input type="text" id="Commands" name="data_urodzenia" autocomplete="off"/>
 		</form>
 	
 	</body>

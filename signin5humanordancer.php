@@ -52,7 +52,7 @@
 		exit();
 	}
 	
-	$_SESSION['validate'] = rand(0, 9);
+	$_SESSION['validate'] = rand(0, 14);
 	
 	include('signin5validate.php');
 ?>

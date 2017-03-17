@@ -66,7 +66,7 @@
 		?>
 	
 		<form method="post" action="dodaj_dane7koniec.php">
-			<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\+dane\koniec&gt; <input type="text" id="Commands" name="koniec" autocomplete="off"/>
+			<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\+dane\koniec&gt;<input type="text" id="Commands" name="koniec" autocomplete="off"/>
 		</form>
 	</body>
 </html>

@@ -59,7 +59,7 @@
 			}
 		?>
 		<form method="post" action="dodaj_dane4email.php">
-			<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\+dane\tel&gt; <input type="text" id="Commands" name="tel" autocomplete="off"/>
+			<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\+dane\tel&gt;<input type="text" id="Commands" name="tel" autocomplete="off"/>
 		</form>
 	
 	</body>

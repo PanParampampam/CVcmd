@@ -8,7 +8,12 @@
 								"Wynik dodawania liczb cztery i siedem to? (słownie)",
 								"Trzecią planetą od słońca jest?",
 								"Napisz słowo 'konstytucja'",
-								"Napisz nazwę kontynentu na którym znajduje się państwo Kenia");
+								"Napisz nazwę kontynentu na którym znajduje się państwo Kenia",
+								"Wynik odejmowania liczby jedenaście od liczby czternaście? (podaj cyfrę)",
+								"Na trójmiasto składa się Gdańsk, Gdynia, oraz...?",
+								"Nazwa stolicy województwa w której je się pyry?",
+								"Jaś ma 3 lata, Magnus ma 5 lat. Które jest starsze?",
+								"Zeszyt kosztuje 4,50 zł. Ile to groszy? (podaj samą cyfrę)");
 								
 	$odpowiedz = array("1945",
 								"łokietek",
@@ -19,5 +24,10 @@
 								"jedenaście",
 								"ziemia",
 								"konstytucja",
-								"afryka");
+								"afryka",
+								"3",
+								"sopot",
+								"poznań",
+								"magnus",
+								"450");
 ?>

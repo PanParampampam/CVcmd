@@ -54,7 +54,7 @@
 			}
 		?>
 		<form method="post" action="dodaj_dane3telefon.php">
-			<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\+dane\adres&gt; <input type="text" id="Commands" name="adres" autocomplete="off"/>
+			<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\+dane\adres&gt;<input type="text" id="Commands" name="adres" autocomplete="off"/>
 		</form>
 	
 	</body>

@@ -27,6 +27,7 @@
 			if ($_SESSION['validate_count'] < 1) {
 				session_destroy();
 				header('Location: index.php');
+				exit();
 			}
 			else {
 				$_SESSION['error_robot'] ="CVcmd:\signin\walidacja&gt;" . $_POST['robot'] . "</br><span style=color:red>Nieudana walidacja. Pozostało prób: " . $_SESSION['validate_count'] . "</span></br></br>";

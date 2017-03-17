@@ -67,7 +67,7 @@
 			}
 		?>
 		<form method="post" action="dodaj_dane5data_urodzenia.php">
-			<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\+dane\e-mail&gt; <input type="text" id="Commands" name="email" value='<?php echo $domyslny_email[0] ?>'autocomplete="off"/>
+			<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\+dane\e-mail&gt;<input type="text" id="Commands" name="email" value='<?php echo $domyslny_email[0] ?>'autocomplete="off"/>
 		</form>
 	
 	</body>
