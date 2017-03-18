@@ -63,4 +63,6 @@
 
 	 #foto {
 		float: right;
+		position: relative;
+		top: -5pt;
 	}

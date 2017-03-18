@@ -27,12 +27,6 @@
 		Aby zamienić sekcje miejscami wpisz zINFO.</br>
 		Aby usunąć sekcje wpisz -INFO.</br>
 		Aby wyjść do strony głównej wpisz EXIT.</br></br>
-	
-		<form method="post">
-			<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\CV&gt;<input type="text" id="Commands" name="cv" autocomplete="off"/>
-		</form>
-		
-		</br></br>========================================================</br></br>
 		
 		<?php
 			if(isset($_POST['cv'])) {
@@ -60,10 +54,18 @@
 						header('Location: cvcmd.php');
 						break;
 					default:
-						echo 'CVcmd:\\' . $_SESSION['user'] . '\CV&gt;' . $_POST['cv'] . '</br><span style="color:red">Polecenie "' . $_POST['cv'] . '" nie jest rozpoznawalne.</span></br>';
+						echo 'CVcmd:\\' . $_SESSION['user'] . '\CV&gt;' . $_POST['cv'] . '</br><span style="color:red">Polecenie "' . $_POST['cv'] . '" nie jest rozpoznawalne.</span></br></br>';
 				}
 			}
 		?>
+	
+		<form method="post">
+			<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\CV&gt;<input type="text" id="Commands" name="cv" autocomplete="off"/>
+		</form>
+		
+		</br></br>========================================================</br></br>
+		
+
 		
 		<?php
 			require_once "connect.php";

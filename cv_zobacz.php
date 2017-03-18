@@ -81,7 +81,7 @@
 					$cv_info = "SELECT naglowek, info FROM info WHERE id_usera='$id'";
 					$rezultat_dane = mysqli_query($polaczenie, $cv_dane);
 					
-					echo '<div id = "Naglowek"><strong>&#9632; Dane osobowe</strong><hr></div>';
+					echo '<div id = "Naglowek"><strong>&#9632; Dane osobowe</strong></div><hr>';
 			?>
 	
 			<form method="post" enctype="multipart/form-data" name="pokaz_foto" style>
@@ -113,7 +113,7 @@
 							'<tr><td>Adres:<td>'  . $row["adres"] . '</td></tr>' .
 							'<tr><td>Telefon:<td>'  . $row["tel"] . '</td></tr>' .
 							'<tr><td>E-mail:<td>' . $row["emailcv"] . '</td></tr>' .
-							'<tr><td>Data urodzenia:<td>'  . $row["data_urodzenia"] . '</td></tr></table></br></br>';
+							'<tr><td>Data urodzenia:<td>'  . $row["data_urodzenia"] . '</td></tr></table><p></p>';
 							
 							$_SESSION["godnosc"] = $row["godnosc"]; //zapisane do nazwy CV
 							
@@ -123,8 +123,8 @@
 					$rezultat_info = mysqli_query($polaczenie, $cv_info);
 					if (mysqli_num_rows($rezultat_info) > 0) {
 						while($row = mysqli_fetch_assoc($rezultat_info)) {
-							echo '<div id = "Strona"><span id = "Naglowek"><strong>&#9632; ' . $row["naglowek"] . '</strong><hr></span>' .
-							'<span id = "Info">' . $row["info"] . "</span></div></br></br>";
+							echo '<div id = "Strona"><span id = "Naglowek"><strong>&#9632; ' . $row["naglowek"] . '</strong></span><hr>' .
+							'<span id = "Info">' . $row["info"] . "</span></div><p></p>";
 						}
 					}
 					else {
