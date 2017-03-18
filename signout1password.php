@@ -11,6 +11,7 @@
 		<link rel="stylesheet" href="style.css"/>
 		<link rel="shortcut icon" type="image/png" href="favicon.png">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="mousetrap.min.js"></script>
 		<script src="focus.js"></script>
 		<title>CVcmd:\signout</title>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
@@ -22,7 +23,7 @@
 	
 	<body>
 		<form action="signout2usun.php" method="post">
-		<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\signout\hasło&gt;<input type="password" id="Commands" name="haslo"/>
+		<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\signout\hasło&gt;<input type="password" id="Commands" name="haslo" class="mousetrap"/>
 		</form>
 	</body>
 </html>

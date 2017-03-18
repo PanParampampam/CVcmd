@@ -11,6 +11,7 @@
 		<link rel="stylesheet" href="style.css"/>
 		<link rel="shortcut icon" type="image/png" href="favicon.png">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="mousetrap.min.js"></script>
 		<script src="focus.js"></script>
 		<title>CVcmd:\+info</title>
 		<meta name="description" content="Tworzenie CV w środowisku podobnym do lini poleceń"/>
@@ -31,7 +32,7 @@
 		?>
 	
 		<form method="post" action="+info2info.php">
-			<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\+info\nagłówek&gt;<input type="text" id="Commands" name="naglowek" autocomplete="off"/>
+			<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\+info\nagłówek&gt;<input type="text" id="Commands" name="naglowek" autocomplete="off" class="mousetrap"/>
 		</form>
 		
 		</br></br>========================================================</br></br>

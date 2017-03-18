@@ -30,7 +30,6 @@ function How () {
 function Submit(key) { 
 	if (key.keyCode === 13) { // jesli zostal wcisniety ENTER, to:
 		GetCommand = document.getElementById("Commands").value.toLowerCase();
-		AllCommands.push(GetCommand);
 		switch (GetCommand) {
 			case "":
 				Result = '';
@@ -54,22 +53,7 @@ function Submit(key) {
 			default:
 				Result = "<span style='color:red'>Polecenie '" + GetCommand + "' nie jest rozpoznawalne.</span>";
 		}
-		Counter = AllCommands.length;
 		SwitchCommands(); // i w tym momencie wywolujemy funkcje, ktore to wszystko odpowiednio wyswietla na ekranie
 		window.scrollTo(0,document.body.scrollHeight); // automatyczne scrollowanie okna
-	}
-	if (key.keyCode === 38){ //arrowup
-		if (Counter > 0) {
-			Counter --;
-			document.getElementById("Commands").value = AllCommands[Counter];
-		}
-
-	}
-	if (key.keyCode === 40) { //arrowdown
-		if (Counter < (AllCommands.length-1)) {
-			Counter ++;
-			document.getElementById("Commands").value = AllCommands[Counter];
-		}
-
 	}
 }

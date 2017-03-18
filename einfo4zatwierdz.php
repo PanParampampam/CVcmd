@@ -33,6 +33,7 @@
 		<link rel="stylesheet" href="style.css"/>
 		<link rel="shortcut icon" type="image/png" href="favicon.png">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="mousetrap.min.js"></script>
 		<script src="focus.js"></script>
 		<title>CVcmd:\einfo</title>
 		<meta name="description" content="Tworzenie CV w środowisku podobnym do lini poleceń"/>
@@ -58,7 +59,7 @@
 		?>
 		
 		<form method="post" action="einfo5koniec.php">
-		<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\einfo\zatwierdz&gt; <input type="text" id="Commands" name="koniec" autocomplete="off"/>
+		<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\einfo\zatwierdz&gt; <input type="text" id="Commands" name="koniec" autocomplete="off" class="mousetrap"/>
 		</form>
 		
 	</body>

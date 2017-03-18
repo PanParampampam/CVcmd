@@ -41,6 +41,7 @@
 		<link rel="stylesheet" href="style.css"/>
 		<link rel="shortcut icon" type="image/png" href="favicon.png">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="mousetrap.min.js"></script>
 		<script src="focus.js"></script>
 		<title>CVcmd:\signin</title>
 		<meta name="description" content="Tworzenie CV w środowisku podobnym do lini poleceń"/>
@@ -61,7 +62,7 @@
 	<body>
 	
 		<form method="post" action="signin5humanordancer.php">
-			<div id = "C">CVcmd:\signin\e-mail&gt;<input type="text" id="Commands" name="email" autocomplete="off"/>
+			<div id = "C">CVcmd:\signin\e-mail&gt;<input type="text" id="Commands" name="email" autocomplete="off" class="mousetrap"/>
 		</form>
 	
 	</body>

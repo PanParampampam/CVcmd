@@ -45,6 +45,7 @@
 		<link rel="stylesheet" href="style.css"/>
 		<link rel="shortcut icon" type="image/png" href="favicon.png">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="mousetrap.min.js"></script>
 		<script src="focus.js"></script>
 		<title>CVcmd:\+dane</title>
 		<meta name="description" content="Tworzenie CV w środowisku podobnym do lini poleceń"/>
@@ -67,7 +68,7 @@
 			}
 		?>
 		<form method="post" action="dodaj_dane5data_urodzenia.php">
-			<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\+dane\e-mail&gt;<input type="text" id="Commands" name="email" value='<?php echo $domyslny_email[0] ?>'autocomplete="off"/>
+			<div id = "C">CVcmd:\<?php echo $_SESSION['user']?>\+dane\e-mail&gt;<input type="text" id="Commands" name="email" value='<?php echo $domyslny_email[0] ?>'autocomplete="off" class="mousetrap"/>
 		</form>
 	
 	</body>

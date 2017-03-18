@@ -24,6 +24,7 @@
 		<link rel="stylesheet" href="style.css"/>
 		<link rel="shortcut icon" type="image/png" href="favicon.png">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="mousetrap.min.js"></script>
 		<script src="focus.js"></script>
 		<title>CVcmd:\login</title>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
@@ -35,7 +36,7 @@
 	
 	<body>
 		<form action="login_script.php" method="post">
-		<div id = "C">CVcmd:\login\hasło&gt;<input type="password" id="Commands" name="haslo"/>
+		<div id = "C">CVcmd:\login\hasło&gt;<input type="password" id="Commands" name="haslo" class="mousetrap"/>
 		</form>
 	</body>
 </html>
